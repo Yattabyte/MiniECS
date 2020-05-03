@@ -1,0 +1,24 @@
+platform:
+  - x64
+
+image:
+  - Visual Studio 2017
+  - Visual Studio 2019
+
+clone_script:
+- cmd: >-
+    git clone -q --branch=%APPVEYOR_REPO_BRANCH% https://github.com/%APPVEYOR_REPO_NAME%.git %APPVEYOR_BUILD_FOLDER%
+    && cd %APPVEYOR_BUILD_FOLDER%
+    && git checkout -qf %APPVEYOR_REPO_COMMIT%
+    && git submodule update --init --recursive --remote --merge -f
+
+build_script:
+- cmd: cmake -DCMAKE_GENERATOR_PLATFORM=x64 -DBUILD_TESTING=ON -DCODE_COVERAGE=OFF -DBUILD_SHARED_LIBS=0 .
+
+# Debug Build
+- cmd: cmake --build . --clean-first --config Debug
+- cmd: ctest --output-on-failure -C Debug
+
+# Release Build
+- cmd: cmake --build . --clean-first --config Release
+- cmd: ctest --output-on-failure -C Release

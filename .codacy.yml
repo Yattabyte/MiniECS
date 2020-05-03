@@ -1,0 +1,11 @@
+---
+engines:
+  cppcheck:
+    enabled: true
+    language: c++
+  flawfinder:
+    enabled: true
+
+exclude_paths:
+  - 'external/**'
+  - 'docs/**'
