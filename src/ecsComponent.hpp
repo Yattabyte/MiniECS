@@ -83,7 +83,8 @@ class ecsBaseComponent {
 template <typename C> struct ecsComponent : public ecsBaseComponent {
     // (De)Constructors
     /** Construct this specific component. */
-    ecsComponent() noexcept {}
+    ecsComponent() noexcept
+        : ecsBaseComponent(ecsComponent::Runtime_ID, sizeof(C)) {}
 
     // Static Type-Specific Attributes
     /** Runtime generated ID per class, also stored in base-component. */
