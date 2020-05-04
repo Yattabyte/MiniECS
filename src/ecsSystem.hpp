@@ -45,7 +45,7 @@ class ecsBaseSystem {
     @param	deltaTime		the amount of time which passed since last update
     @param	components		the components to update. */
     virtual void updateComponents(
-        const float& deltaTime,
+        const double& deltaTime,
         const std::vector<std::vector<ecsBaseComponent*>>& components) = 0;
 
     protected:

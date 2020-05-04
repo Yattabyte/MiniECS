@@ -145,27 +145,27 @@ class ecsWorld {
     /** Update the components of all systems provided.
     @param	systems				the systems to update.
     @param	deltaTime			the delta time. */
-    void updateSystems(ecsSystemList& systems, const float& deltaTime);
+    void updateSystems(ecsSystemList& systems, const double& deltaTime);
     /** Update the components of a single system.
     @param	system				the system to update.
     @param	deltaTime			the delta time. */
-    void updateSystem(ecsBaseSystem* system, const float& deltaTime);
+    void updateSystem(ecsBaseSystem* system, const double& deltaTime);
     /** Update the components of a single system.
     @param	system				the system to update.
     @param	deltaTime			the delta time. */
     void updateSystem(
-        const std::shared_ptr<ecsBaseSystem>& system, const float& deltaTime);
+        const std::shared_ptr<ecsBaseSystem>& system, const double& deltaTime);
     /** Update the components of a single system.
     @param	deltaTime			the delta time.
     @param	componentTypes		list of component types to retrieve.
     @param	func				lambda function serving as a system. */
     void updateSystem(
-        const float& deltaTime,
+        const double& deltaTime,
         const std::vector<
             std::pair<ComponentID, ecsBaseSystem::RequirementsFlag>>&
             componentTypes,
         const std::function<void(
-            const float&, const std::vector<std::vector<ecsBaseComponent*>>&)>&
+            const double&, const std::vector<std::vector<ecsBaseComponent*>>&)>&
             func);
 
     private:

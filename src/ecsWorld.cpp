@@ -247,28 +247,28 @@ void ecsWorld::deleteComponent(
     }
 }
 
-void ecsWorld::updateSystems(ecsSystemList& systems, const float& deltaTime) {
+void ecsWorld::updateSystems(ecsSystemList& systems, const double& deltaTime) {
     for (auto& system : systems)
         updateSystem(system.get(), deltaTime);
 }
 
-void ecsWorld::updateSystem(ecsBaseSystem* system, const float& deltaTime) {
+void ecsWorld::updateSystem(ecsBaseSystem* system, const double& deltaTime) {
     if (auto components = getRelevantComponents(system->getComponentTypes());
         !components.empty())
         system->updateComponents(deltaTime, components);
 }
 
 void ecsWorld::updateSystem(
-    const std::shared_ptr<ecsBaseSystem>& system, const float& deltaTime) {
+    const std::shared_ptr<ecsBaseSystem>& system, const double& deltaTime) {
     updateSystem(system.get(), deltaTime);
 }
 
 void ecsWorld::updateSystem(
-    const float& deltaTime,
+    const double& deltaTime,
     const std::vector<std::pair<ComponentID, ecsBaseSystem::RequirementsFlag>>&
         componentTypes,
-    const std::function<
-        void(const float&, const std::vector<std::vector<ecsBaseComponent*>>&)>&
+    const std::function<void(
+        const double&, const std::vector<std::vector<ecsBaseComponent*>>&)>&
         func) {
     if (auto components = getRelevantComponents(componentTypes);
         !components.empty())
