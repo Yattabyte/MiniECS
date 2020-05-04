@@ -1,11 +1,5 @@
 #include "ecsComponent.hpp"
 
-// Initialize the static component registry
-std::vector<std::tuple<
-    ComponentCreateFunction, ComponentFreeFunction, ComponentNewFunction,
-    size_t>>
-    ecsBaseComponent::m_componentRegistry = {};
-
 ecsBaseComponent::ecsBaseComponent(
     const ComponentID& ID, const size_t& size) noexcept
     : m_runtimeID(ID), m_size(size) {}

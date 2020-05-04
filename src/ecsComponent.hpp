@@ -70,10 +70,10 @@ class ecsBaseComponent {
     // Protected Attributes
     /** Runtime container mapping indices to creation/destruction functions for
      * components. */
-    static std::vector<std::tuple<
+    inline static std::vector<std::tuple<
         ComponentCreateFunction, ComponentFreeFunction, ComponentNewFunction,
         size_t>>
-        m_componentRegistry;
+        m_componentRegistry = {};
     /** Allow the ecsWorld to interact with these members. */
     friend class ecsWorld;
 };
