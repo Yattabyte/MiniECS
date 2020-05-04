@@ -104,7 +104,7 @@ constexpr static int createFn(
     memory.resize(index + sizeof(C));
     C* clone = new (&memory[index]) C(*(C*)component);
     clone->m_handle = componentHandle;
-    clone->m_entity = entityHandle;
+    clone->m_entityHandle = entityHandle;
     return static_cast<int>(index);
 }
 
