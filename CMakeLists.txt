@@ -2,7 +2,7 @@
 ### Mini ECS ###
 ################
 cmake_minimum_required(VERSION 3.9.2)
-project(MiniECS VERSION 0.0.5 DESCRIPTION "Helper classes, abstractions, and interfaces to assist in OpenGL rendering applications.")
+project(MiniECS VERSION 0.1.0 DESCRIPTION "A set of simple Entity, Component, and Systems (ECS) classes for use in games and other software.")
 include(ExternalProject)
 
 # Set mandatory requirements

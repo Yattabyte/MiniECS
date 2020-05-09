@@ -1,8 +1,8 @@
 #include "ecsComponent.hpp"
 
-ecsBaseComponent::ecsBaseComponent(
-    const ComponentID& ID, const size_t& size) noexcept
-    : m_runtimeID(ID), m_size(size) {}
+///////////////////////////////////////////////////////////////////////////
+/// registerType
+///////////////////////////////////////////////////////////////////////////
 
 ComponentID ecsBaseComponent::registerType(
     const ComponentCreateFunction& createFn,

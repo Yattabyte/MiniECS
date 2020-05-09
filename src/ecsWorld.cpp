@@ -2,17 +2,9 @@
 #include <random>
 #include <sstream>
 
-ecsWorld::~ecsWorld() { clear(); }
-
-ecsWorld::ecsWorld() = default;
-
-ecsWorld::ecsWorld(ecsWorld&& other) noexcept
-    : m_components(std::move(other.m_components)),
-      m_entities(std::move(other.m_entities)) {}
-
-/////////////////////////////
-/// PUBLIC MAKE FUNCTIONS ///
-/////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+/// makeEntity
+///////////////////////////////////////////////////////////////////////////
 
 EntityHandle ecsWorld::makeEntity(
     const ecsBaseComponent* const* const components,
@@ -29,10 +21,16 @@ EntityHandle ecsWorld::makeEntity(
     return UUID;
 }
 
+///////////////////////////////////////////////////////////////////////////
+/// makeComponent
+///////////////////////////////////////////////////////////////////////////
+
 ComponentHandle ecsWorld::makeComponent(
     const EntityHandle& entityHandle, const ecsBaseComponent* const component) {
     return makeComponent(entityHandle, component->m_runtimeID, component);
 }
+
+///////////////////////////////////////////////////////////////////////////
 
 ComponentHandle ecsWorld::makeComponent(
     const EntityHandle& entityHandle, const ComponentID& componentID,
@@ -63,9 +61,9 @@ ComponentHandle ecsWorld::makeComponent(
     return ComponentHandle();
 }
 
-///////////////////////////////
-/// PUBLIC REMOVE FUNCTIONS ///
-///////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+/// removeEntity
+///////////////////////////////////////////////////////////////////////////
 
 bool ecsWorld::removeEntity(const EntityHandle& entityHandle) {
     // Delete this entity's components
@@ -80,6 +78,10 @@ bool ecsWorld::removeEntity(const EntityHandle& entityHandle) {
     return false;
 }
 
+///////////////////////////////////////////////////////////////////////////
+/// removeComponent
+///////////////////////////////////////////////////////////////////////////
+
 bool ecsWorld::removeComponent(const ComponentHandle& componentHandle) {
     // Check if the component handle is valid
     if (const auto& component = getComponent(componentHandle))
@@ -87,6 +89,10 @@ bool ecsWorld::removeComponent(const ComponentHandle& componentHandle) {
             component->m_entityHandle, component->m_runtimeID);
     return false;
 }
+
+///////////////////////////////////////////////////////////////////////////
+/// removeEntityComponent
+///////////////////////////////////////////////////////////////////////////
 
 bool ecsWorld::removeEntityComponent(
     const EntityHandle& entityHandle, const ComponentID& componentID) {
@@ -109,9 +115,9 @@ bool ecsWorld::removeEntityComponent(
     return false;
 }
 
-////////////////////////////
-/// PUBLIC GET FUNCTIONS ///
-////////////////////////////
+///////////////////////////////////////////////////////////////////////////
+/// getEntity
+///////////////////////////////////////////////////////////////////////////
 
 std::shared_ptr<ecsEntity> ecsWorld::getEntity(const EntityHandle& UUID) const {
     const auto pos = m_entities.find(UUID);
@@ -119,6 +125,10 @@ std::shared_ptr<ecsEntity> ecsWorld::getEntity(const EntityHandle& UUID) const {
         return pos->second;
     return {};
 }
+
+///////////////////////////////////////////////////////////////////////////
+/// getEntities
+///////////////////////////////////////////////////////////////////////////
 
 std::vector<std::shared_ptr<ecsEntity>>
 ecsWorld::getEntities(const std::vector<EntityHandle>& uuids) const {
@@ -130,6 +140,10 @@ ecsWorld::getEntities(const std::vector<EntityHandle>& uuids) const {
     return entities;
 }
 
+///////////////////////////////////////////////////////////////////////////
+/// getComponent
+///////////////////////////////////////////////////////////////////////////
+
 ecsBaseComponent* ecsWorld::getComponent(
     const EntityHandle& entityHandle, const ComponentID& componentID) const {
     if (const auto entity = getEntity(entityHandle))
@@ -137,6 +151,10 @@ ecsBaseComponent* ecsWorld::getComponent(
             entity->m_components, m_components.at(componentID), componentID);
     return nullptr;
 }
+
+///////////////////////////////////////////////////////////////////////////
+/// getComponent
+///////////////////////////////////////////////////////////////////////////
 
 ecsBaseComponent*
 ecsWorld::getComponent(const ComponentHandle& componentHandle) const {
@@ -149,6 +167,10 @@ ecsWorld::getComponent(const ComponentHandle& componentHandle) const {
     }
     return nullptr;
 }
+
+///////////////////////////////////////////////////////////////////////////
+/// getComponent
+///////////////////////////////////////////////////////////////////////////
 
 ecsBaseComponent* ecsWorld::getComponent(
     const std::vector<std::tuple<ComponentID, int, ComponentHandle>>&
@@ -163,9 +185,9 @@ ecsBaseComponent* ecsWorld::getComponent(
     return nullptr;
 }
 
-////////////////////////
-/// PUBLIC FUNCTIONS ///
-////////////////////////
+///////////////////////////////////////////////////////////////////////////
+/// operator=
+///////////////////////////////////////////////////////////////////////////
 
 ecsWorld& ecsWorld::operator=(ecsWorld&& other) noexcept {
     if (this != &other) {
@@ -174,6 +196,10 @@ ecsWorld& ecsWorld::operator=(ecsWorld&& other) noexcept {
     }
     return *this;
 }
+
+///////////////////////////////////////////////////////////////////////////
+/// clear
+///////////////////////////////////////////////////////////////////////////
 
 void ecsWorld::clear() {
     // Remove all components
@@ -190,6 +216,10 @@ void ecsWorld::clear() {
     // Remove all entities
     m_entities.clear();
 }
+
+///////////////////////////////////////////////////////////////////////////
+/// generateUUID
+///////////////////////////////////////////////////////////////////////////
 
 ecsHandle ecsWorld::generateUUID() {
     std::stringstream ss;
@@ -209,9 +239,9 @@ ecsHandle ecsWorld::generateUUID() {
     return handle;
 }
 
-bool ecsWorld::isComponentIDValid(const ComponentID& componentID) noexcept {
-    return (componentID < ecsBaseComponent::m_componentRegistry.size());
-}
+///////////////////////////////////////////////////////////////////////////
+/// deleteComponent
+///////////////////////////////////////////////////////////////////////////
 
 void ecsWorld::deleteComponent(
     const ComponentID& componentID, const ComponentID& index) {
@@ -247,25 +277,37 @@ void ecsWorld::deleteComponent(
     }
 }
 
+///////////////////////////////////////////////////////////////////////////
+/// updateSystems
+///////////////////////////////////////////////////////////////////////////
+
 void ecsWorld::updateSystems(ecsSystemList& systems, const double& deltaTime) {
     for (auto& system : systems)
         updateSystem(system.get(), deltaTime);
 }
 
-void ecsWorld::updateSystem(ecsBaseSystem* system, const double& deltaTime) {
+///////////////////////////////////////////////////////////////////////////
+/// updateSystem
+///////////////////////////////////////////////////////////////////////////
+
+void ecsWorld::updateSystem(ecsSystem* system, const double& deltaTime) {
     if (auto components = getRelevantComponents(system->getComponentTypes());
         !components.empty())
         system->updateComponents(deltaTime, components);
 }
 
+///////////////////////////////////////////////////////////////////////////
+
 void ecsWorld::updateSystem(
-    const std::shared_ptr<ecsBaseSystem>& system, const double& deltaTime) {
+    const std::shared_ptr<ecsSystem>& system, const double& deltaTime) {
     updateSystem(system.get(), deltaTime);
 }
 
+///////////////////////////////////////////////////////////////////////////
+
 void ecsWorld::updateSystem(
     const double& deltaTime,
-    const std::vector<std::pair<ComponentID, ecsBaseSystem::RequirementsFlag>>&
+    const std::vector<std::pair<ComponentID, ecsSystem::RequirementsFlag>>&
         componentTypes,
     const std::function<void(
         const double&, const std::vector<std::vector<ecsBaseComponent*>>&)>&
@@ -275,8 +317,12 @@ void ecsWorld::updateSystem(
         func(deltaTime, components);
 }
 
+///////////////////////////////////////////////////////////////////////////
+/// getRelevantComponents
+///////////////////////////////////////////////////////////////////////////
+
 std::vector<std::vector<ecsBaseComponent*>> ecsWorld::getRelevantComponents(
-    const std::vector<std::pair<ComponentID, ecsBaseSystem::RequirementsFlag>>&
+    const std::vector<std::pair<ComponentID, ecsSystem::RequirementsFlag>>&
         componentTypes) {
     std::vector<std::vector<ecsBaseComponent*>> components;
     if (!componentTypes.empty()) {
@@ -327,8 +373,8 @@ std::vector<std::vector<ecsBaseComponent*>> ecsWorld::getRelevantComponents(
                         if ((componentParam[j] == nullptr) &&
                             (static_cast<unsigned int>(componentFlag) &
                              static_cast<unsigned int>(
-                                 ecsBaseSystem::RequirementsFlag::
-                                     FLAG_OPTIONAL)) == 0) {
+                                 ecsSystem::RequirementsFlag::FLAG_OPTIONAL)) ==
+                                0) {
                             isValid = false;
                             break;
                         }
@@ -342,8 +388,12 @@ std::vector<std::vector<ecsBaseComponent*>> ecsWorld::getRelevantComponents(
     return components;
 }
 
+///////////////////////////////////////////////////////////////////////////
+/// findLeastCommonComponent
+///////////////////////////////////////////////////////////////////////////
+
 size_t ecsWorld::findLeastCommonComponent(
-    const std::vector<std::pair<ComponentID, ecsBaseSystem::RequirementsFlag>>&
+    const std::vector<std::pair<ComponentID, ecsSystem::RequirementsFlag>>&
         componentTypes) {
     auto minSize = std::numeric_limits<size_t>::max();
     auto minIndex = std::numeric_limits<size_t>::max();
@@ -352,7 +402,7 @@ size_t ecsWorld::findLeastCommonComponent(
         const auto& [componentID, componentFlag] = componentTypes[i];
         if ((static_cast<unsigned int>(componentFlag) &
              static_cast<unsigned int>(
-                 ecsBaseSystem::RequirementsFlag::FLAG_OPTIONAL)) != 0)
+                 ecsSystem::RequirementsFlag::FLAG_OPTIONAL)) != 0)
             continue;
 
         const auto& [createFn, freeFn, newFn, typeSize] =

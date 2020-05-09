@@ -1,11 +1,10 @@
 #include "ecsSystem.hpp"
 
-std::vector<std::pair<ComponentID, ecsBaseSystem::RequirementsFlag>>
-ecsBaseSystem::getComponentTypes() const {
-    return m_componentTypes;
-}
+///////////////////////////////////////////////////////////////////////////
+/// isValid
+///////////////////////////////////////////////////////////////////////////
 
-bool ecsBaseSystem::isValid() const noexcept {
+bool ecsSystem::isValid() const noexcept {
     for (const auto& [componentID, componentFlag] : m_componentTypes)
         if ((static_cast<unsigned int>(componentFlag) &
              static_cast<unsigned int>(RequirementsFlag::FLAG_OPTIONAL)) == 0)
@@ -13,12 +12,20 @@ bool ecsBaseSystem::isValid() const noexcept {
     return false;
 }
 
-void ecsBaseSystem::addComponentType(
+///////////////////////////////////////////////////////////////////////////
+/// addComponentType
+///////////////////////////////////////////////////////////////////////////
+
+void ecsSystem::addComponentType(
     const ComponentID& componentType, const RequirementsFlag& componentFlag) {
     m_componentTypes.emplace_back(componentType, componentFlag);
 }
 
-bool ecsSystemList::addSystem(const std::shared_ptr<ecsBaseSystem>& system) {
+///////////////////////////////////////////////////////////////////////////
+/// addSystem
+///////////////////////////////////////////////////////////////////////////
+
+bool ecsSystemList::addSystem(const std::shared_ptr<ecsSystem>& system) {
     if (system->isValid()) {
         m_systems.emplace_back(system);
         return true;
@@ -26,7 +33,11 @@ bool ecsSystemList::addSystem(const std::shared_ptr<ecsBaseSystem>& system) {
     return false;
 }
 
-bool ecsSystemList::removeSystem(const std::shared_ptr<ecsBaseSystem>& system) {
+///////////////////////////////////////////////////////////////////////////
+/// removeSystem
+///////////////////////////////////////////////////////////////////////////
+
+bool ecsSystemList::removeSystem(const std::shared_ptr<ecsSystem>& system) {
     const auto systemCount = m_systems.size();
     for (size_t i = 0; i < systemCount; ++i)
         if (system.get() == m_systems[i].get()) {
@@ -34,31 +45,4 @@ bool ecsSystemList::removeSystem(const std::shared_ptr<ecsBaseSystem>& system) {
             return true;
         }
     return false;
-}
-
-size_t ecsSystemList::size() const noexcept { return m_systems.size(); }
-
-std::shared_ptr<ecsBaseSystem>
-    ecsSystemList::operator[](const size_t& index) const noexcept {
-    return m_systems[index];
-}
-
-std::vector<std::shared_ptr<ecsBaseSystem>>::iterator
-ecsSystemList::begin() noexcept {
-    return m_systems.begin();
-}
-
-std::vector<std::shared_ptr<ecsBaseSystem>>::const_iterator
-ecsSystemList::cbegin() const noexcept {
-    return m_systems.cbegin();
-}
-
-std::vector<std::shared_ptr<ecsBaseSystem>>::iterator
-ecsSystemList::end() noexcept {
-    return m_systems.end();
-}
-
-std::vector<std::shared_ptr<ecsBaseSystem>>::const_iterator
-ecsSystemList::cend() const noexcept {
-    return m_systems.cend();
 }

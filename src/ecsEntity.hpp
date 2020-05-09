@@ -7,11 +7,12 @@
 #include <tuple>
 #include <vector>
 
-/** A base class representing components in an ECS architecture. */
-class ecsEntity {
-    public:
-    // Public Attributes
+///////////////////////////////////////////////////////////////////////////
+/// \class      ecsEntity
+/// \brief      A base class representing components in an ECS architecture.
+/// \warning    Don't subclass, functionality derived from components/systems.
+struct ecsEntity final {
     std::vector<std::tuple<ComponentID, int, ComponentHandle>>
-        m_components = {};
+        m_components = {}; ///< Vector of components.
 };
 #endif // ECSENTITY_HPP
