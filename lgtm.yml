@@ -1,2 +1,5 @@
 extraction:
   cpp:
+    after_prepare:
+      - cmake --version
+      - cmake --build . 
