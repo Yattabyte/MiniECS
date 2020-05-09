@@ -208,7 +208,7 @@ ecsWorld& ecsWorld::operator=(ecsWorld&& other) noexcept {
 void ecsWorld::clear() {
     // Remove all components
     for (auto& m_component : m_components) {
-        const auto& [createFn, freeFn, newFn, typeSize] =
+        const auto& [createFn, freeFn, typeSize] =
             ecsBaseComponent::m_componentRegistry[m_component.first];
         const auto componentContainerSize = m_component.second.size();
         for (size_t i = 0; i < componentContainerSize; i += typeSize)
@@ -261,7 +261,7 @@ void ecsWorld::deleteComponent(
     const ComponentID& componentID, const ComponentID& index) {
     if (isComponentIDValid(componentID)) {
         auto& mem_array = m_components[componentID];
-        const auto& [createFn, freeFn, newFn, typeSize] =
+        const auto& [createFn, freeFn, typeSize] =
             ecsBaseComponent::m_componentRegistry[componentID];
         const auto srcIndex = mem_array.size() - typeSize;
 
@@ -344,7 +344,7 @@ std::vector<std::vector<ecsBaseComponent*>> ecsWorld::getRelevantComponents(
         if (componentTypesCount == 1U) {
             // Super simple procedure for system with 1 component type
             const auto& [componentID, componentFlag] = componentTypes[0];
-            const auto& [createFn, freeFn, newFn, typeSize] =
+            const auto& [createFn, freeFn, typeSize] =
                 ecsBaseComponent::m_componentRegistry[componentID];
             const auto& mem_array = m_components[componentID];
             const auto mem_arraySize = mem_array.size();
@@ -363,7 +363,7 @@ std::vector<std::vector<ecsBaseComponent*>> ecsWorld::getRelevantComponents(
             const auto minSizeIndex = findLeastCommonComponent(componentTypes);
             const auto minComponentID =
                 std::get<0>(componentTypes[minSizeIndex]);
-            const auto& [createFn, freeFn, newFn, typeSize] =
+            const auto& [createFn, freeFn, typeSize] =
                 ecsBaseComponent::m_componentRegistry[minComponentID];
             const auto& mem_array = *componentArrays[minSizeIndex];
             const auto mem_arraySize = mem_array.size();
@@ -419,7 +419,7 @@ size_t ecsWorld::findLeastCommonComponent(
                  ecsSystem::RequirementsFlag::FLAG_OPTIONAL)) != 0)
             continue;
 
-        const auto& [createFn, freeFn, newFn, typeSize] =
+        const auto& [createFn, freeFn, typeSize] =
             ecsBaseComponent::m_componentRegistry[componentID];
         const auto size = m_components[componentID].size() / typeSize;
         if (size <= minSize) {

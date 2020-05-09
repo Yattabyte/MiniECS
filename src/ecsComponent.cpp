@@ -10,12 +10,11 @@ using namespace mini;
 
 ComponentID ecsBaseComponent::registerType(
     const ComponentCreateFunction& createFn,
-    const ComponentFreeFunction& freeFn, const ComponentNewFunction& newFn,
-    const size_t& size) {
+    const ComponentFreeFunction& freeFn, const size_t& size) {
     const auto componentID =
         static_cast<ComponentID>(m_componentRegistry.size());
 
-    m_componentRegistry.emplace_back(createFn, freeFn, newFn, size);
+    m_componentRegistry.emplace_back(createFn, freeFn, size);
 
     return componentID;
 }

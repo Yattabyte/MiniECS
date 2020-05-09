@@ -22,7 +22,6 @@ using ComponentMap = std::map<ComponentID, ComponentDataSpace>;
 using ComponentCreateFunction = std::function<ComponentID(
     ComponentDataSpace& memory, const ComponentHandle& componentHandle,
     const EntityHandle& entityHandle, const ecsBaseComponent*)>;
-using ComponentNewFunction = std::function<std::shared_ptr<ecsBaseComponent>()>;
 using ComponentFreeFunction = std::function<void(ecsBaseComponent* comp)>;
 
 ///////////////////////////////////////////////////////////////////////////
@@ -63,17 +62,14 @@ class ecsBaseComponent {
     /// \brief  Register a component into the creation/destruction registry.
     /// \param	createFn    function for creating a specific component type.
     /// \param	freeFn		function for freeing a specific component type.
-    /// \param	newFn		function for creating a new component anywhere.
     /// \param	size		the total size of a single component.
     /// \return				runtime component ID.
     static ComponentID registerType(
         const ComponentCreateFunction& createFn,
-        const ComponentFreeFunction& freeFn, const ComponentNewFunction& newFn,
-        const size_t& size);
+        const ComponentFreeFunction& freeFn, const size_t& size);
 
-    inline static std::vector<std::tuple<
-        ComponentCreateFunction, ComponentFreeFunction, ComponentNewFunction,
-        size_t>>
+    inline static std::vector<
+        std::tuple<ComponentCreateFunction, ComponentFreeFunction, size_t>>
         m_componentRegistry = {}; ///< Container for component functions.
     friend class ecsWorld;        ///< Allows the ecsWorld to access.
 };
