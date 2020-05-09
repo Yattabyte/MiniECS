@@ -129,6 +129,6 @@ constexpr static void freeFn(ecsBaseComponent* component) noexcept {
 /// \brief  Generate a runtime static ID for each component class used.
 template <typename C>
 const ComponentID ecsComponent<C>::Runtime_ID(
-    registerType(createFn<C>, freeFn<C>, newFn<C>, sizeof(C)));
+    registerType(createFn<C>, freeFn<C>, sizeof(C)));
 };     // namespace mini
 #endif // MINI_ECSCOMPONENT_HPP
