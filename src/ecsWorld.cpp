@@ -226,7 +226,7 @@ ecsHandle ecsWorld::generateUUID() {
     for (auto i = 0; i < 16; i++) {
         std::random_device rd;
         std::mt19937 gen(rd());
-        const std::uniform_int_distribution<> dis(0, 255);
+        std::uniform_int_distribution<int> dis(0, 255);
         const auto rc = dis(gen);
         std::stringstream hexstream;
         hexstream << std::hex << rc;
@@ -237,6 +237,16 @@ ecsHandle ecsWorld::generateUUID() {
     ecsHandle handle;
     std::copy(&string[0], &string[32], &handle.m_uuid[0]);
     return handle;
+}
+
+///////////////////////////////////////////////////////////////////////////
+/// isComponentIDValid
+///////////////////////////////////////////////////////////////////////////
+
+bool ecsWorld::isComponentIDValid(const ComponentID& componentID) noexcept {
+    return (
+        static_cast<size_t>(componentID) <
+        ecsBaseComponent::m_componentRegistry.size());
 }
 
 ///////////////////////////////////////////////////////////////////////////

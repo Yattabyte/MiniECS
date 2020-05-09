@@ -87,7 +87,7 @@ class ecsWorld {
     /// \param	entityHandle	handle to the entity to retrieve from.
     /// \return	a component of type requested on success, nullptr otherwise.
     template <typename T>
-    inline T* getComponent(const EntityHandle& entityHandle) const {
+    T* getComponent(const EntityHandle& entityHandle) const {
         if (auto* component = getComponent(entityHandle, T::Runtime_ID))
             return dynamic_cast<T*>(component);
         return nullptr;
@@ -105,7 +105,7 @@ class ecsWorld {
     /// \param	componentHandle		the target component's handle.
     /// \return	the component of type T on success, nullptr otherwise.
     template <typename T>
-    inline T* getComponent(const ComponentHandle& componentHandle) const {
+    T* getComponent(const ComponentHandle& componentHandle) const {
         if (auto* component = getComponent(componentHandle))
             return dynamic_cast<T*>(component);
         return nullptr;
@@ -183,9 +183,7 @@ class ecsWorld {
     /// \brief  Check if a component ID is valid and registered.
     /// \param	componentID			the component ID to verify.
     /// \return	true if valid and registered, false otherwise.
-    static bool isComponentIDValid(const ComponentID& componentID) noexcept {
-        return (componentID < ecsBaseComponent::m_componentRegistry.size());
-    }
+    static bool isComponentIDValid(const ComponentID& componentID) noexcept;
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Delete a component matching an index and runtime ID.
     /// \param	componentID			the component class/category ID.

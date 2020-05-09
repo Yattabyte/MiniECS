@@ -2,7 +2,7 @@
 ### Mini ECS ###
 ################
 cmake_minimum_required(VERSION 3.9.2)
-project(MiniECS VERSION 0.1.0 DESCRIPTION "A set of simple Entity, Component, and Systems (ECS) classes for use in games and other software.")
+project(MiniECS VERSION 0.1.1 DESCRIPTION "A set of simple Entity, Component, and Systems (ECS) classes for use in games and other software.")
 include(ExternalProject)
 
 # Set mandatory requirements
@@ -26,7 +26,7 @@ if(MSVC)
     set_property(GLOBAL PROPERTY USE_FOLDERS ON)
     set_property(GLOBAL PROPERTY PREDEFINED_TARGETS_FOLDER Other)
 elseif(CMAKE_COMPILER_IS_GNUCC)
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror -Wshadow -Wno-unused-value -Wunused-variable -Wunused-parameter -Wunused-function -Wno-system-headers -Wno-deprecated -Woverloaded-virtual -Wwrite-strings -Wno-invalid-token-paste -Wno-unknown-pragmas")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra -Werror -Wshadow -Wno-unused-value -Wunused-variable -Wunused-parameter -Wunused-function -Wno-system-headers -Wno-deprecated -Woverloaded-virtual -Wwrite-strings -Wno-unknown-pragmas")
     set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} -g -O0 -fno-omit-frame-pointer -fno-optimize-sibling-calls")
     set(CMAKE_CXX_FLAGS_RELEASE "${CMAKE_CXX_FLAGS_RELEASE} -O3")
     set(CMAKE_EXE_LINKER_FLAGS_DEBUG "${CMAKE_EXE_LINKER_FLAGS_DEBUG} -fno-omit-frame-pointer -fno-optimize-sibling-calls")

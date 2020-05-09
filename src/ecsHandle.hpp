@@ -72,31 +72,28 @@ class ecsHandle {
 /// \class  EntityHandle
 /// \brief  Specialized handle for labeling Entities.
 struct EntityHandle final : ecsHandle {
-    inline ~EntityHandle() = default;
-    inline EntityHandle() noexcept = default;
-    inline EntityHandle(EntityHandle&&) noexcept = default;
-    inline EntityHandle(const EntityHandle&) noexcept = default;
+    ~EntityHandle() = default;
+    EntityHandle() noexcept = default;
+    EntityHandle(EntityHandle&&) noexcept = default;
+    EntityHandle(const EntityHandle&) noexcept = default;
     explicit EntityHandle(const ecsHandle& handle) noexcept
         : ecsHandle(handle) {}
-    inline EntityHandle& operator=(EntityHandle&& other) noexcept = default;
-    inline EntityHandle&
-    operator=(const EntityHandle& other) noexcept = default;
+    EntityHandle& operator=(EntityHandle&& other) noexcept = default;
+    EntityHandle& operator=(const EntityHandle& other) noexcept = default;
 };
 
 ///////////////////////////////////////////////////////////////////////////
 /// \class  ComponentHandle
 /// \brief  Specialized handle for labeling Components.
 struct ComponentHandle final : ecsHandle {
-    inline ~ComponentHandle() = default;
-    inline ComponentHandle() noexcept = default;
-    inline ComponentHandle(ComponentHandle&&) noexcept = default;
-    inline ComponentHandle(const ComponentHandle&) noexcept = default;
+    ~ComponentHandle() = default;
+    ComponentHandle() noexcept = default;
+    ComponentHandle(ComponentHandle&&) noexcept = default;
+    ComponentHandle(const ComponentHandle&) noexcept = default;
     explicit ComponentHandle(const ecsHandle& handle) noexcept
         : ecsHandle(handle) {}
-    inline ComponentHandle&
-    operator=(ComponentHandle&& other) noexcept = default;
-    inline ComponentHandle&
-    operator=(const ComponentHandle& other) noexcept = default;
+    ComponentHandle& operator=(ComponentHandle&& other) noexcept = default;
+    ComponentHandle& operator=(const ComponentHandle& other) noexcept = default;
 };
 
 #endif // ECSHANDLE_HPP
