@@ -118,7 +118,7 @@ public:
 };
 ```
 
-### Section 4: ecsWorld
+### Section 5: ecsWorld
 An ***ecsWorld*** stores, organizes, and provides means of accessing and manipulating entities and components.  
 In addition, it facilitates creation of entities and components. It encapsulates the state of a the game-world.  
 It also provides means for systems to interact with the data within.  
