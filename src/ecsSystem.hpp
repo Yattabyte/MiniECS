@@ -5,6 +5,7 @@
 #include "ecsComponent.hpp"
 #include <vector>
 
+namespace mini {
 ///////////////////////////////////////////////////////////////////////////
 /// \class  ecsSystem
 /// \brief  An interface for an ecsSystem.
@@ -140,5 +141,5 @@ class ecsSystemList final {
     private:
     std::vector<std::shared_ptr<ecsSystem>> m_systems; ///< List of systems.
 };
-
+};     // namespace mini
 #endif // ECSYSTEM_HPP

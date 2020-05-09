@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <cstring>
 
+namespace mini {
 ///////////////////////////////////////////////////////////////////////////
 /// \class  ecsHandle
 /// \brief  Uniquely identifies elements in the ECS architecture.
@@ -95,5 +96,5 @@ struct ComponentHandle final : ecsHandle {
     ComponentHandle& operator=(ComponentHandle&& other) noexcept = default;
     ComponentHandle& operator=(const ComponentHandle& other) noexcept = default;
 };
-
+};     // namespace mini
 #endif // ECSHANDLE_HPP

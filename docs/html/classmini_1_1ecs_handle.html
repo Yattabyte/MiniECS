@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.15"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>MiniECS: ecsHandle Class Reference</title>
+<title>MiniECS: mini::ecsHandle Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">MiniECS
-   &#160;<span id="projectnumber">0.1.0</span>
+   &#160;<span id="projectnumber">0.2.0</span>
    </div>
    <div id="projectbrief">A set of simple Entity, Component, and Systems (ECS) classes for use in games and other software.</div>
   </td>
@@ -61,82 +61,86 @@ $(function() {
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><b>mini</b></li><li class="navelem"><a class="el" href="classmini_1_1ecs_handle.html">ecsHandle</a></li>  </ul>
+</div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
 <a href="#pub-attribs">Public Attributes</a> &#124;
-<a href="classecs_handle-members.html">List of all members</a>  </div>
+<a href="classmini_1_1ecs_handle-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">ecsHandle Class Reference</div>  </div>
+<div class="title">mini::ecsHandle Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p>Uniquely identifies elements in the ECS architecture.  
- <a href="classecs_handle.html#details">More...</a></p>
+ <a href="classmini_1_1ecs_handle.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="ecs_handle_8hpp_source.html">ecsHandle.hpp</a>&gt;</code></p>
 <div class="dynheader">
-Inheritance diagram for ecsHandle:</div>
+Inheritance diagram for mini::ecsHandle:</div>
 <div class="dyncontent">
  <div class="center">
-  <img src="classecs_handle.png" usemap="#ecsHandle_map" alt=""/>
-  <map id="ecsHandle_map" name="ecsHandle_map">
-<area href="struct_component_handle.html" title="Specialized handle for labeling Components." alt="ComponentHandle" shape="rect" coords="0,56,115,80"/>
-<area href="struct_entity_handle.html" title="Specialized handle for labeling Entities." alt="EntityHandle" shape="rect" coords="125,56,240,80"/>
+  <img src="classmini_1_1ecs_handle.png" usemap="#mini::ecsHandle_map" alt=""/>
+  <map id="mini::ecsHandle_map" name="mini::ecsHandle_map">
+<area href="structmini_1_1_component_handle.html" title="Specialized handle for labeling Components." alt="mini::ComponentHandle" shape="rect" coords="0,56,143,80"/>
+<area href="structmini_1_1_entity_handle.html" title="Specialized handle for labeling Entities." alt="mini::EntityHandle" shape="rect" coords="153,56,296,80"/>
   </map>
 </div></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a838e76e03c3c5079051f04922f99e54a"><td class="memItemLeft" align="right" valign="top"><a id="a838e76e03c3c5079051f04922f99e54a"></a>
-virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classecs_handle.html#a838e76e03c3c5079051f04922f99e54a">~ecsHandle</a> ()=default</td></tr>
-<tr class="memdesc:a838e76e03c3c5079051f04922f99e54a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy this handle. <br /></td></tr>
-<tr class="separator:a838e76e03c3c5079051f04922f99e54a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a682b818e31b4ad41fa8120902db9ef53"><td class="memItemLeft" align="right" valign="top"><a id="a682b818e31b4ad41fa8120902db9ef53"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classecs_handle.html#a682b818e31b4ad41fa8120902db9ef53">ecsHandle</a> () noexcept=default</td></tr>
-<tr class="memdesc:a682b818e31b4ad41fa8120902db9ef53"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default Construct an empty handle. <br /></td></tr>
-<tr class="separator:a682b818e31b4ad41fa8120902db9ef53"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed7679ee20e3791985b97ee2f2263c08"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classecs_handle.html#aed7679ee20e3791985b97ee2f2263c08">ecsHandle</a> (const char id[32])</td></tr>
-<tr class="memdesc:aed7679ee20e3791985b97ee2f2263c08"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a specific handle.  <a href="#aed7679ee20e3791985b97ee2f2263c08">More...</a><br /></td></tr>
-<tr class="separator:aed7679ee20e3791985b97ee2f2263c08"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a191f18cffffe5f58e43b170ba5cb8c56"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classecs_handle.html#a191f18cffffe5f58e43b170ba5cb8c56">ecsHandle</a> (const <a class="el" href="classecs_handle.html">ecsHandle</a> &amp;other) noexcept=default</td></tr>
-<tr class="memdesc:a191f18cffffe5f58e43b170ba5cb8c56"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default Copy Constructor.  <a href="#a191f18cffffe5f58e43b170ba5cb8c56">More...</a><br /></td></tr>
-<tr class="separator:a191f18cffffe5f58e43b170ba5cb8c56"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a059bf07cfc56b5403b4c17a2daf4120c"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classecs_handle.html#a059bf07cfc56b5403b4c17a2daf4120c">ecsHandle</a> (<a class="el" href="classecs_handle.html">ecsHandle</a> &amp;&amp;other) noexcept=default</td></tr>
-<tr class="memdesc:a059bf07cfc56b5403b4c17a2daf4120c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default Move Constructor.  <a href="#a059bf07cfc56b5403b4c17a2daf4120c">More...</a><br /></td></tr>
-<tr class="separator:a059bf07cfc56b5403b4c17a2daf4120c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad824c9615cc84774e43f4ccea7c65359"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classecs_handle.html">ecsHandle</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classecs_handle.html#ad824c9615cc84774e43f4ccea7c65359">operator=</a> (<a class="el" href="classecs_handle.html">ecsHandle</a> &amp;&amp;other)=default</td></tr>
-<tr class="memdesc:ad824c9615cc84774e43f4ccea7c65359"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move from another handle.  <a href="#ad824c9615cc84774e43f4ccea7c65359">More...</a><br /></td></tr>
-<tr class="separator:ad824c9615cc84774e43f4ccea7c65359"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab7366f4d5cdf0839e5c3554b208c4560"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classecs_handle.html">ecsHandle</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classecs_handle.html#ab7366f4d5cdf0839e5c3554b208c4560">operator=</a> (const <a class="el" href="classecs_handle.html">ecsHandle</a> &amp;other)=default</td></tr>
-<tr class="memdesc:ab7366f4d5cdf0839e5c3554b208c4560"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy from another handle.  <a href="#ab7366f4d5cdf0839e5c3554b208c4560">More...</a><br /></td></tr>
-<tr class="separator:ab7366f4d5cdf0839e5c3554b208c4560"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6e5d2594219195d792c01668c8694ea1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classecs_handle.html#a6e5d2594219195d792c01668c8694ea1">operator==</a> (const <a class="el" href="classecs_handle.html">ecsHandle</a> &amp;other) const noexcept</td></tr>
-<tr class="memdesc:a6e5d2594219195d792c01668c8694ea1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare against another handle.  <a href="#a6e5d2594219195d792c01668c8694ea1">More...</a><br /></td></tr>
-<tr class="separator:a6e5d2594219195d792c01668c8694ea1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afed30d33b7ed138c80aa15e15f441f07"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classecs_handle.html#afed30d33b7ed138c80aa15e15f441f07">operator&lt;</a> (const <a class="el" href="classecs_handle.html">ecsHandle</a> &amp;other) const noexcept</td></tr>
-<tr class="memdesc:afed30d33b7ed138c80aa15e15f441f07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare if this should be ordered before another handle.  <a href="#afed30d33b7ed138c80aa15e15f441f07">More...</a><br /></td></tr>
-<tr class="separator:afed30d33b7ed138c80aa15e15f441f07"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4b3e4e7da6529d9801e414a056dd3210"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classecs_handle.html#a4b3e4e7da6529d9801e414a056dd3210">operator bool</a> () const noexcept</td></tr>
+<tr class="memitem:a32dcffea145864ec068c64b6dd835b9a"><td class="memItemLeft" align="right" valign="top"><a id="a32dcffea145864ec068c64b6dd835b9a"></a>
+virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_handle.html#a32dcffea145864ec068c64b6dd835b9a">~ecsHandle</a> ()=default</td></tr>
+<tr class="memdesc:a32dcffea145864ec068c64b6dd835b9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy this handle. <br /></td></tr>
+<tr class="separator:a32dcffea145864ec068c64b6dd835b9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac9985da3325a57af0b2a9094f80f69bf"><td class="memItemLeft" align="right" valign="top"><a id="ac9985da3325a57af0b2a9094f80f69bf"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_handle.html#ac9985da3325a57af0b2a9094f80f69bf">ecsHandle</a> () noexcept=default</td></tr>
+<tr class="memdesc:ac9985da3325a57af0b2a9094f80f69bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default Construct an empty handle. <br /></td></tr>
+<tr class="separator:ac9985da3325a57af0b2a9094f80f69bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af35d115b8d10e1957c0cfadb85a213d0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_handle.html#af35d115b8d10e1957c0cfadb85a213d0">ecsHandle</a> (const char id[32])</td></tr>
+<tr class="memdesc:af35d115b8d10e1957c0cfadb85a213d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a specific handle.  <a href="#af35d115b8d10e1957c0cfadb85a213d0">More...</a><br /></td></tr>
+<tr class="separator:af35d115b8d10e1957c0cfadb85a213d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8cbc88aa525595c8a90b752496db2bdc"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_handle.html#a8cbc88aa525595c8a90b752496db2bdc">ecsHandle</a> (const <a class="el" href="classmini_1_1ecs_handle.html">ecsHandle</a> &amp;other) noexcept=default</td></tr>
+<tr class="memdesc:a8cbc88aa525595c8a90b752496db2bdc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default Copy Constructor.  <a href="#a8cbc88aa525595c8a90b752496db2bdc">More...</a><br /></td></tr>
+<tr class="separator:a8cbc88aa525595c8a90b752496db2bdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4936040a3aca16afa4d18b947ec9fd95"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_handle.html#a4936040a3aca16afa4d18b947ec9fd95">ecsHandle</a> (<a class="el" href="classmini_1_1ecs_handle.html">ecsHandle</a> &amp;&amp;other) noexcept=default</td></tr>
+<tr class="memdesc:a4936040a3aca16afa4d18b947ec9fd95"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default Move Constructor.  <a href="#a4936040a3aca16afa4d18b947ec9fd95">More...</a><br /></td></tr>
+<tr class="separator:a4936040a3aca16afa4d18b947ec9fd95"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad5a52c591e01bee9a3a150f599cb343e"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmini_1_1ecs_handle.html">ecsHandle</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_handle.html#ad5a52c591e01bee9a3a150f599cb343e">operator=</a> (<a class="el" href="classmini_1_1ecs_handle.html">ecsHandle</a> &amp;&amp;other)=default</td></tr>
+<tr class="memdesc:ad5a52c591e01bee9a3a150f599cb343e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move from another handle.  <a href="#ad5a52c591e01bee9a3a150f599cb343e">More...</a><br /></td></tr>
+<tr class="separator:ad5a52c591e01bee9a3a150f599cb343e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a048984c91222b28b26cee7141cf9f3ee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmini_1_1ecs_handle.html">ecsHandle</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_handle.html#a048984c91222b28b26cee7141cf9f3ee">operator=</a> (const <a class="el" href="classmini_1_1ecs_handle.html">ecsHandle</a> &amp;other)=default</td></tr>
+<tr class="memdesc:a048984c91222b28b26cee7141cf9f3ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy from another handle.  <a href="#a048984c91222b28b26cee7141cf9f3ee">More...</a><br /></td></tr>
+<tr class="separator:a048984c91222b28b26cee7141cf9f3ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afcf122d4cad85317e8289bf69b09a5e6"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_handle.html#afcf122d4cad85317e8289bf69b09a5e6">operator==</a> (const <a class="el" href="classmini_1_1ecs_handle.html">ecsHandle</a> &amp;other) const noexcept</td></tr>
+<tr class="memdesc:afcf122d4cad85317e8289bf69b09a5e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare against another handle.  <a href="#afcf122d4cad85317e8289bf69b09a5e6">More...</a><br /></td></tr>
+<tr class="separator:afcf122d4cad85317e8289bf69b09a5e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4a778785f17a032a4414ac8300e56f6d"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_handle.html#a4a778785f17a032a4414ac8300e56f6d">operator&lt;</a> (const <a class="el" href="classmini_1_1ecs_handle.html">ecsHandle</a> &amp;other) const noexcept</td></tr>
+<tr class="memdesc:a4a778785f17a032a4414ac8300e56f6d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compare if this should be ordered before another handle.  <a href="#a4a778785f17a032a4414ac8300e56f6d">More...</a><br /></td></tr>
+<tr class="separator:a4a778785f17a032a4414ac8300e56f6d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b3e4e7da6529d9801e414a056dd3210"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_handle.html#a4b3e4e7da6529d9801e414a056dd3210">operator bool</a> () const noexcept</td></tr>
 <tr class="memdesc:a4b3e4e7da6529d9801e414a056dd3210"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conversion to bool operator.  <a href="#a4b3e4e7da6529d9801e414a056dd3210">More...</a><br /></td></tr>
 <tr class="separator:a4b3e4e7da6529d9801e414a056dd3210"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a81e337df709ed091fde4ad6988c42af2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classecs_handle.html#a81e337df709ed091fde4ad6988c42af2">isValid</a> () const noexcept</td></tr>
+<tr class="memitem:a81e337df709ed091fde4ad6988c42af2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_handle.html#a81e337df709ed091fde4ad6988c42af2">isValid</a> () const noexcept</td></tr>
 <tr class="memdesc:a81e337df709ed091fde4ad6988c42af2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve if this handle is valid.  <a href="#a81e337df709ed091fde4ad6988c42af2">More...</a><br /></td></tr>
 <tr class="separator:a81e337df709ed091fde4ad6988c42af2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a8c0beca91b2b2a1aa86b8bd0c9788ca9"><td class="memItemLeft" align="right" valign="top"><a id="a8c0beca91b2b2a1aa86b8bd0c9788ca9"></a>
-char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classecs_handle.html#a8c0beca91b2b2a1aa86b8bd0c9788ca9">m_uuid</a> [32] = { '\0' }</td></tr>
-<tr class="memdesc:a8c0beca91b2b2a1aa86b8bd0c9788ca9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The UUID container. <br /></td></tr>
-<tr class="separator:a8c0beca91b2b2a1aa86b8bd0c9788ca9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a04998bf9d078c03e7489e1da3182c77b"><td class="memItemLeft" align="right" valign="top"><a id="a04998bf9d078c03e7489e1da3182c77b"></a>
+char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_handle.html#a04998bf9d078c03e7489e1da3182c77b">m_uuid</a> [32] = { '\0' }</td></tr>
+<tr class="memdesc:a04998bf9d078c03e7489e1da3182c77b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The UUID container. <br /></td></tr>
+<tr class="separator:a04998bf9d078c03e7489e1da3182c77b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Uniquely identifies elements in the ECS architecture. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a id="aed7679ee20e3791985b97ee2f2263c08"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aed7679ee20e3791985b97ee2f2263c08">&#9670;&nbsp;</a></span>ecsHandle() <span class="overload">[1/3]</span></h2>
+<a id="af35d115b8d10e1957c0cfadb85a213d0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af35d115b8d10e1957c0cfadb85a213d0">&#9670;&nbsp;</a></span>ecsHandle() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -145,7 +149,7 @@ char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">ecsHandle::ecsHandle </td>
+          <td class="memname">mini::ecsHandle::ecsHandle </td>
           <td>(</td>
           <td class="paramtype">const char&#160;</td>
           <td class="paramname"><em>id</em>[32]</td><td>)</td>
@@ -169,8 +173,8 @@ char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div>
-<a id="a191f18cffffe5f58e43b170ba5cb8c56"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a191f18cffffe5f58e43b170ba5cb8c56">&#9670;&nbsp;</a></span>ecsHandle() <span class="overload">[2/3]</span></h2>
+<a id="a8cbc88aa525595c8a90b752496db2bdc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8cbc88aa525595c8a90b752496db2bdc">&#9670;&nbsp;</a></span>ecsHandle() <span class="overload">[2/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -179,9 +183,9 @@ char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">ecsHandle::ecsHandle </td>
+          <td class="memname">mini::ecsHandle::ecsHandle </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classecs_handle.html">ecsHandle</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classmini_1_1ecs_handle.html">ecsHandle</a> &amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
           <td></td>
         </tr>
@@ -203,8 +207,8 @@ char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div>
-<a id="a059bf07cfc56b5403b4c17a2daf4120c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a059bf07cfc56b5403b4c17a2daf4120c">&#9670;&nbsp;</a></span>ecsHandle() <span class="overload">[3/3]</span></h2>
+<a id="a4936040a3aca16afa4d18b947ec9fd95"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4936040a3aca16afa4d18b947ec9fd95">&#9670;&nbsp;</a></span>ecsHandle() <span class="overload">[3/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -213,9 +217,9 @@ char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">ecsHandle::ecsHandle </td>
+          <td class="memname">mini::ecsHandle::ecsHandle </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classecs_handle.html">ecsHandle</a> &amp;&amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classmini_1_1ecs_handle.html">ecsHandle</a> &amp;&amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
           <td></td>
         </tr>
@@ -296,8 +300,8 @@ char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div>
-<a id="afed30d33b7ed138c80aa15e15f441f07"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afed30d33b7ed138c80aa15e15f441f07">&#9670;&nbsp;</a></span>operator&lt;()</h2>
+<a id="a4a778785f17a032a4414ac8300e56f6d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4a778785f17a032a4414ac8300e56f6d">&#9670;&nbsp;</a></span>operator&lt;()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -306,9 +310,9 @@ char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool ecsHandle::operator&lt; </td>
+          <td class="memname">bool mini::ecsHandle::operator&lt; </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classecs_handle.html">ecsHandle</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classmini_1_1ecs_handle.html">ecsHandle</a> &amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
           <td> const</td>
         </tr>
@@ -331,8 +335,8 @@ char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div>
-<a id="ad824c9615cc84774e43f4ccea7c65359"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad824c9615cc84774e43f4ccea7c65359">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
+<a id="ad5a52c591e01bee9a3a150f599cb343e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad5a52c591e01bee9a3a150f599cb343e">&#9670;&nbsp;</a></span>operator=() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -341,9 +345,9 @@ char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classecs_handle.html">ecsHandle</a>&amp; ecsHandle::operator= </td>
+          <td class="memname"><a class="el" href="classmini_1_1ecs_handle.html">ecsHandle</a>&amp; mini::ecsHandle::operator= </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classecs_handle.html">ecsHandle</a> &amp;&amp;&#160;</td>
+          <td class="paramtype"><a class="el" href="classmini_1_1ecs_handle.html">ecsHandle</a> &amp;&amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
           <td></td>
         </tr>
@@ -366,8 +370,8 @@ char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div>
-<a id="ab7366f4d5cdf0839e5c3554b208c4560"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab7366f4d5cdf0839e5c3554b208c4560">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/2]</span></h2>
+<a id="a048984c91222b28b26cee7141cf9f3ee"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a048984c91222b28b26cee7141cf9f3ee">&#9670;&nbsp;</a></span>operator=() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -376,9 +380,9 @@ char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="classecs_handle.html">ecsHandle</a>&amp; ecsHandle::operator= </td>
+          <td class="memname"><a class="el" href="classmini_1_1ecs_handle.html">ecsHandle</a>&amp; mini::ecsHandle::operator= </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classecs_handle.html">ecsHandle</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classmini_1_1ecs_handle.html">ecsHandle</a> &amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
           <td></td>
         </tr>
@@ -401,8 +405,8 @@ char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
 
 </div>
 </div>
-<a id="a6e5d2594219195d792c01668c8694ea1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6e5d2594219195d792c01668c8694ea1">&#9670;&nbsp;</a></span>operator==()</h2>
+<a id="afcf122d4cad85317e8289bf69b09a5e6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afcf122d4cad85317e8289bf69b09a5e6">&#9670;&nbsp;</a></span>operator==()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -411,9 +415,9 @@ char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="clas
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">bool ecsHandle::operator== </td>
+          <td class="memname">bool mini::ecsHandle::operator== </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="classecs_handle.html">ecsHandle</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classmini_1_1ecs_handle.html">ecsHandle</a> &amp;&#160;</td>
           <td class="paramname"><em>other</em></td><td>)</td>
           <td> const</td>
         </tr>

@@ -7,6 +7,7 @@
 #include "ecsHandle.hpp"
 #include "ecsSystem.hpp"
 
+namespace mini {
 ///////////////////////////////////////////////////////////////////////////
 /// Useful Aliases
 using EntityMap = std::map<EntityHandle, std::shared_ptr<ecsEntity>>;
@@ -208,5 +209,5 @@ class ecsWorld {
     ComponentMap m_components; ///< Map of all components in this world.
     EntityMap m_entities;      ///< Map of all entities in this world.
 };
-
+};     // namespace mini
 #endif // ECSWORLD_HPP

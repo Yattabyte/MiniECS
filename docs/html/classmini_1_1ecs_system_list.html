@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.15"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>MiniECS: ecsSystemList Class Reference</title>
+<title>MiniECS: mini::ecsSystemList Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">MiniECS
-   &#160;<span id="projectnumber">0.1.0</span>
+   &#160;<span id="projectnumber">0.2.0</span>
    </div>
    <div id="projectbrief">A set of simple Entity, Component, and Systems (ECS) classes for use in games and other software.</div>
   </td>
@@ -61,55 +61,59 @@ $(function() {
 </iframe>
 </div>
 
+<div id="nav-path" class="navpath">
+  <ul>
+<li class="navelem"><b>mini</b></li><li class="navelem"><a class="el" href="classmini_1_1ecs_system_list.html">ecsSystemList</a></li>  </ul>
+</div>
 </div><!-- top -->
 <div class="header">
   <div class="summary">
 <a href="#pub-methods">Public Member Functions</a> &#124;
-<a href="classecs_system_list-members.html">List of all members</a>  </div>
+<a href="classmini_1_1ecs_system_list-members.html">List of all members</a>  </div>
   <div class="headertitle">
-<div class="title">ecsSystemList Class Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
+<div class="title">mini::ecsSystemList Class Reference<span class="mlabels"><span class="mlabel">final</span></span></div>  </div>
 </div><!--header-->
 <div class="contents">
 
 <p>An ordered list of systems to be updated.  
- <a href="classecs_system_list.html#details">More...</a></p>
+ <a href="classmini_1_1ecs_system_list.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="ecs_system_8hpp_source.html">ecsSystem.hpp</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:af217e709efb81195f09d3a8809e759e8"><td class="memItemLeft" align="right" valign="top"><a id="af217e709efb81195f09d3a8809e759e8"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classecs_system_list.html#af217e709efb81195f09d3a8809e759e8">ecsSystemList</a> () noexcept=default</td></tr>
-<tr class="memdesc:af217e709efb81195f09d3a8809e759e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a system list. <br /></td></tr>
-<tr class="separator:af217e709efb81195f09d3a8809e759e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a571dbf3e519095a8016435e700db35b4"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classecs_system.html">ecsSystem</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classecs_system_list.html#a571dbf3e519095a8016435e700db35b4">operator[]</a> (const size_t &amp;index) const noexcept</td></tr>
-<tr class="memdesc:a571dbf3e519095a8016435e700db35b4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve a specific system at a given index.  <a href="#a571dbf3e519095a8016435e700db35b4">More...</a><br /></td></tr>
-<tr class="separator:a571dbf3e519095a8016435e700db35b4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aed4930f24ae340404ea7b62d6ca8cb74"><td class="memTemplParams" colspan="2">template&lt;typename T , class... Args&gt; </td></tr>
-<tr class="memitem:aed4930f24ae340404ea7b62d6ca8cb74"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classecs_system_list.html#aed4930f24ae340404ea7b62d6ca8cb74">makeSystem</a> (Args &amp;&amp;... args)</td></tr>
-<tr class="memdesc:aed4930f24ae340404ea7b62d6ca8cb74"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a system with a specific type and input arguments.  <a href="#aed4930f24ae340404ea7b62d6ca8cb74">More...</a><br /></td></tr>
-<tr class="separator:aed4930f24ae340404ea7b62d6ca8cb74"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6e0419b1e665c7032be29256073685a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classecs_system_list.html#ad6e0419b1e665c7032be29256073685a">addSystem</a> (const std::shared_ptr&lt; <a class="el" href="classecs_system.html">ecsSystem</a> &gt; &amp;system)</td></tr>
+<tr class="memitem:ad510d0e30806d68c4b700dcd18f8cc67"><td class="memItemLeft" align="right" valign="top"><a id="ad510d0e30806d68c4b700dcd18f8cc67"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_system_list.html#ad510d0e30806d68c4b700dcd18f8cc67">ecsSystemList</a> () noexcept=default</td></tr>
+<tr class="memdesc:ad510d0e30806d68c4b700dcd18f8cc67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a system list. <br /></td></tr>
+<tr class="separator:ad510d0e30806d68c4b700dcd18f8cc67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aac54675edc9569db785762b90f36ae8a"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="classmini_1_1ecs_system.html">ecsSystem</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_system_list.html#aac54675edc9569db785762b90f36ae8a">operator[]</a> (const size_t &amp;index) const noexcept</td></tr>
+<tr class="memdesc:aac54675edc9569db785762b90f36ae8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve a specific system at a given index.  <a href="#aac54675edc9569db785762b90f36ae8a">More...</a><br /></td></tr>
+<tr class="separator:aac54675edc9569db785762b90f36ae8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a459d9e86b7349d8a2c7551de123894ed"><td class="memTemplParams" colspan="2">template&lt;typename T , class... Args&gt; </td></tr>
+<tr class="memitem:a459d9e86b7349d8a2c7551de123894ed"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_system_list.html#a459d9e86b7349d8a2c7551de123894ed">makeSystem</a> (Args &amp;&amp;... args)</td></tr>
+<tr class="memdesc:a459d9e86b7349d8a2c7551de123894ed"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a system with a specific type and input arguments.  <a href="#a459d9e86b7349d8a2c7551de123894ed">More...</a><br /></td></tr>
+<tr class="separator:a459d9e86b7349d8a2c7551de123894ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad6e0419b1e665c7032be29256073685a"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_system_list.html#ad6e0419b1e665c7032be29256073685a">addSystem</a> (const std::shared_ptr&lt; <a class="el" href="classmini_1_1ecs_system.html">ecsSystem</a> &gt; &amp;system)</td></tr>
 <tr class="memdesc:ad6e0419b1e665c7032be29256073685a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a system to the list.  <a href="#ad6e0419b1e665c7032be29256073685a">More...</a><br /></td></tr>
 <tr class="separator:ad6e0419b1e665c7032be29256073685a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4475ff3be67be112241db5d9d0933137"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classecs_system_list.html#a4475ff3be67be112241db5d9d0933137">removeSystem</a> (const std::shared_ptr&lt; <a class="el" href="classecs_system.html">ecsSystem</a> &gt; &amp;system)</td></tr>
+<tr class="memitem:a4475ff3be67be112241db5d9d0933137"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_system_list.html#a4475ff3be67be112241db5d9d0933137">removeSystem</a> (const std::shared_ptr&lt; <a class="el" href="classmini_1_1ecs_system.html">ecsSystem</a> &gt; &amp;system)</td></tr>
 <tr class="memdesc:a4475ff3be67be112241db5d9d0933137"><td class="mdescLeft">&#160;</td><td class="mdescRight">Removes a system from the list.  <a href="#a4475ff3be67be112241db5d9d0933137">More...</a><br /></td></tr>
 <tr class="separator:a4475ff3be67be112241db5d9d0933137"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a89438d960eb7417d22c30db7766f0019"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classecs_system_list.html#a89438d960eb7417d22c30db7766f0019">size</a> () const noexcept</td></tr>
-<tr class="memdesc:a89438d960eb7417d22c30db7766f0019"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve the number of systems in the list.  <a href="#a89438d960eb7417d22c30db7766f0019">More...</a><br /></td></tr>
-<tr class="separator:a89438d960eb7417d22c30db7766f0019"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a61afe670715ebd58e26743ec8820d819"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="classecs_system.html">ecsSystem</a> &gt; &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classecs_system_list.html#a61afe670715ebd58e26743ec8820d819">begin</a> () noexcept</td></tr>
-<tr class="memdesc:a61afe670715ebd58e26743ec8820d819"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve an iterator to the beginning of this system list.  <a href="#a61afe670715ebd58e26743ec8820d819">More...</a><br /></td></tr>
-<tr class="separator:a61afe670715ebd58e26743ec8820d819"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a91858cf18aaada3c72503772208d3ef2"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="classecs_system.html">ecsSystem</a> &gt; &gt;::const_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classecs_system_list.html#a91858cf18aaada3c72503772208d3ef2">cbegin</a> () const noexcept</td></tr>
-<tr class="memdesc:a91858cf18aaada3c72503772208d3ef2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve a const iterator to the beginning of this system list.  <a href="#a91858cf18aaada3c72503772208d3ef2">More...</a><br /></td></tr>
-<tr class="separator:a91858cf18aaada3c72503772208d3ef2"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:abf717c6a26d5eff6c9760c46049d0afe"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="classecs_system.html">ecsSystem</a> &gt; &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classecs_system_list.html#abf717c6a26d5eff6c9760c46049d0afe">end</a> () noexcept</td></tr>
-<tr class="memdesc:abf717c6a26d5eff6c9760c46049d0afe"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve an iterator to the end of this system list.  <a href="#abf717c6a26d5eff6c9760c46049d0afe">More...</a><br /></td></tr>
-<tr class="separator:abf717c6a26d5eff6c9760c46049d0afe"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af21843596f334f331e659607eb47ebf0"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="classecs_system.html">ecsSystem</a> &gt; &gt;::const_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classecs_system_list.html#af21843596f334f331e659607eb47ebf0">cend</a> () const noexcept</td></tr>
-<tr class="memdesc:af21843596f334f331e659607eb47ebf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve a const iterator to the end of this system list.  <a href="#af21843596f334f331e659607eb47ebf0">More...</a><br /></td></tr>
-<tr class="separator:af21843596f334f331e659607eb47ebf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a778a43c7e0df67f108d639b93c923645"><td class="memItemLeft" align="right" valign="top">size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_system_list.html#a778a43c7e0df67f108d639b93c923645">size</a> () const noexcept</td></tr>
+<tr class="memdesc:a778a43c7e0df67f108d639b93c923645"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve the number of systems in the list.  <a href="#a778a43c7e0df67f108d639b93c923645">More...</a><br /></td></tr>
+<tr class="separator:a778a43c7e0df67f108d639b93c923645"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a74d7166169bec0d82d74f274b5268251"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="classmini_1_1ecs_system.html">ecsSystem</a> &gt; &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_system_list.html#a74d7166169bec0d82d74f274b5268251">begin</a> () noexcept</td></tr>
+<tr class="memdesc:a74d7166169bec0d82d74f274b5268251"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve an iterator to the beginning of this system list.  <a href="#a74d7166169bec0d82d74f274b5268251">More...</a><br /></td></tr>
+<tr class="separator:a74d7166169bec0d82d74f274b5268251"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a53ec1b5efd5e48e826f02d710371c9a7"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="classmini_1_1ecs_system.html">ecsSystem</a> &gt; &gt;::const_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_system_list.html#a53ec1b5efd5e48e826f02d710371c9a7">cbegin</a> () const noexcept</td></tr>
+<tr class="memdesc:a53ec1b5efd5e48e826f02d710371c9a7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve a const iterator to the beginning of this system list.  <a href="#a53ec1b5efd5e48e826f02d710371c9a7">More...</a><br /></td></tr>
+<tr class="separator:a53ec1b5efd5e48e826f02d710371c9a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a942c710cea29677eba37a67d4ec71a22"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="classmini_1_1ecs_system.html">ecsSystem</a> &gt; &gt;::iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_system_list.html#a942c710cea29677eba37a67d4ec71a22">end</a> () noexcept</td></tr>
+<tr class="memdesc:a942c710cea29677eba37a67d4ec71a22"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve an iterator to the end of this system list.  <a href="#a942c710cea29677eba37a67d4ec71a22">More...</a><br /></td></tr>
+<tr class="separator:a942c710cea29677eba37a67d4ec71a22"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad0c2887a8f2f7c8a31edf30b5d42318c"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="classmini_1_1ecs_system.html">ecsSystem</a> &gt; &gt;::const_iterator&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_system_list.html#ad0c2887a8f2f7c8a31edf30b5d42318c">cend</a> () const noexcept</td></tr>
+<tr class="memdesc:ad0c2887a8f2f7c8a31edf30b5d42318c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve a const iterator to the end of this system list.  <a href="#ad0c2887a8f2f7c8a31edf30b5d42318c">More...</a><br /></td></tr>
+<tr class="separator:ad0c2887a8f2f7c8a31edf30b5d42318c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>An ordered list of systems to be updated. </p>
@@ -123,7 +127,7 @@ Public Member Functions</h2></td></tr>
         <tr>
           <td class="memname">bool ecsSystemList::addSystem </td>
           <td>(</td>
-          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="classecs_system.html">ecsSystem</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="classmini_1_1ecs_system.html">ecsSystem</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>system</em></td><td>)</td>
           <td></td>
         </tr>
@@ -141,8 +145,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a61afe670715ebd58e26743ec8820d819"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a61afe670715ebd58e26743ec8820d819">&#9670;&nbsp;</a></span>begin()</h2>
+<a id="a74d7166169bec0d82d74f274b5268251"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a74d7166169bec0d82d74f274b5268251">&#9670;&nbsp;</a></span>begin()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -151,7 +155,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="classecs_system.html">ecsSystem</a>&gt; &gt;::iterator ecsSystemList::begin </td>
+          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="classmini_1_1ecs_system.html">ecsSystem</a>&gt; &gt;::iterator mini::ecsSystemList::begin </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -169,8 +173,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a91858cf18aaada3c72503772208d3ef2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a91858cf18aaada3c72503772208d3ef2">&#9670;&nbsp;</a></span>cbegin()</h2>
+<a id="a53ec1b5efd5e48e826f02d710371c9a7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a53ec1b5efd5e48e826f02d710371c9a7">&#9670;&nbsp;</a></span>cbegin()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -179,7 +183,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="classecs_system.html">ecsSystem</a>&gt; &gt;::const_iterator ecsSystemList::cbegin </td>
+          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="classmini_1_1ecs_system.html">ecsSystem</a>&gt; &gt;::const_iterator mini::ecsSystemList::cbegin </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -197,8 +201,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="af21843596f334f331e659607eb47ebf0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af21843596f334f331e659607eb47ebf0">&#9670;&nbsp;</a></span>cend()</h2>
+<a id="ad0c2887a8f2f7c8a31edf30b5d42318c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad0c2887a8f2f7c8a31edf30b5d42318c">&#9670;&nbsp;</a></span>cend()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -207,7 +211,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="classecs_system.html">ecsSystem</a>&gt; &gt;::const_iterator ecsSystemList::cend </td>
+          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="classmini_1_1ecs_system.html">ecsSystem</a>&gt; &gt;::const_iterator mini::ecsSystemList::cend </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>
@@ -225,8 +229,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="abf717c6a26d5eff6c9760c46049d0afe"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abf717c6a26d5eff6c9760c46049d0afe">&#9670;&nbsp;</a></span>end()</h2>
+<a id="a942c710cea29677eba37a67d4ec71a22"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a942c710cea29677eba37a67d4ec71a22">&#9670;&nbsp;</a></span>end()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -235,7 +239,7 @@ Public Member Functions</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="classecs_system.html">ecsSystem</a>&gt; &gt;::iterator ecsSystemList::end </td>
+          <td class="memname">std::vector&lt;std::shared_ptr&lt;<a class="el" href="classmini_1_1ecs_system.html">ecsSystem</a>&gt; &gt;::iterator mini::ecsSystemList::end </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -253,8 +257,8 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aed4930f24ae340404ea7b62d6ca8cb74"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aed4930f24ae340404ea7b62d6ca8cb74">&#9670;&nbsp;</a></span>makeSystem()</h2>
+<a id="a459d9e86b7349d8a2c7551de123894ed"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a459d9e86b7349d8a2c7551de123894ed">&#9670;&nbsp;</a></span>makeSystem()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -265,7 +269,7 @@ template&lt;typename T , class... Args&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">void ecsSystemList::makeSystem </td>
+          <td class="memname">void mini::ecsSystemList::makeSystem </td>
           <td>(</td>
           <td class="paramtype">Args &amp;&amp;...&#160;</td>
           <td class="paramname"><em>args</em></td><td>)</td>
@@ -295,8 +299,8 @@ template&lt;typename T , class... Args&gt; </div>
 
 </div>
 </div>
-<a id="a571dbf3e519095a8016435e700db35b4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a571dbf3e519095a8016435e700db35b4">&#9670;&nbsp;</a></span>operator[]()</h2>
+<a id="aac54675edc9569db785762b90f36ae8a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aac54675edc9569db785762b90f36ae8a">&#9670;&nbsp;</a></span>operator[]()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -305,7 +309,7 @@ template&lt;typename T , class... Args&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">std::shared_ptr&lt;<a class="el" href="classecs_system.html">ecsSystem</a>&gt; ecsSystemList::operator[] </td>
+          <td class="memname">std::shared_ptr&lt;<a class="el" href="classmini_1_1ecs_system.html">ecsSystem</a>&gt; mini::ecsSystemList::operator[] </td>
           <td>(</td>
           <td class="paramtype">const size_t &amp;&#160;</td>
           <td class="paramname"><em>index</em></td><td>)</td>
@@ -339,7 +343,7 @@ template&lt;typename T , class... Args&gt; </div>
         <tr>
           <td class="memname">bool ecsSystemList::removeSystem </td>
           <td>(</td>
-          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="classecs_system.html">ecsSystem</a> &gt; &amp;&#160;</td>
+          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="classmini_1_1ecs_system.html">ecsSystem</a> &gt; &amp;&#160;</td>
           <td class="paramname"><em>system</em></td><td>)</td>
           <td></td>
         </tr>
@@ -358,8 +362,8 @@ template&lt;typename T , class... Args&gt; </div>
 
 </div>
 </div>
-<a id="a89438d960eb7417d22c30db7766f0019"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a89438d960eb7417d22c30db7766f0019">&#9670;&nbsp;</a></span>size()</h2>
+<a id="a778a43c7e0df67f108d639b93c923645"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a778a43c7e0df67f108d639b93c923645">&#9670;&nbsp;</a></span>size()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -368,7 +372,7 @@ template&lt;typename T , class... Args&gt; </div>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">size_t ecsSystemList::size </td>
+          <td class="memname">size_t mini::ecsSystemList::size </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td> const</td>

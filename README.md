@@ -16,6 +16,7 @@ In a high-level sense, this transforms a potentially narly-looking inheritance s
 
 In this library, entities and components are stored in a collection referred to as an ***ecsWorld***, allowing run-time manipulation and access.
 
+Across this library and other of my "Mini" libraries, the namespace "mini" must be used.
 
 ## Overview
 This library exposes the following structures to the user:

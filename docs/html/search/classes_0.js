@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['componenthandle',['ComponentHandle',['../struct_component_handle.html',1,'']]]
+  ['componenthandle',['ComponentHandle',['../structmini_1_1_component_handle.html',1,'mini']]]
 ];

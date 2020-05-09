@@ -7,6 +7,7 @@
 #include <tuple>
 #include <vector>
 
+namespace mini {
 ///////////////////////////////////////////////////////////////////////////
 /// \class      ecsEntity
 /// \brief      A base class representing components in an ECS architecture.
@@ -15,4 +16,5 @@ struct ecsEntity final {
     std::vector<std::tuple<ComponentID, int, ComponentHandle>>
         m_components = {}; ///< Vector of components.
 };
+};     // namespace mini
 #endif // ECSENTITY_HPP

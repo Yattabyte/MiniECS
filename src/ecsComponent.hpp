@@ -9,6 +9,7 @@
 #include <tuple>
 #include <vector>
 
+namespace mini {
 ///////////////////////////////////////////////////////////////////////////
 /// Forward Declarations
 class ecsBaseComponent;
@@ -133,5 +134,5 @@ constexpr static void freeFn(ecsBaseComponent* component) noexcept {
 template <typename C>
 const ComponentID ecsComponent<C>::Runtime_ID(
     registerType(createFn<C>, freeFn<C>, newFn<C>, sizeof(C)));
-
+};     // namespace mini
 #endif // ECSCOMPONENT_HPP
