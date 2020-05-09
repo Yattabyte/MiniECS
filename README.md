@@ -16,6 +16,8 @@ In a high-level sense, this transforms a potentially narly-looking inheritance s
 
 In this library, entities and components are stored in a collection referred to as an ***ecsWorld***, allowing run-time manipulation and access.
 
+Requires C++17 and CMake.
+Compiles on GCC 8/9, Clang 7/8/9, MSVC 14/19 (VS 2017/2019)
 Across this library and other of my "Mini" libraries, the namespace "mini" must be used.
 
 ## Overview
