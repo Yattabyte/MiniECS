@@ -1,6 +1,6 @@
 #pragma once
-#ifndef ECSHANDLE_HPP
-#define ECSHANDLE_HPP
+#ifndef MINI_ECSHANDLE_HPP
+#define MINI_ECSHANDLE_HPP
 
 #include <algorithm>
 #include <cstring>
@@ -97,4 +97,4 @@ struct ComponentHandle final : ecsHandle {
     ComponentHandle& operator=(const ComponentHandle& other) noexcept = default;
 };
 };     // namespace mini
-#endif // ECSHANDLE_HPP
+#endif // MINI_ECSHANDLE_HPP

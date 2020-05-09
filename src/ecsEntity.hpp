@@ -1,6 +1,6 @@
 #pragma once
-#ifndef ECSENTITY_HPP
-#define ECSENTITY_HPP
+#ifndef MINI_ECSENTITY_HPP
+#define MINI_ECSENTITY_HPP
 
 #include "ecsComponent.hpp"
 #include "ecsHandle.hpp"
@@ -17,4 +17,4 @@ struct ecsEntity final {
         m_components = {}; ///< Vector of components.
 };
 };     // namespace mini
-#endif // ECSENTITY_HPP
+#endif // MINI_ECSENTITY_HPP

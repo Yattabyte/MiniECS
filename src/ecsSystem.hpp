@@ -1,6 +1,6 @@
 #pragma once
-#ifndef ECSYSTEM_HPP
-#define ECSYSTEM_HPP
+#ifndef MINI_ECSYSTEM_HPP
+#define MINI_ECSYSTEM_HPP
 
 #include "ecsComponent.hpp"
 #include <vector>
@@ -51,7 +51,7 @@ class ecsSystem {
     bool isValid() const noexcept;
 
     ///////////////////////////////////////////////////////////////////////////
-    /// \brief Tick this system by deltaTime.
+    /// \brief  Tick this system by deltaTime.
     /// \param	deltaTime	    the amount of time passed since last update.
     /// \param	components	    the components to update.
     virtual void updateComponents(
@@ -142,4 +142,4 @@ class ecsSystemList final {
     std::vector<std::shared_ptr<ecsSystem>> m_systems; ///< List of systems.
 };
 };     // namespace mini
-#endif // ECSYSTEM_HPP
+#endif // MINI_ECSYSTEM_HPP
