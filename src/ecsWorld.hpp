@@ -1,6 +1,6 @@
 #pragma once
-#ifndef MINI_ECSWORLD_HPP
-#define MINI_ECSWORLD_HPP
+#ifndef MINIECS_ECSWORLD_HPP
+#define MINIECS_ECSWORLD_HPP
 
 #include "ecsComponent.hpp"
 #include "ecsEntity.hpp"
@@ -210,4 +210,4 @@ class ecsWorld {
     EntityMap m_entities;      ///< Map of all entities in this world.
 };
 };     // namespace mini
-#endif // MINI_ECSWORLD_HPP
+#endif // MINIECS_ECSWORLD_HPP

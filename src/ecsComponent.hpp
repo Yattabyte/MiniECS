@@ -1,6 +1,6 @@
 #pragma once
-#ifndef MINI_ECSCOMPONENT_HPP
-#define MINI_ECSCOMPONENT_HPP
+#ifndef MINIECS_ECSCOMPONENT_HPP
+#define MINIECS_ECSCOMPONENT_HPP
 
 #include "ecsHandle.hpp"
 #include <functional>
@@ -131,4 +131,4 @@ template <typename C>
 const ComponentID ecsComponent<C>::Runtime_ID(
     registerType(createFn<C>, freeFn<C>, sizeof(C)));
 };     // namespace mini
-#endif // MINI_ECSCOMPONENT_HPP
+#endif // MINIECS_ECSCOMPONENT_HPP

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef MINI_ECSYSTEM_HPP
-#define MINI_ECSYSTEM_HPP
+#ifndef MINIECS_ECSYSTEM_HPP
+#define MINIECS_ECSYSTEM_HPP
 
 #include "ecsComponent.hpp"
 #include <vector>
@@ -142,4 +142,4 @@ class ecsSystemList final {
     std::vector<std::shared_ptr<ecsSystem>> m_systems; ///< List of systems.
 };
 };     // namespace mini
-#endif // MINI_ECSYSTEM_HPP
+#endif // MINIECS_ECSYSTEM_HPP
