@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">MiniECS
-   &#160;<span id="projectnumber">0.2.0</span>
+   &#160;<span id="projectnumber">0.4.0</span>
    </div>
    <div id="projectbrief">A set of simple Entity, Component, and Systems (ECS) classes for use in games and other software.</div>
   </td>
@@ -140,16 +140,16 @@ size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cl
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-methods"></a>
 Static Protected Member Functions</h2></td></tr>
-<tr class="memitem:af867a6fe9048e61ae47d60aca1c60d9c"><td class="memItemLeft" align="right" valign="top">static ComponentID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_base_component.html#af867a6fe9048e61ae47d60aca1c60d9c">registerType</a> (const ComponentCreateFunction &amp;createFn, const ComponentFreeFunction &amp;freeFn, const ComponentNewFunction &amp;newFn, const size_t &amp;size)</td></tr>
-<tr class="memdesc:af867a6fe9048e61ae47d60aca1c60d9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register a component into the creation/destruction registry.  <a href="#af867a6fe9048e61ae47d60aca1c60d9c">More...</a><br /></td></tr>
-<tr class="separator:af867a6fe9048e61ae47d60aca1c60d9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad756e4bac7e9b2d01177201f786fa7f4"><td class="memItemLeft" align="right" valign="top">static ComponentID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_base_component.html#ad756e4bac7e9b2d01177201f786fa7f4">registerType</a> (const ComponentCreateFunction &amp;createFn, const ComponentFreeFunction &amp;freeFn, const size_t &amp;size)</td></tr>
+<tr class="memdesc:ad756e4bac7e9b2d01177201f786fa7f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Register a component into the creation/destruction registry.  <a href="#ad756e4bac7e9b2d01177201f786fa7f4">More...</a><br /></td></tr>
+<tr class="separator:ad756e4bac7e9b2d01177201f786fa7f4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-attribs"></a>
 Static Protected Attributes</h2></td></tr>
-<tr class="memitem:a46f71b18236cb462f7e36d62053c9538"><td class="memItemLeft" align="right" valign="top"><a id="a46f71b18236cb462f7e36d62053c9538"></a>
-static std::vector&lt; std::tuple&lt; ComponentCreateFunction, ComponentFreeFunction, ComponentNewFunction, size_t &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_base_component.html#a46f71b18236cb462f7e36d62053c9538">m_componentRegistry</a> = {}</td></tr>
-<tr class="memdesc:a46f71b18236cb462f7e36d62053c9538"><td class="mdescLeft">&#160;</td><td class="mdescRight">Container for component functions. <br /></td></tr>
-<tr class="separator:a46f71b18236cb462f7e36d62053c9538"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4d9399151080b4365cbc06bf34f8bd3c"><td class="memItemLeft" align="right" valign="top"><a id="a4d9399151080b4365cbc06bf34f8bd3c"></a>
+static std::vector&lt; std::tuple&lt; ComponentCreateFunction, ComponentFreeFunction, size_t &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_base_component.html#a4d9399151080b4365cbc06bf34f8bd3c">m_componentRegistry</a> = {}</td></tr>
+<tr class="memdesc:a4d9399151080b4365cbc06bf34f8bd3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Container for component functions. <br /></td></tr>
+<tr class="separator:a4d9399151080b4365cbc06bf34f8bd3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -207,8 +207,8 @@ class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="af867a6fe9048e61ae47d60aca1c60d9c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af867a6fe9048e61ae47d60aca1c60d9c">&#9670;&nbsp;</a></span>registerType()</h2>
+<a id="ad756e4bac7e9b2d01177201f786fa7f4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad756e4bac7e9b2d01177201f786fa7f4">&#9670;&nbsp;</a></span>registerType()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -227,12 +227,6 @@ class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
           <td></td>
           <td class="paramtype">const ComponentFreeFunction &amp;&#160;</td>
           <td class="paramname"><em>freeFn</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const ComponentNewFunction &amp;&#160;</td>
-          <td class="paramname"><em>newFn</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -259,7 +253,6 @@ class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
   <table class="params">
     <tr><td class="paramname">createFn</td><td>function for creating a specific component type. </td></tr>
     <tr><td class="paramname">freeFn</td><td>function for freeing a specific component type. </td></tr>
-    <tr><td class="paramname">newFn</td><td>function for creating a new component anywhere. </td></tr>
     <tr><td class="paramname">size</td><td>the total size of a single component. </td></tr>
   </table>
   </dd>
