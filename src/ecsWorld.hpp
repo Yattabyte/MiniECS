@@ -6,6 +6,8 @@
 #include "ecsEntity.hpp"
 #include "ecsHandle.hpp"
 #include "ecsSystem.hpp"
+#include <array>
+#include <tuple>
 
 namespace mini {
 ///////////////////////////////////////////////////////////////////////////
@@ -29,6 +31,12 @@ class ecsWorld {
     ecsWorld(ecsWorld&& other) noexcept
         : m_components(std::move(other.m_components)),
           m_entities(std::move(other.m_entities)) {}
+
+    ///////////////////////////////////////////////////////////////////////////
+    /// \brief  Move the data from another ecsWorld into this.
+    /// \param	other		another ecsWorld to move the data from.
+    /// \return				reference to this.
+    ecsWorld& operator=(ecsWorld&& other) noexcept;
 
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Create an entity from a list of input components.
@@ -128,12 +136,32 @@ class ecsWorld {
             entityComponents,
         const ComponentDataSpace& mem_array,
         const ComponentID& componentID) noexcept;
-
     ///////////////////////////////////////////////////////////////////////////
-    /// \brief  Move the data from another ecsWorld into this.
-    /// \param	other		another ecsWorld to move the data from.
-    /// \return				reference to this.
-    ecsWorld& operator=(ecsWorld&& other) noexcept;
+    /// \brief  Retrieve a list of entity components corresponding to the input.
+    /// \param	componentTypes		list of component types to retrieve.
+    template <typename... T_types>
+    std::vector<std::tuple<T_types...>> getComponents(
+        const std::vector<std::pair<ComponentID, ecsSystem::RequirementsFlag>>&
+            componentTypes) {
+        std::vector<std::tuple<T_types...>> entityComponents;
+
+        // Cast each component set to the types requested
+        for (auto& groupedComponents : getRelevantComponents(componentTypes)) {
+            // Convert the component set to a standard array
+            std::array<ecsBaseComponent*, sizeof...(T_types)> arr;
+            std::copy_n(
+                groupedComponents.begin(), sizeof...(T_types), arr.begin());
+
+            // Cast the array to our types and emplace it back in our vector
+            std::apply(
+                [&entityComponents](auto... args) {
+                    entityComponents.emplace_back(
+                        dynamic_cast<T_types>(args)...);
+                },
+                arr);
+        }
+        return entityComponents;
+    }
 
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Clear the data out of this ecsWorld.

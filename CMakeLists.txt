@@ -2,7 +2,7 @@
 ### Mini ECS ###
 ################
 cmake_minimum_required(VERSION 3.9.2)
-project(MiniECS VERSION 0.4.0 DESCRIPTION "A set of simple Entity, Component, and Systems (ECS) classes for use in games and other software.")
+project(MiniECS VERSION 0.4.1 DESCRIPTION "A set of simple Entity, Component, and Systems (ECS) classes for use in games and other software.")
 include(ExternalProject)
 
 # Set mandatory requirements
@@ -14,6 +14,9 @@ set(CMAKE_PDB_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
+option(BUILD_TESTING "Build Unit Tests" ON)
+option(CODE_COVERAGE "Enable code coverage reporting for GCC/Clang" OFF)
+option(STATIC_ANALYSIS "Enable static code analysis using GCC" OFF)
 
 # Set compilation flags per-compiler
 if(MSVC)
@@ -35,14 +38,21 @@ endif()
 # Add source files
 add_subdirectory(src)
 
-# Optionally perform static code analysis tests
-if (STATIC_ANALYSIS)
-    include(CTest)
-    find_program(MEMORYCHECK_COMMAND valgrind)
-    if (CTEST_MEMORYCHECK_COMMAND)
-        set(MEMORYCHECK_COMMAND_OPTIONS "--trace-children=yes --leak-check=full")
+# Optionally build unit tests
+if(BUILD_TESTING)
+    enable_testing()
+    add_subdirectory(tests)
+
+    # Optionally perform static code analysis tests
+    if (STATIC_ANALYSIS)
+        include(CTest)
+        find_program(MEMORYCHECK_COMMAND valgrind)
+        if (CTEST_MEMORYCHECK_COMMAND)
+            set(MEMORYCHECK_COMMAND_OPTIONS "--trace-children=yes --leak-check=full")
+        endif()
     endif()
 endif()
+
 
 #################
 # DOXYGEN CHECK #
