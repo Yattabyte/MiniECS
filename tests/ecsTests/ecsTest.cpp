@@ -22,7 +22,7 @@ int main() noexcept {
     world.makeComponent(entityHandle, &f);
     // world.makeComponent(entityHandle, &b);
 
-    [[maybe_unused]] const auto qwe =
+    /*[[maybe_unused]] const auto qwe =
         world.getComponents<FooComponent*, BarComponent*>(
             { { FooComponent::Runtime_ID,
                 ecsSystem::RequirementsFlag::FLAG_REQUIRED },
@@ -31,6 +31,6 @@ int main() noexcept {
 
     assert(qwe.size() == 1);
     assert(std::get<0>(qwe[0]) != nullptr);
-    assert(std::get<1>(qwe[0]) == nullptr);
+    assert(std::get<1>(qwe[0]) == nullptr);*/
     return 0;
 }
