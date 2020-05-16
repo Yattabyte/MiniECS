@@ -140,14 +140,16 @@ class ecsWorld {
     /// \brief  Retrieve a list of entity components corresponding to the input.
     /// \param	componentTypes		list of component types to retrieve.
     template <typename... T_types>
-    std::vector<std::tuple<T_types...>>
-    getComponents(const std::vector<
-                  std::pair<ComponentID, ecsSystem::RequirementsFlag>>&) {
+    std::vector<std::tuple<T_types...>> getComponents(
+        const std::vector<std::pair<ComponentID, ecsSystem::RequirementsFlag>>&
+            componentTypes) {
         std::vector<std::tuple<T_types...>> entityComponents;
 
-        /*// Cast each component set to the types requested
+        // Cast each component set to the types requested
         for (auto& groupedComponents : getRelevantComponents(componentTypes)) {
-            // Convert the component set to a standard array
+            if (groupedComponents.size()) {
+            }
+            /*// Convert the component set to a standard array
             std::array<ecsBaseComponent*, sizeof...(T_types)> arr;
             std::copy_n(
                 groupedComponents.cbegin(), sizeof...(T_types), arr.begin());
@@ -158,8 +160,8 @@ class ecsWorld {
                     entityComponents.emplace_back(
                         dynamic_cast<T_types>(args)...);
                 },
-                arr);
-        }*/
+                arr);*/
+        }
         return entityComponents;
     }
 
