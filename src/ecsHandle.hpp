@@ -47,14 +47,15 @@ class ecsHandle {
     /// \param	other		an other handle to compare against.
     /// \return	true if this handle is the same as the other handle.
     bool operator==(const ecsHandle& other) const noexcept {
-        return bool(std::strncmp(m_uuid, other.m_uuid, 32ULL) == 0);
+        return static_cast<bool>(
+            std::strncmp(m_uuid, other.m_uuid, 32ULL) == 0);
     }
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Compare if this should be ordered before another handle.
     /// \param	other		an other handle to compare against.
     /// \return	true if this handle is the less than the other handle.
     bool operator<(const ecsHandle& other) const noexcept {
-        return bool(std::strncmp(m_uuid, other.m_uuid, 32ULL) < 0);
+        return static_cast<bool>(std::strncmp(m_uuid, other.m_uuid, 32ULL) < 0);
     }
 
     ///////////////////////////////////////////////////////////////////////////

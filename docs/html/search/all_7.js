@@ -1,8 +1,13 @@
 var searchData=
 [
-  ['operator_20bool',['operator bool',['../classmini_1_1ecs_handle.html#a4b3e4e7da6529d9801e414a056dd3210',1,'mini::ecsHandle']]],
-  ['operator_3c',['operator&lt;',['../classmini_1_1ecs_handle.html#a4a778785f17a032a4414ac8300e56f6d',1,'mini::ecsHandle']]],
-  ['operator_3d',['operator=',['../classmini_1_1ecs_base_component.html#ac8ef75c006ccb4037b309634fd7080c8',1,'mini::ecsBaseComponent::operator=(ecsBaseComponent &amp;&amp;) noexcept=default'],['../classmini_1_1ecs_base_component.html#a1ea83597d350a00971ee4fba98ffa4e8',1,'mini::ecsBaseComponent::operator=(const ecsBaseComponent &amp;) noexcept=default'],['../classmini_1_1ecs_handle.html#ad5a52c591e01bee9a3a150f599cb343e',1,'mini::ecsHandle::operator=(ecsHandle &amp;&amp;other)=default'],['../classmini_1_1ecs_handle.html#a048984c91222b28b26cee7141cf9f3ee',1,'mini::ecsHandle::operator=(const ecsHandle &amp;other)=default'],['../classmini_1_1ecs_system.html#a36e4ae6c9ca26cedb422863228c1ee32',1,'mini::ecsSystem::operator=(ecsSystem &amp;&amp;)=default'],['../classmini_1_1ecs_system.html#a00d9589f7009dd99278113c30fa6e58c',1,'mini::ecsSystem::operator=(const ecsSystem &amp;)=default'],['../classmini_1_1ecs_world.html#ae0c5527447d6715d513437c0086fa4d3',1,'mini::ecsWorld::operator=()']]],
-  ['operator_3d_3d',['operator==',['../classmini_1_1ecs_handle.html#afcf122d4cad85317e8289bf69b09a5e6',1,'mini::ecsHandle']]],
-  ['operator_5b_5d',['operator[]',['../classmini_1_1ecs_system_list.html#aac54675edc9569db785762b90f36ae8a',1,'mini::ecsSystemList']]]
+  ['m_5fcomponentregistry',['m_componentRegistry',['../classmini_1_1ecs_base_component.html#a4d9399151080b4365cbc06bf34f8bd3c',1,'mini::ecsBaseComponent']]],
+  ['m_5fcomponents',['m_components',['../structmini_1_1ecs_entity.html#ae2fe7c0b37b7f59eb67022eea9fefea2',1,'mini::ecsEntity']]],
+  ['m_5fentityhandle',['m_entityHandle',['../classmini_1_1ecs_base_component.html#a18a95cf79740b6e23ab3ea827bf6307d',1,'mini::ecsBaseComponent']]],
+  ['m_5fhandle',['m_handle',['../classmini_1_1ecs_base_component.html#af2fe85cb96aae90b100ca6f184a85576',1,'mini::ecsBaseComponent']]],
+  ['m_5fruntimeid',['m_runtimeID',['../classmini_1_1ecs_base_component.html#aa9c40edccff5843f335f7e5b0b28c8b2',1,'mini::ecsBaseComponent']]],
+  ['m_5fsize',['m_size',['../classmini_1_1ecs_base_component.html#a3f4f47037119bcaa3b9e99774732b55e',1,'mini::ecsBaseComponent']]],
+  ['m_5fuuid',['m_uuid',['../classmini_1_1ecs_handle.html#a04998bf9d078c03e7489e1da3182c77b',1,'mini::ecsHandle']]],
+  ['makecomponent',['makeComponent',['../classmini_1_1ecs_world.html#a64ef95d18c4fdbe6093eabd5686ae056',1,'mini::ecsWorld::makeComponent(const EntityHandle &amp;entityHandle, const ecsBaseComponent *const component)'],['../classmini_1_1ecs_world.html#ae1f584bf9def7cbcaa76a1ea7446e890',1,'mini::ecsWorld::makeComponent(const EntityHandle &amp;entityHandle, const ComponentID &amp;componentID, const ecsBaseComponent *const component)']]],
+  ['makeentity',['makeEntity',['../classmini_1_1ecs_world.html#af033b07dfa7b5ed50045b0340dea49f9',1,'mini::ecsWorld']]],
+  ['makesystem',['makeSystem',['../classmini_1_1ecs_system_list.html#a459d9e86b7349d8a2c7551de123894ed',1,'mini::ecsSystemList']]]
 ];

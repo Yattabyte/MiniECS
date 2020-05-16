@@ -106,7 +106,7 @@ class ecsSystemList final {
     /// \brief  Removes a system from the list.
     /// \param	system	the system to remove.
     /// \return	true if successfully removed, false otherwise.
-    bool removeSystem(const std::shared_ptr<ecsSystem>& system);
+    bool removeSystem(const ecsSystem& system);
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Retrieve the number of systems in the list.
     /// \return	the size of the list.

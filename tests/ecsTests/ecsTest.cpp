@@ -1,4 +1,5 @@
 #include "ecsWorld.hpp"
+#include <assert.h>
 #include <iostream>
 #include <string>
 
@@ -28,5 +29,6 @@ int main() noexcept {
               { BarComponent::Runtime_ID,
                 ecsSystem::RequirementsFlag::FLAG_OPTIONAL } });
 
-    [[maybe_unused]] bool asd = false;
+    assert(qwe.size() == 1);
+    return 0;
 }

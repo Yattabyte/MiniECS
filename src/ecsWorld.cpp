@@ -205,7 +205,7 @@ ecsWorld& ecsWorld::operator=(ecsWorld&& other) noexcept {
 /// clear
 ///////////////////////////////////////////////////////////////////////////
 
-void ecsWorld::clear() {
+void ecsWorld::clear() noexcept {
     // Remove all components
     for (auto& m_component : m_components) {
         const auto& [createFn, freeFn, typeSize] =
@@ -230,7 +230,7 @@ ecsHandle ecsWorld::generateUUID() {
     for (auto i = 0; i < 16; i++) {
         std::random_device rd;
         std::mt19937 gen(rd());
-        std::uniform_int_distribution<int> dis(0, 255);
+        const std::uniform_int_distribution<int> dis(0, 255);
         const auto rc = dis(gen);
         std::stringstream hexstream;
         hexstream << std::hex << rc;

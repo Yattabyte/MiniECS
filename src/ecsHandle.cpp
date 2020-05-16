@@ -10,7 +10,7 @@ using namespace mini;
 
 ecsHandle::operator bool() const noexcept {
     static const ecsHandle empty;
-    return !bool((*this) == empty);
+    return !((*this) == empty);
 }
 
 ///////////////////////////////////////////////////////////////////////////
@@ -19,5 +19,5 @@ ecsHandle::operator bool() const noexcept {
 
 bool ecsHandle::isValid() const noexcept {
     static const ecsHandle empty;
-    return !bool((*this) == empty);
+    return !((*this) == empty);
 }

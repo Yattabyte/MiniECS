@@ -24,7 +24,7 @@ class ecsWorld {
     ~ecsWorld() { clear(); }
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Construct an empty ECS World.
-    ecsWorld() = default;
+    ecsWorld() noexcept = default;
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Move an ECS world.
     /// \param	other				another ecsWorld to move to here.
@@ -165,7 +165,7 @@ class ecsWorld {
 
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Clear the data out of this ecsWorld.
-    void clear();
+    void clear() noexcept;
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Generate a universally unique identifier for entities or
     /// components. \return						a new ID.
@@ -234,8 +234,8 @@ class ecsWorld {
         const std::vector<std::pair<ComponentID, ecsSystem::RequirementsFlag>>&
             componentTypes);
 
-    ComponentMap m_components; ///< Map of all components in this world.
-    EntityMap m_entities;      ///< Map of all entities in this world.
+    ComponentMap m_components = {}; ///< Map of all components in this world.
+    EntityMap m_entities = {};      ///< Map of all entities in this world.
 };
 };     // namespace mini
 #endif // MINIECS_ECSWORLD_HPP

@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">MiniECS
-   &#160;<span id="projectnumber">0.4.0</span>
+   &#160;<span id="projectnumber">0.4.4</span>
    </div>
    <div id="projectbrief">A set of simple Entity, Component, and Systems (ECS) classes for use in games and other software.</div>
   </td>
@@ -87,13 +87,16 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#adb9596df85ec0e7e804e2cc93d4b5285">~ecsWorld</a> ()</td></tr>
 <tr class="memdesc:adb9596df85ec0e7e804e2cc93d4b5285"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy this ECS World. <br /></td></tr>
 <tr class="separator:adb9596df85ec0e7e804e2cc93d4b5285"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af4910d4bd30bc185385e4397fdce042b"><td class="memItemLeft" align="right" valign="top"><a id="af4910d4bd30bc185385e4397fdce042b"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#af4910d4bd30bc185385e4397fdce042b">ecsWorld</a> ()=default</td></tr>
-<tr class="memdesc:af4910d4bd30bc185385e4397fdce042b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct an empty ECS World. <br /></td></tr>
-<tr class="separator:af4910d4bd30bc185385e4397fdce042b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a85022ff47e19a515692de090796f0ac0"><td class="memItemLeft" align="right" valign="top"><a id="a85022ff47e19a515692de090796f0ac0"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#a85022ff47e19a515692de090796f0ac0">ecsWorld</a> () noexcept=default</td></tr>
+<tr class="memdesc:a85022ff47e19a515692de090796f0ac0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct an empty ECS World. <br /></td></tr>
+<tr class="separator:a85022ff47e19a515692de090796f0ac0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59b98f332e418b26c67b1b79e2df38d0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#a59b98f332e418b26c67b1b79e2df38d0">ecsWorld</a> (<a class="el" href="classmini_1_1ecs_world.html">ecsWorld</a> &amp;&amp;other) noexcept</td></tr>
 <tr class="memdesc:a59b98f332e418b26c67b1b79e2df38d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move an ECS world.  <a href="#a59b98f332e418b26c67b1b79e2df38d0">More...</a><br /></td></tr>
 <tr class="separator:a59b98f332e418b26c67b1b79e2df38d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0c5527447d6715d513437c0086fa4d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmini_1_1ecs_world.html">ecsWorld</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#ae0c5527447d6715d513437c0086fa4d3">operator=</a> (<a class="el" href="classmini_1_1ecs_world.html">ecsWorld</a> &amp;&amp;other) noexcept</td></tr>
+<tr class="memdesc:ae0c5527447d6715d513437c0086fa4d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move the data from another <a class="el" href="classmini_1_1ecs_world.html" title="A set of ECS entities and components forming a single level.">ecsWorld</a> into this.  <a href="#ae0c5527447d6715d513437c0086fa4d3">More...</a><br /></td></tr>
+<tr class="separator:ae0c5527447d6715d513437c0086fa4d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af033b07dfa7b5ed50045b0340dea49f9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmini_1_1_entity_handle.html">EntityHandle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#af033b07dfa7b5ed50045b0340dea49f9">makeEntity</a> (const <a class="el" href="classmini_1_1ecs_base_component.html">ecsBaseComponent</a> *const *const components, const size_t &amp;numComponents)</td></tr>
 <tr class="memdesc:af033b07dfa7b5ed50045b0340dea49f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an entity from a list of input components.  <a href="#af033b07dfa7b5ed50045b0340dea49f9">More...</a><br /></td></tr>
 <tr class="separator:af033b07dfa7b5ed50045b0340dea49f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -132,12 +135,13 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aabe761321538998da5c7b775482c04f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmini_1_1ecs_base_component.html">ecsBaseComponent</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#aabe761321538998da5c7b775482c04f5">getComponent</a> (const <a class="el" href="structmini_1_1_component_handle.html">ComponentHandle</a> &amp;componentHandle) const</td></tr>
 <tr class="memdesc:aabe761321538998da5c7b775482c04f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Try to find a component matching the UUID provided.  <a href="#aabe761321538998da5c7b775482c04f5">More...</a><br /></td></tr>
 <tr class="separator:aabe761321538998da5c7b775482c04f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae0c5527447d6715d513437c0086fa4d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmini_1_1ecs_world.html">ecsWorld</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#ae0c5527447d6715d513437c0086fa4d3">operator=</a> (<a class="el" href="classmini_1_1ecs_world.html">ecsWorld</a> &amp;&amp;other) noexcept</td></tr>
-<tr class="memdesc:ae0c5527447d6715d513437c0086fa4d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move the data from another <a class="el" href="classmini_1_1ecs_world.html" title="A set of ECS entities and components forming a single level.">ecsWorld</a> into this.  <a href="#ae0c5527447d6715d513437c0086fa4d3">More...</a><br /></td></tr>
-<tr class="separator:ae0c5527447d6715d513437c0086fa4d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a880962996c0f7551ae13d292196e45b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#a880962996c0f7551ae13d292196e45b7">clear</a> ()</td></tr>
-<tr class="memdesc:a880962996c0f7551ae13d292196e45b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the data out of this <a class="el" href="classmini_1_1ecs_world.html" title="A set of ECS entities and components forming a single level.">ecsWorld</a>.  <a href="#a880962996c0f7551ae13d292196e45b7">More...</a><br /></td></tr>
-<tr class="separator:a880962996c0f7551ae13d292196e45b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa55610b7338b9e79923e819a578d0c00"><td class="memTemplParams" colspan="2">template&lt;typename... T_types&gt; </td></tr>
+<tr class="memitem:aa55610b7338b9e79923e819a578d0c00"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::tuple&lt; T_types... &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#aa55610b7338b9e79923e819a578d0c00">getComponents</a> (const std::vector&lt; std::pair&lt; ComponentID, <a class="el" href="classmini_1_1ecs_system.html#a7c18415ccc49cb8017907324ce2640a2">ecsSystem::RequirementsFlag</a> &gt;&gt; &amp;componentTypes)</td></tr>
+<tr class="memdesc:aa55610b7338b9e79923e819a578d0c00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve a list of entity components corresponding to the input.  <a href="#aa55610b7338b9e79923e819a578d0c00">More...</a><br /></td></tr>
+<tr class="separator:aa55610b7338b9e79923e819a578d0c00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cb35863486ebcf4f07e0c0f5424516b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#a5cb35863486ebcf4f07e0c0f5424516b">clear</a> () noexcept</td></tr>
+<tr class="memdesc:a5cb35863486ebcf4f07e0c0f5424516b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the data out of this <a class="el" href="classmini_1_1ecs_world.html" title="A set of ECS entities and components forming a single level.">ecsWorld</a>.  <a href="#a5cb35863486ebcf4f07e0c0f5424516b">More...</a><br /></td></tr>
+<tr class="separator:a5cb35863486ebcf4f07e0c0f5424516b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a77bf54921c797c5285fec36628a706b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#a77bf54921c797c5285fec36628a706b1">updateSystems</a> (<a class="el" href="classmini_1_1ecs_system_list.html">ecsSystemList</a> &amp;systems, const double &amp;deltaTime)</td></tr>
 <tr class="memdesc:a77bf54921c797c5285fec36628a706b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the components of all systems provided.  <a href="#a77bf54921c797c5285fec36628a706b1">More...</a><br /></td></tr>
 <tr class="separator:a77bf54921c797c5285fec36628a706b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -198,11 +202,14 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a880962996c0f7551ae13d292196e45b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a880962996c0f7551ae13d292196e45b7">&#9670;&nbsp;</a></span>clear()</h2>
+<a id="a5cb35863486ebcf4f07e0c0f5424516b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cb35863486ebcf4f07e0c0f5424516b">&#9670;&nbsp;</a></span>clear()</h2>
 
 <div class="memitem">
 <div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void ecsWorld::clear </td>
@@ -211,6 +218,11 @@ Static Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 <p>Clear the data out of this <a class="el" href="classmini_1_1ecs_world.html" title="A set of ECS entities and components forming a single level.">ecsWorld</a>. </p>
@@ -451,6 +463,42 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the component pointer matching the ID specified. </dd></dl>
+
+</div>
+</div>
+<a id="aa55610b7338b9e79923e819a578d0c00"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa55610b7338b9e79923e819a578d0c00">&#9670;&nbsp;</a></span>getComponents()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename... T_types&gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::tuple&lt;T_types...&gt; &gt; mini::ecsWorld::getComponents </td>
+          <td>(</td>
+          <td class="paramtype">const std::vector&lt; std::pair&lt; ComponentID, <a class="el" href="classmini_1_1ecs_system.html#a7c18415ccc49cb8017907324ce2640a2">ecsSystem::RequirementsFlag</a> &gt;&gt; &amp;&#160;</td>
+          <td class="paramname"><em>componentTypes</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Retrieve a list of entity components corresponding to the input. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">componentTypes</td><td>list of component types to retrieve. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>
