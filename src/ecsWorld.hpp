@@ -147,9 +147,7 @@ class ecsWorld {
 
         // Cast each component set to the types requested
         for (auto& groupedComponents : getRelevantComponents(componentTypes)) {
-            if (groupedComponents.size()) {
-            }
-            /*// Convert the component set to a standard array
+            // Convert the component set to a standard array
             std::array<ecsBaseComponent*, sizeof...(T_types)> arr;
             std::copy_n(
                 groupedComponents.cbegin(), sizeof...(T_types), arr.begin());
@@ -160,7 +158,7 @@ class ecsWorld {
                     entityComponents.emplace_back(
                         dynamic_cast<T_types>(args)...);
                 },
-                arr);*/
+                arr);
         }
         return entityComponents;
     }
