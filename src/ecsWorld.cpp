@@ -356,7 +356,7 @@ std::vector<std::vector<ecsBaseComponent*>> ecsWorld::getRelevantComponents(
         } else {
             // More complex procedure for system with > 1 component type
             std::vector<ecsBaseComponent*> componentParam(componentTypesCount);
-            std::vector<ComponentDataSpace*> componentArrays(
+            std::vector<const ComponentDataSpace*> componentArrays(
                 componentTypesCount);
             for (size_t i = 0; i < componentTypesCount; ++i)
                 componentArrays[i] =

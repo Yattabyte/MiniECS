@@ -30,15 +30,9 @@ int main() noexcept {
                   ecsSystem::RequirementsFlag::FLAG_OPTIONAL } };
     [[maybe_unused]] const auto qwe =
         world.getComponents<FooComponent*, BarComponent*>(ids);
-    /*[[maybe_unused]] const auto qwe =
-        world.getComponents<FooComponent*, BarComponent*>(
-            { { FooComponent::Runtime_ID,
-                ecsSystem::RequirementsFlag::FLAG_REQUIRED },
-              { BarComponent::Runtime_ID,
-                ecsSystem::RequirementsFlag::FLAG_OPTIONAL } });
 
     assert(qwe.size() == 1);
     assert(std::get<0>(qwe[0]) != nullptr);
-    assert(std::get<1>(qwe[0]) == nullptr);*/
+    assert(std::get<1>(qwe[0]) == nullptr);
     return 0;
 }
