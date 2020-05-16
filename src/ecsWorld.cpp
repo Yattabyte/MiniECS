@@ -429,6 +429,7 @@ size_t ecsWorld::findLeastCommonComponent(
         std::cout << componentID << std::endl;
         std::cout << m_components.size() << std::endl;
         std::cout << testB.size();
+        std::cout << typeSize;
         std::cout << testB.size() / typeSize;
         std::cout << static_cast<float>(testB.size()) /
                          static_cast<float>(typeSize);
