@@ -356,15 +356,14 @@ std::vector<std::vector<ecsBaseComponent*>> ecsWorld::getRelevantComponents(
         } else {
             // More complex procedure for system with > 1 component type
             std::vector<ecsBaseComponent*> componentParam(componentTypesCount);
-            std::vector<const ComponentDataSpace*> componentArrays(
+            std::vector<ComponentDataSpace*> componentArrays(
                 componentTypesCount);
             for (size_t i = 0; i < componentTypesCount; ++i)
                 componentArrays[i] =
                     &m_components[std::get<0>(componentTypes[i])];
 
-            [[maybe_unused]] const auto minSizeIndex =
-                findLeastCommonComponent(componentTypes);
-            /*const auto minComponentID =
+            const auto minSizeIndex = findLeastCommonComponent(componentTypes);
+            const auto minComponentID =
                 std::get<0>(componentTypes[minSizeIndex]);
             const auto& [createFn, freeFn, typeSize] =
                 ecsBaseComponent::m_componentRegistry[minComponentID];
@@ -399,7 +398,7 @@ std::vector<std::vector<ecsBaseComponent*>> ecsWorld::getRelevantComponents(
                     if (isValid)
                         components.push_back(componentParam);
                 }
-            }*/
+            }
         }
     }
     return components;
@@ -408,7 +407,7 @@ std::vector<std::vector<ecsBaseComponent*>> ecsWorld::getRelevantComponents(
 ///////////////////////////////////////////////////////////////////////////
 /// findLeastCommonComponent
 ///////////////////////////////////////////////////////////////////////////
-#include <iostream>
+
 size_t ecsWorld::findLeastCommonComponent(
     const std::vector<std::pair<ComponentID, ecsSystem::RequirementsFlag>>&
         componentTypes) {
@@ -422,25 +421,13 @@ size_t ecsWorld::findLeastCommonComponent(
                  ecsSystem::RequirementsFlag::FLAG_OPTIONAL)) != 0)
             continue;
 
-        const auto& typeSize =
-            std::get<2>(ecsBaseComponent::m_componentRegistry[componentID]);
-        [[maybe_unused]] const auto& testA = m_components;
-        [[maybe_unused]] const auto testB = m_components[componentID];
-        std::cout << componentID << std::endl;
-        std::cout << m_components.size() << std::endl;
-        std::cout << testB.size();
-        std::cout << typeSize;
-        std::cout << testB.size() / typeSize;
-        std::cout << static_cast<float>(testB.size()) /
-                         static_cast<float>(typeSize);
-        [[maybe_unused]] const auto size = testB.size();
-        // [[maybe_unused]] const auto testC = m_components[componentID].size();
-        /*[[maybe_unused]] const auto size =
-            m_components[componentID].size() / typeSize;
-        /*if (size <= minSize) {
+        const auto& [createFn, freeFn, typeSize] =
+            ecsBaseComponent::m_componentRegistry[componentID];
+        const auto size = m_components[componentID].size() / typeSize;
+        if (size <= minSize) {
             minSize = size;
             minIndex = i;
-        }*/
+        }
     }
     return minIndex;
 }
