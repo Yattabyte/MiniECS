@@ -275,7 +275,9 @@ void ecsWorld::deleteComponent(
             mem_array.resize(srcIndex);
             return;
         }
-        std::memcpy(destComponent, srcComponent, typeSize);
+        std::memcpy(
+            static_cast<void*>(destComponent),
+            static_cast<const void*>(srcComponent), typeSize);
 
         // Update references
         for (auto& component :

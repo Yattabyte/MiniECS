@@ -16,9 +16,9 @@ struct BarComponent : ecsComponent<BarComponent> {
 int main() noexcept {
     FooComponent f;
     BarComponent b;
-
     ecsWorld world;
-    auto entityHandle = world.makeEntity(nullptr, 0);
+
+    const auto entityHandle = world.makeEntity(nullptr, 0);
     world.makeComponent(entityHandle, &f);
     // world.makeComponent(entityHandle, &b);
 
@@ -30,5 +30,7 @@ int main() noexcept {
                 ecsSystem::RequirementsFlag::FLAG_OPTIONAL } });
 
     assert(qwe.size() == 1);
+    assert(std::get<0>(qwe[0]) != nullptr);
+    assert(std::get<1>(qwe[0]) == nullptr);
     return 0;
 }
