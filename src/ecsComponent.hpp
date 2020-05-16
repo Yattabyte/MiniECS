@@ -73,8 +73,10 @@ class ecsBaseComponent {
 
     inline static std::vector<
         std::tuple<ComponentCreateFunction, ComponentFreeFunction, size_t>>
-        m_componentRegistry = {}; ///< Container for component functions.
-    friend class ecsWorld;        ///< Allows the ecsWorld to access.
+        m_componentRegistry = std::vector<std::tuple<
+            ComponentCreateFunction, ComponentFreeFunction,
+            size_t>>();    ///< Container for component functions.
+    friend class ecsWorld; ///< Allows the ecsWorld to access.
 };
 
 ///////////////////////////////////////////////////////////////////////////
