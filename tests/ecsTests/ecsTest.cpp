@@ -14,9 +14,9 @@ struct BarComponent : ecsComponent<BarComponent> {
 };
 
 int main() noexcept {
-    FooComponent f;
-    BarComponent b;
-    ecsWorld world;
+    FooComponent f = FooComponent();
+    BarComponent b = BarComponent();
+    ecsWorld world = ecsWorld();
 
     const auto entityHandle = world.makeEntity(nullptr, 0);
     world.makeComponent(entityHandle, &f);
