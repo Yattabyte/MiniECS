@@ -343,7 +343,7 @@ std::vector<std::vector<ecsBaseComponent*>> ecsWorld::getRelevantComponents(
     std::vector<std::vector<ecsBaseComponent*>> components;
     if (!componentTypes.empty()) {
         const auto componentTypesCount = componentTypes.size();
-        /*if (componentTypesCount == 1U) {
+        if (componentTypesCount == 1U) {
             // Super simple procedure for system with 1 component type
             const auto& [componentID, componentFlag] = componentTypes[0];
             const auto& [createFn, freeFn, typeSize] =
@@ -353,8 +353,7 @@ std::vector<std::vector<ecsBaseComponent*>> ecsWorld::getRelevantComponents(
             components.resize(mem_arraySize / typeSize);
             for (size_t j = 0, k = 0; j < mem_arraySize; j += typeSize, ++k)
                 components[k].push_back((ecsBaseComponent*)(&mem_array[j]));
-        } else */
-        {
+        } else {
             // More complex procedure for system with > 1 component type
             std::vector<ecsBaseComponent*> componentParam(componentTypesCount);
             std::vector<const ComponentDataSpace*> componentArrays(
@@ -363,8 +362,9 @@ std::vector<std::vector<ecsBaseComponent*>> ecsWorld::getRelevantComponents(
                 componentArrays[i] =
                     &m_components[std::get<0>(componentTypes[i])];
 
-            const auto minSizeIndex = findLeastCommonComponent(componentTypes);
-            const auto minComponentID =
+            [[maybe_unused]] const auto minSizeIndex =
+                findLeastCommonComponent(componentTypes);
+            /*const auto minComponentID =
                 std::get<0>(componentTypes[minSizeIndex]);
             const auto& [createFn, freeFn, typeSize] =
                 ecsBaseComponent::m_componentRegistry[minComponentID];
@@ -399,7 +399,7 @@ std::vector<std::vector<ecsBaseComponent*>> ecsWorld::getRelevantComponents(
                     if (isValid)
                         components.push_back(componentParam);
                 }
-            }
+            }*/
         }
     }
     return components;

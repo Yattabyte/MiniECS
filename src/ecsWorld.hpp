@@ -143,7 +143,7 @@ class ecsWorld {
     std::vector<std::tuple<T_types...>> getComponents(
         const std::vector<std::pair<ComponentID, ecsSystem::RequirementsFlag>>&
             componentTypes) {
-        // std::vector<std::tuple<T_types...>> entityComponents;
+        std::vector<std::tuple<T_types...>> entityComponents;
 
         // Cast each component set to the types requested
         for (auto& groupedComponents : getRelevantComponents(componentTypes)) {
@@ -162,7 +162,7 @@ class ecsWorld {
                 },
                 arr);*/
         }
-        return {};
+        return entityComponents;
     }
 
     ///////////////////////////////////////////////////////////////////////////
