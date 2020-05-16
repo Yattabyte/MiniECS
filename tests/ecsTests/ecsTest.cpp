@@ -22,6 +22,8 @@ int main() noexcept {
     world.makeComponent(entityHandle, &f);
     // world.makeComponent(entityHandle, &b);
 
+    [[maybe_unused]] const auto fooID = FooComponent::Runtime_ID;
+    [[maybe_unused]] const auto barID = BarComponent::Runtime_ID;
     /*[[maybe_unused]] const auto qwe =
         world.getComponents<FooComponent*, BarComponent*>(
             { { FooComponent::Runtime_ID,
