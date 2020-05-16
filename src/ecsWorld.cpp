@@ -362,7 +362,7 @@ std::vector<std::vector<ecsBaseComponent*>> ecsWorld::getRelevantComponents(
                 componentArrays[i] =
                     &m_components[std::get<0>(componentTypes[i])];
 
-            /*[[maybe_unused]] const auto minSizeIndex =
+            [[maybe_unused]] const auto minSizeIndex =
                 findLeastCommonComponent(componentTypes);
             /*const auto minComponentID =
                 std::get<0>(componentTypes[minSizeIndex]);
@@ -416,19 +416,19 @@ size_t ecsWorld::findLeastCommonComponent(
     auto minIndex = std::numeric_limits<size_t>::max();
     const auto componentTypesCount = componentTypes.size();
     for (size_t i = 0; i < componentTypesCount; ++i) {
-        const auto& [componentID, componentFlag] = componentTypes[i];
+        /*const auto& [componentID, componentFlag] = componentTypes[i];
         if ((static_cast<unsigned int>(componentFlag) &
              static_cast<unsigned int>(
                  ecsSystem::RequirementsFlag::FLAG_OPTIONAL)) != 0)
             continue;
 
-        const auto& [createFn, freeFn, typeSize] =
-            ecsBaseComponent::m_componentRegistry[componentID];
+        const auto& typeSize =
+            std::get<2>(ecsBaseComponent::m_componentRegistry[componentID]);
         const auto size = m_components[componentID].size() / typeSize;
         if (size <= minSize) {
             minSize = size;
             minIndex = i;
-        }
+        }*/
     }
     return minIndex;
 }
