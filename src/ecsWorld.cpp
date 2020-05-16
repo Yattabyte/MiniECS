@@ -424,7 +424,10 @@ size_t ecsWorld::findLeastCommonComponent(
 
         const auto& typeSize =
             std::get<2>(ecsBaseComponent::m_componentRegistry[componentID]);
-        [[maybe_unused]] const auto size =
+        [[maybe_unused]] const auto& testA = m_components;
+        [[maybe_unused]] const auto testB = m_components[componentID];
+        // [[maybe_unused]] const auto testC = m_components[componentID].size();
+        /*[[maybe_unused]] const auto size =
             m_components[componentID].size() / typeSize;
         /*if (size <= minSize) {
             minSize = size;
