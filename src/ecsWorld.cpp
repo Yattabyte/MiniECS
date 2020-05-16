@@ -362,7 +362,7 @@ std::vector<std::vector<ecsBaseComponent*>> ecsWorld::getRelevantComponents(
                 componentArrays[i] =
                     &m_components[std::get<0>(componentTypes[i])];
 
-            [[maybe_unused]] const auto minSizeIndex =
+            /*[[maybe_unused]] const auto minSizeIndex =
                 findLeastCommonComponent(componentTypes);
             /*const auto minComponentID =
                 std::get<0>(componentTypes[minSizeIndex]);
