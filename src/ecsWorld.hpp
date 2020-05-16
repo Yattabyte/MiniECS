@@ -150,11 +150,11 @@ class ecsWorld {
             // Convert the component set to a standard array
             std::array<ecsBaseComponent*, sizeof...(T_types)> arr;
             std::copy_n(
-                groupedComponents.begin(), sizeof...(T_types), arr.begin());
+                groupedComponents.cbegin(), sizeof...(T_types), arr.begin());
 
             // Cast the array to our types and emplace it back in our vector
             std::apply(
-                [&entityComponents](auto... args) {
+                [&entityComponents](auto&... args) {
                     entityComponents.emplace_back(
                         dynamic_cast<T_types>(args)...);
                 },
