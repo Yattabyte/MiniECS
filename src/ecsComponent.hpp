@@ -33,6 +33,9 @@ class ecsBaseComponent {
     /// \brief  Destroy this base ecsComponent.
     virtual ~ecsBaseComponent() = default;
     ///////////////////////////////////////////////////////////////////////////
+    /// \brief  Default construct this base ecsComponent.
+    ecsBaseComponent() = default;
+    ///////////////////////////////////////////////////////////////////////////
     /// \brief  Construct a base ecsComponent.
     /// \param	ID      the runtime ID for this component.
     /// \param	size    the byte-size of this component.

@@ -2,7 +2,7 @@
 ### Mini ECS ###
 ################
 cmake_minimum_required(VERSION 3.9.2)
-project(MiniECS VERSION 0.4.4 DESCRIPTION "A set of simple Entity, Component, and Systems (ECS) classes for use in games and other software.")
+project(MiniECS VERSION 0.4.5 DESCRIPTION "A set of simple Entity, Component, and Systems (ECS) classes for use in games and other software.")
 include(ExternalProject)
 
 # Set mandatory requirements
