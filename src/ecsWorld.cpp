@@ -408,7 +408,7 @@ std::vector<std::vector<ecsBaseComponent*>> ecsWorld::getRelevantComponents(
 ///////////////////////////////////////////////////////////////////////////
 /// findLeastCommonComponent
 ///////////////////////////////////////////////////////////////////////////
-
+#include <iostream>
 size_t ecsWorld::findLeastCommonComponent(
     const std::vector<std::pair<ComponentID, ecsSystem::RequirementsFlag>>&
         componentTypes) {
@@ -426,6 +426,10 @@ size_t ecsWorld::findLeastCommonComponent(
             std::get<2>(ecsBaseComponent::m_componentRegistry[componentID]);
         [[maybe_unused]] const auto& testA = m_components;
         [[maybe_unused]] const auto testB = m_components[componentID];
+        std::cout << componentID << std::endl;
+        std::cout << m_components.size() << std::endl;
+        std::cout << testB.size();
+        [[maybe_unused]] const auto size = testB.size();
         // [[maybe_unused]] const auto testC = m_components[componentID].size();
         /*[[maybe_unused]] const auto size =
             m_components[componentID].size() / typeSize;
