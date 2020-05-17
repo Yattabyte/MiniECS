@@ -55,8 +55,8 @@ class ecsBaseComponent {
     /// \brief  Default Copy-Assignment Operator.
     ecsBaseComponent& operator=(const ecsBaseComponent&) noexcept = default;
 
-    ComponentID m_runtimeID;     ///< Runtime generated ID per class.
-    size_t m_size;               ///< Total component byte-size.
+    ComponentID m_runtimeID = 0; ///< Runtime generated ID per class.
+    size_t m_size = 0;           ///< Total component byte-size.
     ComponentHandle m_handle;    ///< This component's UUID.
     EntityHandle m_entityHandle; ///< This component's parents' UUID (entity).
 
