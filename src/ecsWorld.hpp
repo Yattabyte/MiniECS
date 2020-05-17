@@ -24,7 +24,7 @@ class ecsWorld {
     ~ecsWorld() { clear(); }
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Construct an empty ECS World.
-    ecsWorld() noexcept = default;
+    ecsWorld() {}
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Move an ECS world.
     /// \param	other				another ecsWorld to move to here.
