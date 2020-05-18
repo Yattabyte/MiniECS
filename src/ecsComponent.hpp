@@ -33,7 +33,7 @@ class ecsBaseComponent {
     virtual ~ecsBaseComponent() = default;
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Default construct this base ecsComponent.
-    ecsBaseComponent() {}
+    ecsBaseComponent() noexcept {}
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Construct a base ecsComponent.
     /// \param	ID      the runtime ID for this component.

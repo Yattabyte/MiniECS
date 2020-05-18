@@ -41,7 +41,7 @@ class ecsHandle {
     /// \brief  Copy from another handle.
     /// \param	other		an other handle to copy from.
     /// \return	reference to this.
-    ecsHandle& operator=(const ecsHandle& other) = default;
+    virtual ecsHandle& operator=(const ecsHandle& other) = default;
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Compare against another handle.
     /// \param	other		an other handle to compare against.

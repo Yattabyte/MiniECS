@@ -13,13 +13,28 @@ struct BarComponent : ecsComponent<BarComponent> {
     bool asd = false;
 };
 
+class FooSystem : public ecsSystem {
+    public:
+    FooSystem() noexcept {
+        addComponentType(FooComponent::Runtime_ID, RequirementsFlag::REQUIRED);
+    }
+
+    void updateComponents(
+        const double& /*deltaTime*/,
+        const std::vector<std::vector<ecsBaseComponent*>>& /*components*/)
+        override {
+        [[maybe_unused]] bool qwe = true;
+    }
+};
+
 int main() noexcept {
     FooComponent foo = FooComponent();
     BarComponent bar = BarComponent();
     ecsWorld world = ecsWorld();
 
-    const auto entityHandle = world.makeEntity(nullptr, 0);
-    world.makeComponent(entityHandle, &foo);
+    [[maybe_unused]] const auto entityHandle = world.makeEntity(nullptr, 0);
+    [[maybe_unused]] const auto componentHandle =
+        world.makeComponent(entityHandle, &foo);
     // world.makeComponent(entityHandle, &bar);
 
     [[maybe_unused]] const std::vector<
@@ -34,5 +49,8 @@ int main() noexcept {
     assert(qwe.size() == 1);
     assert(std::get<0>(qwe[0]) != nullptr);
     assert(std::get<1>(qwe[0]) == nullptr);
+
+    FooSystem system;
+    world.updateSystem(system, 0.01);
     return 0;
 }

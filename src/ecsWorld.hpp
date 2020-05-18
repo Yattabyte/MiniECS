@@ -43,14 +43,14 @@ class ecsWorld {
     /// \brief  Create an entity from a list of input components.
     /// \param	components			array of component pointers to hard copy.
     /// \param	numComponents		the number of components in the array.
-    EntityHandle makeEntity(
+    [[nodiscard]] EntityHandle makeEntity(
         const ecsBaseComponent* const* const components,
         const size_t& numComponents);
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Adds a component to an entity.
     /// \param	entityHandle		handle to the component's parent entity.
     /// \param	component			the component being added.
-    ComponentHandle makeComponent(
+    [[nodiscard]] ComponentHandle makeComponent(
         const EntityHandle& entityHandle,
         const ecsBaseComponent* const component);
     ///////////////////////////////////////////////////////////////////////////
@@ -58,7 +58,7 @@ class ecsWorld {
     /// \param	entityHandle		handle to the component's parent entity.
     /// \param	componentID			the runtime component class.
     /// \param  component			the component being added.
-    ComponentHandle makeComponent(
+    [[nodiscard]] ComponentHandle makeComponent(
         const EntityHandle& entityHandle, const ComponentID& componentID,
         const ecsBaseComponent* const component);
 
@@ -84,12 +84,13 @@ class ecsWorld {
     /// \brief  Try to find an entity matching the UUID provided.
     /// \param	UUID			the target entity's UUID.
     /// \return	pointer to the found entity on success, nullptr on failure.
-    std::shared_ptr<ecsEntity> getEntity(const EntityHandle& UUID) const;
+    [[nodiscard]] std::shared_ptr<ecsEntity>
+    getEntity(const EntityHandle& UUID) const;
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Try to find a list of entities matching the UUID's provided.
     /// \param	uuids			list of target entity UUID's.
     /// \return	list of pointers to the found entities (nullptr's omitted).
-    std::vector<std::shared_ptr<ecsEntity>>
+    [[nodiscard]] std::vector<std::shared_ptr<ecsEntity>>
     getEntities(const std::vector<EntityHandle>& uuids) const;
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Search for a component type in an entity.
@@ -97,7 +98,7 @@ class ecsWorld {
     /// \param	entityHandle	handle to the entity to retrieve from.
     /// \return	a component of type requested on success, nullptr otherwise.
     template <typename T>
-    T* getComponent(const EntityHandle& entityHandle) const {
+    [[nodiscard]] T* getComponent(const EntityHandle& entityHandle) {
         if (auto* component = getComponent(entityHandle, T::Runtime_ID))
             return dynamic_cast<T*>(component);
         return nullptr;
@@ -107,15 +108,15 @@ class ecsWorld {
     /// \param	entityHandle		handle to the entity to retrieve from.
     /// \param	componentID			the runtime class ID of the component.
     /// \return the specific component on success, nullptr otherwise.
-    ecsBaseComponent* getComponent(
-        const EntityHandle& entityHandle, const ComponentID& componentID) const;
+    [[nodiscard]] ecsBaseComponent* getComponent(
+        const EntityHandle& entityHandle, const ComponentID& componentID);
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Try to retrieve a component matching the UUID provided.
     /// \tparam	T					the class type of component.
     /// \param	componentHandle		the target component's handle.
     /// \return	the component of type T on success, nullptr otherwise.
     template <typename T>
-    T* getComponent(const ComponentHandle& componentHandle) const {
+    [[nodiscard]] T* getComponent(const ComponentHandle& componentHandle) {
         if (auto* component = getComponent(componentHandle))
             return dynamic_cast<T*>(component);
         return nullptr;
@@ -124,24 +125,23 @@ class ecsWorld {
     /// \brief  Try to find a component matching the UUID provided.
     /// \param	componentHandle		the target component's UUID.
     /// \return pointer to the found component on success, nullptr on failure.
-    ecsBaseComponent*
-    getComponent(const ComponentHandle& componentHandle) const;
+    [[nodiscard]] ecsBaseComponent*
+    getComponent(const ComponentHandle& componentHandle);
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Try to find a component matching the runtime ID provided.
     /// \param	entityComponents	the array of entity component IDS.
     /// \param	mem_array			the array of component data.
     /// \param  componentID			the class ID of the component.
     /// \return	the component pointer matching the ID specified.
-    static ecsBaseComponent* getComponent(
+    [[nodiscard]] static ecsBaseComponent* getComponent(
         const std::vector<std::tuple<ComponentID, int, ComponentHandle>>&
             entityComponents,
-        const ComponentDataSpace& mem_array,
-        const ComponentID& componentID) noexcept;
+        ComponentDataSpace& mem_array, const ComponentID& componentID) noexcept;
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Retrieve a list of entity components corresponding to the input.
     /// \param	componentTypes		list of component types to retrieve.
     template <typename... T_types>
-    std::vector<std::tuple<T_types...>> getComponents(
+    [[nodiscard]] std::vector<std::tuple<T_types...>> getComponents(
         const std::vector<std::pair<ComponentID, ecsSystem::RequirementsFlag>>&
             componentTypes) {
         std::vector<std::tuple<T_types...>> entityComponents;
@@ -167,11 +167,11 @@ class ecsWorld {
 
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Clear the data out of this ecsWorld.
-    void clear() noexcept;
+    void clear();
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Generate a universally unique identifier for entities or
     /// components. \return						a new ID.
-    static ecsHandle generateUUID();
+    [[nodiscard]] static ecsHandle generateUUID();
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Update the components of all systems provided.
     /// \param	systems				the systems to update.
@@ -181,13 +181,8 @@ class ecsWorld {
     /// \brief  Update the components of a single system.
     /// \param	system				the system to update.
     /// \param	deltaTime			the delta time.
-    void updateSystem(ecsSystem* system, const double& deltaTime);
+    void updateSystem(ecsSystem& system, const double& deltaTime);
     ///////////////////////////////////////////////////////////////////////////
-    /// \brief  Update the components of a single system.
-    /// \param	system				the system to update.
-    /// \param	deltaTime			the delta time.
-    void updateSystem(
-        const std::shared_ptr<ecsSystem>& system, const double& deltaTime);
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Update the components of a single system.
     /// \param	deltaTime			the delta time.
@@ -214,7 +209,8 @@ class ecsWorld {
     /// \brief  Check if a component ID is valid and registered.
     /// \param	componentID			the component ID to verify.
     /// \return	true if valid and registered, false otherwise.
-    static bool isComponentIDValid(const ComponentID& componentID) noexcept;
+    [[nodiscard]] static bool
+    isComponentIDValid(const ComponentID& componentID) noexcept;
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Delete a component matching an index and runtime ID.
     /// \param	componentID			the component class/category ID.
@@ -232,7 +228,7 @@ class ecsWorld {
     /// \brief  Find the least common component.
     /// \param	componentTypes		the component types.
     /// \return	the byte-size of the least common component.
-    size_t findLeastCommonComponent(
+    [[nodiscard]] size_t findLeastCommonComponent(
         const std::vector<std::pair<ComponentID, ecsSystem::RequirementsFlag>>&
             componentTypes);
 
