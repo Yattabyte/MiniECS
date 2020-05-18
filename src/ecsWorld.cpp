@@ -13,7 +13,7 @@ using namespace mini;
 EntityHandle ecsWorld::makeEntity(
     const ecsBaseComponent* const* const components,
     const size_t& numComponents) {
-    const auto UUID = EntityHandle(generateUUID());
+    auto UUID = EntityHandle(generateUUID());
 
     auto newEntity = std::make_shared<ecsEntity>();
     m_entities.insert_or_assign(UUID, newEntity);
@@ -50,7 +50,7 @@ ComponentHandle ecsWorld::makeComponent(
                 }
 
             // Create new instance of this component
-            const auto UUID = ComponentHandle(generateUUID());
+            auto UUID = ComponentHandle(generateUUID());
             const auto& createfn =
                 std::get<0>(ecsBaseComponent::m_componentRegistry[componentID]);
             entity->m_components.emplace_back(
@@ -140,7 +140,7 @@ ecsWorld::getEntities(const std::vector<EntityHandle>& uuids) const {
     entities.reserve(uuids.size());
     for (const auto& uuid : uuids)
         if (const auto entity = getEntity(uuid))
-            entities.push_back(entity);
+            entities.emplace_back(entity);
     return entities;
 }
 
@@ -307,7 +307,8 @@ void ecsWorld::updateSystems(ecsSystemList& systems, const double& deltaTime) {
 ///////////////////////////////////////////////////////////////////////////
 
 void ecsWorld::updateSystem(ecsSystem* system, const double& deltaTime) {
-    if (auto components = getRelevantComponents(system->getComponentTypes());
+    if (const auto components =
+            getRelevantComponents(system->getComponentTypes());
         !components.empty())
         system->updateComponents(deltaTime, components);
 }
@@ -328,7 +329,7 @@ void ecsWorld::updateSystem(
     const std::function<void(
         const double&, const std::vector<std::vector<ecsBaseComponent*>>&)>&
         func) {
-    if (auto components = getRelevantComponents(componentTypes);
+    if (const auto components = getRelevantComponents(componentTypes);
         !components.empty())
         func(deltaTime, components);
 }
@@ -343,30 +344,33 @@ std::vector<std::vector<ecsBaseComponent*>> ecsWorld::getRelevantComponents(
     std::vector<std::vector<ecsBaseComponent*>> components;
     if (!componentTypes.empty()) {
         const auto componentTypesCount = componentTypes.size();
+        // Super simple procedure for system with 1 component type
         if (componentTypesCount == 1U) {
-            // Super simple procedure for system with 1 component type
-            const auto& [componentID, componentFlag] = componentTypes[0];
-            const auto& [createFn, freeFn, typeSize] =
-                ecsBaseComponent::m_componentRegistry[componentID];
+            const auto& componentID = componentTypes.front().first;
+            const auto& typeSize =
+                std::get<2>(ecsBaseComponent::m_componentRegistry[componentID]);
             const auto& mem_array = m_components[componentID];
             const auto mem_arraySize = mem_array.size();
             components.resize(mem_arraySize / typeSize);
             for (size_t j = 0, k = 0; j < mem_arraySize; j += typeSize, ++k)
-                components[k].push_back((ecsBaseComponent*)(&mem_array[j]));
-        } else {
-            // More complex procedure for system with > 1 component type
+                components[k].emplace_back((ecsBaseComponent*)(&mem_array[j]));
+        }
+        // More complex procedure for system with > 1 component type
+        else {
             std::vector<ecsBaseComponent*> componentParam(componentTypesCount);
-            std::vector<ComponentDataSpace*> componentArrays(
-                componentTypesCount);
-            for (size_t i = 0; i < componentTypesCount; ++i)
-                componentArrays[i] =
-                    &m_components[std::get<0>(componentTypes[i])];
+            std::vector<ComponentDataSpace*> componentArrays;
+            componentArrays.reserve(componentTypesCount);
+            std::transform(
+                componentTypes.cbegin(), componentTypes.cend(),
+                std::back_inserter(componentArrays), [&](const auto& type) {
+                    return &m_components[std::get<0>(type)];
+                });
 
             const auto minSizeIndex = findLeastCommonComponent(componentTypes);
             const auto minComponentID =
                 std::get<0>(componentTypes[minSizeIndex]);
-            const auto& [createFn, freeFn, typeSize] =
-                ecsBaseComponent::m_componentRegistry[minComponentID];
+            const auto& typeSize = std::get<2>(
+                ecsBaseComponent::m_componentRegistry[minComponentID]);
             const auto& mem_array = *componentArrays[minSizeIndex];
             const auto mem_arraySize = mem_array.size();
             // reserve, not resize, as the component at [i] may be invalid
@@ -380,23 +384,22 @@ std::vector<std::vector<ecsBaseComponent*>> ecsWorld::getRelevantComponents(
 
                     bool isValid = true;
                     for (size_t j = 0; j < componentTypesCount; ++j) {
-                        const auto& [componentID, componentFlag] =
-                            componentTypes[j];
                         if (j == minSizeIndex)
                             continue;
+
+                        const auto& [componentID, componentFlag] =
+                            componentTypes[j];
                         componentParam[j] = getComponent(
                             entityComponents, *componentArrays[j], componentID);
-                        if ((componentParam[j] == nullptr) &&
-                            (static_cast<unsigned int>(componentFlag) &
-                             static_cast<unsigned int>(
-                                 ecsSystem::RequirementsFlag::FLAG_OPTIONAL)) ==
-                                0) {
+                        if (componentParam[j] == nullptr &&
+                            componentFlag ==
+                                ecsSystem::RequirementsFlag::FLAG_REQUIRED) {
                             isValid = false;
                             break;
                         }
                     }
                     if (isValid)
-                        components.push_back(componentParam);
+                        components.emplace_back(componentParam);
                 }
             }
         }
@@ -411,23 +414,24 @@ std::vector<std::vector<ecsBaseComponent*>> ecsWorld::getRelevantComponents(
 size_t ecsWorld::findLeastCommonComponent(
     const std::vector<std::pair<ComponentID, ecsSystem::RequirementsFlag>>&
         componentTypes) {
-    auto minSize = std::numeric_limits<size_t>::max();
-    auto minIndex = std::numeric_limits<size_t>::max();
-    const auto componentTypesCount = componentTypes.size();
-    for (size_t i = 0; i < componentTypesCount; ++i) {
-        const auto& [componentID, componentFlag] = componentTypes[i];
+    size_t minSize = std::numeric_limits<size_t>::max();
+    size_t minIndex = std::numeric_limits<size_t>::max();
+    size_t index(0ULL);
+
+    for (const auto& [componentID, componentFlag] : componentTypes) {
         if ((static_cast<unsigned int>(componentFlag) &
              static_cast<unsigned int>(
                  ecsSystem::RequirementsFlag::FLAG_OPTIONAL)) != 0)
             continue;
 
-        const auto& [createFn, freeFn, typeSize] =
-            ecsBaseComponent::m_componentRegistry[componentID];
+        const auto& typeSize =
+            std::get<2>(ecsBaseComponent::m_componentRegistry[componentID]);
         const auto size = m_components[componentID].size() / typeSize;
         if (size <= minSize) {
             minSize = size;
-            minIndex = i;
+            minIndex = index;
         }
+        ++index;
     }
     return minIndex;
 }

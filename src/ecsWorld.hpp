@@ -13,6 +13,7 @@ namespace mini {
 ///////////////////////////////////////////////////////////////////////////
 /// Useful Aliases
 using EntityMap = std::map<EntityHandle, std::shared_ptr<ecsEntity>>;
+using ComponentMap = std::map<ComponentID, ComponentDataSpace>;
 
 ///////////////////////////////////////////////////////////////////////////
 /// \class  ecsWorld
@@ -146,7 +147,8 @@ class ecsWorld {
         std::vector<std::tuple<T_types...>> entityComponents;
 
         // Cast each component set to the types requested
-        for (auto& groupedComponents : getRelevantComponents(componentTypes)) {
+        for (const auto& groupedComponents :
+             getRelevantComponents(componentTypes)) {
             // Convert the component set to a standard array
             std::array<ecsBaseComponent*, sizeof...(T_types)> arr;
             std::copy_n(

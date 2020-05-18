@@ -96,7 +96,7 @@ class ecsSystemList final {
     /// \param	...args     arguments to forward to the system constructor.
     template <typename T, class... Args> void makeSystem(Args&&... args) {
         if (const auto system = std::make_shared<T>(args...); system->isValid())
-            m_systems.push_back(system);
+            m_systems.emplace_back(system);
     }
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Adds a system to the list.

@@ -18,7 +18,6 @@ class ecsBaseComponent;
 /// Useful Aliases.
 using ComponentID = int;
 using ComponentDataSpace = std::vector<uint8_t>;
-using ComponentMap = std::map<ComponentID, ComponentDataSpace>;
 using ComponentCreateFunction = std::function<ComponentID(
     ComponentDataSpace& memory, const ComponentHandle& componentHandle,
     const EntityHandle& entityHandle, const ecsBaseComponent*)>;
@@ -99,33 +98,27 @@ template <typename C> class ecsComponent : public ecsBaseComponent {
 /// \param	componentHandle handle to the component.
 /// \param	entityHandle    handle to the component's parent entity.
 /// \return					the index into the memory array for this component.
-template <typename C>
+template <typename ComponentTypeC>
 constexpr static int createFn(
     ComponentDataSpace& memory, const ComponentHandle& componentHandle,
     const EntityHandle& entityHandle,
     const ecsBaseComponent* component) noexcept {
     const size_t index = memory.size();
-    memory.resize(index + sizeof(C));
-    C* clone = new (&memory[index]) C(*(C*)component);
+    memory.resize(index + sizeof(ComponentTypeC));
+    ComponentTypeC* clone = new (&memory[index])
+        ComponentTypeC(*static_cast<const ComponentTypeC*>(component));
     clone->m_handle = componentHandle;
     clone->m_entityHandle = entityHandle;
     return static_cast<int>(index);
 }
 
 ///////////////////////////////////////////////////////////////////////////
-/// \brief  Construct a new component of type <C> on the heap.
-/// \return shared pointer to the new component.
-template <typename C> constexpr static auto newFn() noexcept {
-    return std::make_shared<C>();
-}
-
-///////////////////////////////////////////////////////////////////////////
 /// \brief  Destructs the supplied component/
 /// \param	component   the component to destruct.
-template <typename C>
+template <typename ComponentType>
 constexpr static void freeFn(ecsBaseComponent* component) noexcept {
-    if (auto* c = dynamic_cast<C*>(component))
-        c->~C();
+    auto* castComponent = static_cast<ComponentType*>(component);
+    castComponent->~ComponentType();
 }
 
 ///////////////////////////////////////////////////////////////////////////
