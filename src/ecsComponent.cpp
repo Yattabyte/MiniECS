@@ -8,16 +8,10 @@ using namespace mini;
 /// registerType
 ///////////////////////////////////////////////////////////////////////////
 
-#include <iostream>
-#include <string>
-
 ComponentID ecsBaseComponent::registerType(
     const ComponentCreateFunction& createFn,
     const ComponentFreeFunction& freeFn, const size_t& size) {
-    const auto componentID =
-        static_cast<ComponentID>(m_componentRegistry.size());
-
-    std::cout << "Component size is: " + std::to_string(size) << std::endl;
+    auto componentID = static_cast<ComponentID>(m_componentRegistry.size());
     m_componentRegistry.emplace_back(createFn, freeFn, size);
 
     return componentID;
