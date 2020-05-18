@@ -13,9 +13,9 @@ class ecsSystem {
     public:
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Component flag types.
-    enum class RequirementsFlag : unsigned int {
-        FLAG_REQUIRED = 0,
-        FLAG_OPTIONAL = 1
+    enum class RequirementsFlag {
+        REQUIRED,
+        OPTIONAL,
     };
 
     ///////////////////////////////////////////////////////////////////////////
@@ -65,8 +65,7 @@ class ecsSystem {
     /// \param	componentFlag	flag indicating required/optional.
     void addComponentType(
         const ComponentID& componentType,
-        const RequirementsFlag& componentFlag =
-            RequirementsFlag::FLAG_REQUIRED);
+        const RequirementsFlag& componentFlag = RequirementsFlag::REQUIRED);
 
     private:
     std::vector<std::pair<ComponentID, RequirementsFlag>>

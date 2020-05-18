@@ -10,8 +10,7 @@ using namespace mini;
 
 bool ecsSystem::isValid() const noexcept {
     for (const auto& [componentID, componentFlag] : m_componentTypes)
-        if ((static_cast<unsigned int>(componentFlag) &
-             static_cast<unsigned int>(RequirementsFlag::FLAG_OPTIONAL)) == 0)
+        if (componentFlag == RequirementsFlag::REQUIRED)
             return true;
     return false;
 }

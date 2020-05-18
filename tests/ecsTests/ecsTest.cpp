@@ -1,5 +1,5 @@
 #include "ecsWorld.hpp"
-#include <assert.h>
+#include <cassert>
 #include <iostream>
 #include <string>
 
@@ -14,20 +14,20 @@ struct BarComponent : ecsComponent<BarComponent> {
 };
 
 int main() noexcept {
-    FooComponent f = FooComponent();
-    BarComponent b = BarComponent();
+    FooComponent foo = FooComponent();
+    BarComponent bar = BarComponent();
     ecsWorld world = ecsWorld();
 
     const auto entityHandle = world.makeEntity(nullptr, 0);
-    world.makeComponent(entityHandle, &f);
-    // world.makeComponent(entityHandle, &b);
+    world.makeComponent(entityHandle, &foo);
+    // world.makeComponent(entityHandle, &bar);
 
     [[maybe_unused]] const std::vector<
         std::pair<ComponentID, ecsSystem::RequirementsFlag>>
-        ids = { { FooComponent::Runtime_ID,
-                  ecsSystem::RequirementsFlag::FLAG_REQUIRED },
-                { BarComponent::Runtime_ID,
-                  ecsSystem::RequirementsFlag::FLAG_OPTIONAL } };
+        ids = {
+            { FooComponent::Runtime_ID, ecsSystem::RequirementsFlag::REQUIRED },
+            { BarComponent::Runtime_ID, ecsSystem::RequirementsFlag::OPTIONAL }
+        };
     [[maybe_unused]] const auto qwe =
         world.getComponents<FooComponent*, BarComponent*>(ids);
 
