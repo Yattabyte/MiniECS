@@ -46,7 +46,7 @@ class ecsHandle {
     /// \brief  Compare against another handle.
     /// \param	other		an other handle to compare against.
     /// \return	true if this handle is the same as the other handle.
-    bool operator==(const ecsHandle& other) const noexcept {
+    [[nodiscard]] bool operator==(const ecsHandle& other) const noexcept {
         return static_cast<bool>(
             std::strncmp(m_uuid, other.m_uuid, 32ULL) == 0);
     }
@@ -54,18 +54,18 @@ class ecsHandle {
     /// \brief  Compare if this should be ordered before another handle.
     /// \param	other		an other handle to compare against.
     /// \return	true if this handle is the less than the other handle.
-    bool operator<(const ecsHandle& other) const noexcept {
+    [[nodiscard]] bool operator<(const ecsHandle& other) const noexcept {
         return static_cast<bool>(std::strncmp(m_uuid, other.m_uuid, 32ULL) < 0);
     }
 
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Conversion to bool operator.
     /// \return	true if this handle is valid, false otherwise.
-    operator bool() const noexcept;
+    [[nodiscard]] operator bool() const noexcept;
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Retrieve if this handle is valid.
     /// \return	true if this handle is valid, false otherwise.
-    bool isValid() const noexcept;
+    [[nodiscard]] bool isValid() const noexcept;
 
     char m_uuid[32] = { '\0' }; ///< The UUID container.
 };

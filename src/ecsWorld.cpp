@@ -49,7 +49,7 @@ ComponentHandle ecsWorld::makeComponent(
         return ComponentHandle();
 
     // Prevent adding duplicate component types to the same entity
-    for (const auto& [ID, fn, compHandle] : entity->m_components)
+    for (auto& [ID, fn, compHandle] : entity->m_components)
         if (ID == componentID)
             return compHandle;
 

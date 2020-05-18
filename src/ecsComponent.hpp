@@ -103,7 +103,7 @@ constexpr static int createFn(
     ComponentDataSpace& memory, const ComponentHandle& componentHandle,
     const EntityHandle& entityHandle,
     const ecsBaseComponent* component) noexcept {
-    const size_t index = memory.size();
+    size_t index = memory.size();
     memory.resize(index + sizeof(ComponentTypeC));
     ComponentTypeC* clone = new (&memory[index])
         ComponentTypeC(*static_cast<const ComponentTypeC*>(component));
