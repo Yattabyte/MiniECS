@@ -43,14 +43,14 @@ class ecsWorld {
     /// \brief  Create an entity from a list of input components.
     /// \param	components			array of component pointers to hard copy.
     /// \param	numComponents		the number of components in the array.
-    [[nodiscard]] EntityHandle makeEntity(
+    EntityHandle makeEntity(
         const ecsBaseComponent* const* const components,
         const size_t& numComponents);
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Adds a component to an entity.
     /// \param	entityHandle		handle to the component's parent entity.
     /// \param	component			the component being added.
-    [[nodiscard]] ComponentHandle makeComponent(
+    ComponentHandle makeComponent(
         const EntityHandle& entityHandle,
         const ecsBaseComponent* const component);
     ///////////////////////////////////////////////////////////////////////////
@@ -58,7 +58,7 @@ class ecsWorld {
     /// \param	entityHandle		handle to the component's parent entity.
     /// \param	componentID			the runtime component class.
     /// \param  component			the component being added.
-    [[nodiscard]] ComponentHandle makeComponent(
+    ComponentHandle makeComponent(
         const EntityHandle& entityHandle, const ComponentID& componentID,
         const ecsBaseComponent* const component);
 
