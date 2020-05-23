@@ -121,15 +121,14 @@ class ecsWorld {
     /// \param	entity      		the entity to remove the component from.
     /// \return	true on successful removal, false otherwise.
     template <typename Component>
-    ComponentHandle removeComponent(const EntityHandle& entityHandle) {
+    bool removeComponent(const EntityHandle& entityHandle) {
         return removeComponent(entityHandle, Component::Runtime_ID);
     }
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Remove a specific component class from within a specific entity.
     /// \param	entity      		the entity to remove the component from.
     /// \return	true on successful removal, false otherwise.
-    template <typename Component>
-    ComponentHandle removeComponent(ecsEntity& entity) {
+    template <typename Component> bool removeComponent(ecsEntity& entity) {
         return removeComponent(entity, Component::Runtime_ID);
     }
 
@@ -181,12 +180,13 @@ class ecsWorld {
     getComponent(ecsEntity& entity, const ComponentID& componentID);
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Try to retrieve a component matching the UUID provided.
-    /// \tparam	T					the class type of component.
+    /// \tparam	Component   		the class type of component.
     /// \param	componentHandle		the target component's handle.
     /// \return	the component of type T on success, nullptr otherwise.
-    template <typename T>
-    [[nodiscard]] T* getComponent(const ComponentHandle& componentHandle) {
-        return dynamic_cast<T*>(getComponent(componentHandle));
+    template <typename Component>
+    [[nodiscard]] Component*
+    getComponent(const ComponentHandle& componentHandle) {
+        return dynamic_cast<Component*>(getComponent(componentHandle));
     }
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Try to find a component matching the UUID provided.
