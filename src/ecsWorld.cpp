@@ -124,7 +124,7 @@ ecsWorld::getComponent(const ComponentHandle& componentHandle) {
         for (const auto& [compID, fn, compHandle] : entity->m_components)
             if (compHandle == componentHandle)
                 return reinterpret_cast<ecsBaseComponent*>(
-                    &(m_components.at(compID).at(fn)));
+                    &(m_components[compID].at(fn)));
     }
 
     return nullptr;
@@ -322,7 +322,7 @@ ecsBaseComponent* ecsWorld::getComponentInternal(
 ecsBaseComponent* mini::ecsWorld::getComponentInternal(
     ecsEntity& entity, const ComponentID& componentID) {
     return getComponentInternal(
-        entity.m_components, m_components.at(componentID), componentID);
+        entity.m_components, m_components[componentID], componentID);
 }
 
 ///////////////////////////////////////////////////////////////////////////
