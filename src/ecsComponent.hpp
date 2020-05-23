@@ -105,8 +105,12 @@ constexpr static int createFn(
     const ecsBaseComponent* component) noexcept {
     size_t index = memory.size();
     memory.resize(index + sizeof(ComponentTypeC));
-    ComponentTypeC* clone = new (&memory[index])
-        ComponentTypeC(*static_cast<const ComponentTypeC*>(component));
+    ComponentTypeC* clone = nullptr;
+    if (component == nullptr)
+        clone = new (&memory[index]) ComponentTypeC();
+    else
+        clone = new (&memory[index])
+            ComponentTypeC(*static_cast<const ComponentTypeC*>(component));
     clone->m_handle = componentHandle;
     clone->m_entityHandle = entityHandle;
     return static_cast<int>(index);

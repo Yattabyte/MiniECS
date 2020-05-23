@@ -13,6 +13,7 @@ namespace mini {
 /// \brief      A base class representing components in an ECS architecture.
 /// \warning    Don't subclass, functionality derived from components/systems.
 struct ecsEntity final {
+    EntityHandle m_handle;
     std::vector<std::tuple<ComponentID, int, ComponentHandle>>
         m_components = {}; ///< Vector of components.
 };

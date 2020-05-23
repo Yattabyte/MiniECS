@@ -28,13 +28,11 @@ class FooSystem : public ecsSystem {
 };
 
 int main() noexcept {
-    FooComponent foo = FooComponent();
-    BarComponent bar = BarComponent();
     ecsWorld world = ecsWorld();
 
-    [[maybe_unused]] const auto entityHandle = world.makeEntity(nullptr, 0);
+    [[maybe_unused]] const auto entityHandle = world.makeEntity();
     [[maybe_unused]] const auto componentHandle =
-        world.makeComponent(entityHandle, &foo);
+        world.makeComponent<FooComponent>(entityHandle);
     // world.makeComponent(entityHandle, &bar);
 
     [[maybe_unused]] const std::vector<
