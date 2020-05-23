@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">MiniECS
-   &#160;<span id="projectnumber">0.4.4</span>
+   &#160;<span id="projectnumber">0.6.0</span>
    </div>
    <div id="projectbrief">A set of simple Entity, Component, and Systems (ECS) classes for use in games and other software.</div>
   </td>
@@ -88,11 +88,11 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><b>qwe</b> = true</td></
 <tr class="separator:a3f99348d62f805e3ff9d65d2cd123342"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="inherit_header pub_attribs_classmini_1_1ecs_base_component"><td colspan="2" onclick="javascript:toggleInherit('pub_attribs_classmini_1_1ecs_base_component')"><img src="closed.png" alt="-"/>&#160;Public Attributes inherited from <a class="el" href="classmini_1_1ecs_base_component.html">mini::ecsBaseComponent</a></td></tr>
 <tr class="memitem:aa9c40edccff5843f335f7e5b0b28c8b2 inherit pub_attribs_classmini_1_1ecs_base_component"><td class="memItemLeft" align="right" valign="top"><a id="aa9c40edccff5843f335f7e5b0b28c8b2"></a>
-ComponentID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_base_component.html#aa9c40edccff5843f335f7e5b0b28c8b2">m_runtimeID</a></td></tr>
+ComponentID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_base_component.html#aa9c40edccff5843f335f7e5b0b28c8b2">m_runtimeID</a> = 0</td></tr>
 <tr class="memdesc:aa9c40edccff5843f335f7e5b0b28c8b2 inherit pub_attribs_classmini_1_1ecs_base_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runtime generated ID per class. <br /></td></tr>
 <tr class="separator:aa9c40edccff5843f335f7e5b0b28c8b2 inherit pub_attribs_classmini_1_1ecs_base_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f4f47037119bcaa3b9e99774732b55e inherit pub_attribs_classmini_1_1ecs_base_component"><td class="memItemLeft" align="right" valign="top"><a id="a3f4f47037119bcaa3b9e99774732b55e"></a>
-size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_base_component.html#a3f4f47037119bcaa3b9e99774732b55e">m_size</a></td></tr>
+size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_base_component.html#a3f4f47037119bcaa3b9e99774732b55e">m_size</a> = 0</td></tr>
 <tr class="memdesc:a3f4f47037119bcaa3b9e99774732b55e inherit pub_attribs_classmini_1_1ecs_base_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Total component byte-size. <br /></td></tr>
 <tr class="separator:a3f4f47037119bcaa3b9e99774732b55e inherit pub_attribs_classmini_1_1ecs_base_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af2fe85cb96aae90b100ca6f184a85576 inherit pub_attribs_classmini_1_1ecs_base_component"><td class="memItemLeft" align="right" valign="top"><a id="af2fe85cb96aae90b100ca6f184a85576"></a>
@@ -116,6 +116,10 @@ Additional Inherited Members</h2></td></tr>
 virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_base_component.html#adbabef2473998fae30999904a9ae1d2e">~ecsBaseComponent</a> ()=default</td></tr>
 <tr class="memdesc:adbabef2473998fae30999904a9ae1d2e inherit pub_methods_classmini_1_1ecs_base_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy this base <a class="el" href="classmini_1_1ecs_component.html" title="A specialized, specific type of component.">ecsComponent</a>. <br /></td></tr>
 <tr class="separator:adbabef2473998fae30999904a9ae1d2e inherit pub_methods_classmini_1_1ecs_base_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad66c21d1abf0aae0783ec8f34101e7fa inherit pub_methods_classmini_1_1ecs_base_component"><td class="memItemLeft" align="right" valign="top"><a id="ad66c21d1abf0aae0783ec8f34101e7fa"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_base_component.html#ad66c21d1abf0aae0783ec8f34101e7fa">ecsBaseComponent</a> () noexcept</td></tr>
+<tr class="memdesc:ad66c21d1abf0aae0783ec8f34101e7fa inherit pub_methods_classmini_1_1ecs_base_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Default construct this base <a class="el" href="classmini_1_1ecs_component.html" title="A specialized, specific type of component.">ecsComponent</a>. <br /></td></tr>
+<tr class="separator:ad66c21d1abf0aae0783ec8f34101e7fa inherit pub_methods_classmini_1_1ecs_base_component"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9b21ff3b196a423581b77066ebaac392 inherit pub_methods_classmini_1_1ecs_base_component"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_base_component.html#a9b21ff3b196a423581b77066ebaac392">ecsBaseComponent</a> (const ComponentID &amp;ID, const size_t &amp;size) noexcept</td></tr>
 <tr class="memdesc:a9b21ff3b196a423581b77066ebaac392 inherit pub_methods_classmini_1_1ecs_base_component"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct a base <a class="el" href="classmini_1_1ecs_component.html" title="A specialized, specific type of component.">ecsComponent</a>.  <a href="classmini_1_1ecs_base_component.html#a9b21ff3b196a423581b77066ebaac392">More...</a><br /></td></tr>
 <tr class="separator:a9b21ff3b196a423581b77066ebaac392 inherit pub_methods_classmini_1_1ecs_base_component"><td class="memSeparator" colspan="2">&#160;</td></tr>

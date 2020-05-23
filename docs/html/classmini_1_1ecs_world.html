@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">MiniECS
-   &#160;<span id="projectnumber">0.4.4</span>
+   &#160;<span id="projectnumber">0.6.0</span>
    </div>
    <div id="projectbrief">A set of simple Entity, Component, and Systems (ECS) classes for use in games and other software.</div>
   </td>
@@ -87,81 +87,92 @@ Public Member Functions</h2></td></tr>
 &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#adb9596df85ec0e7e804e2cc93d4b5285">~ecsWorld</a> ()</td></tr>
 <tr class="memdesc:adb9596df85ec0e7e804e2cc93d4b5285"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destroy this ECS World. <br /></td></tr>
 <tr class="separator:adb9596df85ec0e7e804e2cc93d4b5285"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a85022ff47e19a515692de090796f0ac0"><td class="memItemLeft" align="right" valign="top"><a id="a85022ff47e19a515692de090796f0ac0"></a>
-&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#a85022ff47e19a515692de090796f0ac0">ecsWorld</a> () noexcept=default</td></tr>
-<tr class="memdesc:a85022ff47e19a515692de090796f0ac0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct an empty ECS World. <br /></td></tr>
-<tr class="separator:a85022ff47e19a515692de090796f0ac0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a84e580ac17e0699c67869e6250df7983"><td class="memItemLeft" align="right" valign="top"><a id="a84e580ac17e0699c67869e6250df7983"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#a84e580ac17e0699c67869e6250df7983">ecsWorld</a> ()</td></tr>
+<tr class="memdesc:a84e580ac17e0699c67869e6250df7983"><td class="mdescLeft">&#160;</td><td class="mdescRight">Construct an empty ECS World. <br /></td></tr>
+<tr class="separator:a84e580ac17e0699c67869e6250df7983"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a59b98f332e418b26c67b1b79e2df38d0"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#a59b98f332e418b26c67b1b79e2df38d0">ecsWorld</a> (<a class="el" href="classmini_1_1ecs_world.html">ecsWorld</a> &amp;&amp;other) noexcept</td></tr>
 <tr class="memdesc:a59b98f332e418b26c67b1b79e2df38d0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move an ECS world.  <a href="#a59b98f332e418b26c67b1b79e2df38d0">More...</a><br /></td></tr>
 <tr class="separator:a59b98f332e418b26c67b1b79e2df38d0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae0c5527447d6715d513437c0086fa4d3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmini_1_1ecs_world.html">ecsWorld</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#ae0c5527447d6715d513437c0086fa4d3">operator=</a> (<a class="el" href="classmini_1_1ecs_world.html">ecsWorld</a> &amp;&amp;other) noexcept</td></tr>
 <tr class="memdesc:ae0c5527447d6715d513437c0086fa4d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Move the data from another <a class="el" href="classmini_1_1ecs_world.html" title="A set of ECS entities and components forming a single level.">ecsWorld</a> into this.  <a href="#ae0c5527447d6715d513437c0086fa4d3">More...</a><br /></td></tr>
 <tr class="separator:ae0c5527447d6715d513437c0086fa4d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af033b07dfa7b5ed50045b0340dea49f9"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmini_1_1_entity_handle.html">EntityHandle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#af033b07dfa7b5ed50045b0340dea49f9">makeEntity</a> (const <a class="el" href="classmini_1_1ecs_base_component.html">ecsBaseComponent</a> *const *const components, const size_t &amp;numComponents)</td></tr>
-<tr class="memdesc:af033b07dfa7b5ed50045b0340dea49f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an entity from a list of input components.  <a href="#af033b07dfa7b5ed50045b0340dea49f9">More...</a><br /></td></tr>
-<tr class="separator:af033b07dfa7b5ed50045b0340dea49f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a48258d28c905d8ee0b4687ab8b9a108a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmini_1_1_entity_handle.html">EntityHandle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#a48258d28c905d8ee0b4687ab8b9a108a">makeEntity</a> (const <a class="el" href="classmini_1_1ecs_base_component.html">ecsBaseComponent</a> *const *const components=nullptr, const size_t numComponents=0ULL)</td></tr>
+<tr class="memdesc:a48258d28c905d8ee0b4687ab8b9a108a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create an entity from an optional list of components.  <a href="#a48258d28c905d8ee0b4687ab8b9a108a">More...</a><br /></td></tr>
+<tr class="separator:a48258d28c905d8ee0b4687ab8b9a108a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a64ef95d18c4fdbe6093eabd5686ae056"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmini_1_1_component_handle.html">ComponentHandle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#a64ef95d18c4fdbe6093eabd5686ae056">makeComponent</a> (const <a class="el" href="structmini_1_1_entity_handle.html">EntityHandle</a> &amp;entityHandle, const <a class="el" href="classmini_1_1ecs_base_component.html">ecsBaseComponent</a> *const component)</td></tr>
-<tr class="memdesc:a64ef95d18c4fdbe6093eabd5686ae056"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a component to an entity.  <a href="#a64ef95d18c4fdbe6093eabd5686ae056">More...</a><br /></td></tr>
+<tr class="memdesc:a64ef95d18c4fdbe6093eabd5686ae056"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new component for the specified entity.  <a href="#a64ef95d18c4fdbe6093eabd5686ae056">More...</a><br /></td></tr>
 <tr class="separator:a64ef95d18c4fdbe6093eabd5686ae056"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae1f584bf9def7cbcaa76a1ea7446e890"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmini_1_1_component_handle.html">ComponentHandle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#ae1f584bf9def7cbcaa76a1ea7446e890">makeComponent</a> (const <a class="el" href="structmini_1_1_entity_handle.html">EntityHandle</a> &amp;entityHandle, const ComponentID &amp;componentID, const <a class="el" href="classmini_1_1ecs_base_component.html">ecsBaseComponent</a> *const component)</td></tr>
-<tr class="memdesc:ae1f584bf9def7cbcaa76a1ea7446e890"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a component to an entity.  <a href="#ae1f584bf9def7cbcaa76a1ea7446e890">More...</a><br /></td></tr>
-<tr class="separator:ae1f584bf9def7cbcaa76a1ea7446e890"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae0c0bd250c2ba6aea8bb566e13128a93"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structmini_1_1_component_handle.html">ComponentHandle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#ae0c0bd250c2ba6aea8bb566e13128a93">makeComponent</a> (<a class="el" href="structmini_1_1ecs_entity.html">ecsEntity</a> &amp;entity, const <a class="el" href="classmini_1_1ecs_base_component.html">ecsBaseComponent</a> *const component)</td></tr>
+<tr class="memdesc:ae0c0bd250c2ba6aea8bb566e13128a93"><td class="mdescLeft">&#160;</td><td class="mdescRight">Adds a new component for the specified entity.  <a href="#ae0c0bd250c2ba6aea8bb566e13128a93">More...</a><br /></td></tr>
+<tr class="separator:ae0c0bd250c2ba6aea8bb566e13128a93"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7850215955a919bd4018895482d936a9"><td class="memTemplParams" colspan="2">template&lt;typename Component &gt; </td></tr>
+<tr class="memitem:a7850215955a919bd4018895482d936a9"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structmini_1_1_component_handle.html">ComponentHandle</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#a7850215955a919bd4018895482d936a9">makeComponent</a> (const <a class="el" href="structmini_1_1_entity_handle.html">EntityHandle</a> &amp;entityHandle)</td></tr>
+<tr class="memdesc:a7850215955a919bd4018895482d936a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a component from the input template parameter.  <a href="#a7850215955a919bd4018895482d936a9">More...</a><br /></td></tr>
+<tr class="separator:a7850215955a919bd4018895482d936a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adb714642e62b2bb854e81b8c24f300c8"><td class="memTemplParams" colspan="2">template&lt;typename Component &gt; </td></tr>
+<tr class="memitem:adb714642e62b2bb854e81b8c24f300c8"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="structmini_1_1_component_handle.html">ComponentHandle</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#adb714642e62b2bb854e81b8c24f300c8">makeComponent</a> (<a class="el" href="structmini_1_1ecs_entity.html">ecsEntity</a> &amp;entity)</td></tr>
+<tr class="memdesc:adb714642e62b2bb854e81b8c24f300c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generates a component from the input template parameter.  <a href="#adb714642e62b2bb854e81b8c24f300c8">More...</a><br /></td></tr>
+<tr class="separator:adb714642e62b2bb854e81b8c24f300c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7f5a0977700cb36d87d65b5796e9a5c2"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#a7f5a0977700cb36d87d65b5796e9a5c2">removeEntity</a> (const <a class="el" href="structmini_1_1_entity_handle.html">EntityHandle</a> &amp;entityHandle)</td></tr>
 <tr class="memdesc:a7f5a0977700cb36d87d65b5796e9a5c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Search for and remove an entity matching the specific handle.  <a href="#a7f5a0977700cb36d87d65b5796e9a5c2">More...</a><br /></td></tr>
 <tr class="separator:a7f5a0977700cb36d87d65b5796e9a5c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2edff317b2d064d7b00d1e45f75aed6b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#a2edff317b2d064d7b00d1e45f75aed6b">removeEntity</a> (<a class="el" href="structmini_1_1ecs_entity.html">ecsEntity</a> &amp;entity)</td></tr>
+<tr class="memdesc:a2edff317b2d064d7b00d1e45f75aed6b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove the entity specified.  <a href="#a2edff317b2d064d7b00d1e45f75aed6b">More...</a><br /></td></tr>
+<tr class="separator:a2edff317b2d064d7b00d1e45f75aed6b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adf2889707e46dc28c909174202b06b78"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#adf2889707e46dc28c909174202b06b78">removeComponent</a> (const <a class="el" href="structmini_1_1_component_handle.html">ComponentHandle</a> &amp;componentHandle)</td></tr>
-<tr class="memdesc:adf2889707e46dc28c909174202b06b78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Search for and remove a component matching the specific handle.  <a href="#adf2889707e46dc28c909174202b06b78">More...</a><br /></td></tr>
+<tr class="memdesc:adf2889707e46dc28c909174202b06b78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Search for and remove a component matching the specified handle.  <a href="#adf2889707e46dc28c909174202b06b78">More...</a><br /></td></tr>
 <tr class="separator:adf2889707e46dc28c909174202b06b78"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad6fc53581b3a3ef68c21f1ab071cac58"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#ad6fc53581b3a3ef68c21f1ab071cac58">removeEntityComponent</a> (const <a class="el" href="structmini_1_1_entity_handle.html">EntityHandle</a> &amp;entityHandle, const ComponentID &amp;componentID)</td></tr>
-<tr class="memdesc:ad6fc53581b3a3ef68c21f1ab071cac58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove a specific component class from within a specific entity.  <a href="#ad6fc53581b3a3ef68c21f1ab071cac58">More...</a><br /></td></tr>
-<tr class="separator:ad6fc53581b3a3ef68c21f1ab071cac58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3c838001ea0a18b11e40f526cc3489a"><td class="memTemplParams" colspan="2">template&lt;typename Component &gt; </td></tr>
+<tr class="memitem:af3c838001ea0a18b11e40f526cc3489a"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#af3c838001ea0a18b11e40f526cc3489a">removeComponent</a> (const <a class="el" href="structmini_1_1_entity_handle.html">EntityHandle</a> &amp;entityHandle)</td></tr>
+<tr class="memdesc:af3c838001ea0a18b11e40f526cc3489a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Search for an entity and remove a specific component class from it.  <a href="#af3c838001ea0a18b11e40f526cc3489a">More...</a><br /></td></tr>
+<tr class="separator:af3c838001ea0a18b11e40f526cc3489a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abc1f258bbbc22debb07961f42a727e19"><td class="memTemplParams" colspan="2">template&lt;typename Component &gt; </td></tr>
+<tr class="memitem:abc1f258bbbc22debb07961f42a727e19"><td class="memTemplItemLeft" align="right" valign="top">bool&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#abc1f258bbbc22debb07961f42a727e19">removeComponent</a> (<a class="el" href="structmini_1_1ecs_entity.html">ecsEntity</a> &amp;entity)</td></tr>
+<tr class="memdesc:abc1f258bbbc22debb07961f42a727e19"><td class="mdescLeft">&#160;</td><td class="mdescRight">Remove the specific component class from the specified entity.  <a href="#abc1f258bbbc22debb07961f42a727e19">More...</a><br /></td></tr>
+<tr class="separator:abc1f258bbbc22debb07961f42a727e19"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae6bc3b0725a7969f1d64fc4a77024dfb"><td class="memItemLeft" align="right" valign="top">std::shared_ptr&lt; <a class="el" href="structmini_1_1ecs_entity.html">ecsEntity</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#ae6bc3b0725a7969f1d64fc4a77024dfb">getEntity</a> (const <a class="el" href="structmini_1_1_entity_handle.html">EntityHandle</a> &amp;UUID) const</td></tr>
 <tr class="memdesc:ae6bc3b0725a7969f1d64fc4a77024dfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Try to find an entity matching the UUID provided.  <a href="#ae6bc3b0725a7969f1d64fc4a77024dfb">More...</a><br /></td></tr>
 <tr class="separator:ae6bc3b0725a7969f1d64fc4a77024dfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a00f1136a1cf8f8373f323c9be7f7f609"><td class="memItemLeft" align="right" valign="top">std::vector&lt; std::shared_ptr&lt; <a class="el" href="structmini_1_1ecs_entity.html">ecsEntity</a> &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#a00f1136a1cf8f8373f323c9be7f7f609">getEntities</a> (const std::vector&lt; <a class="el" href="structmini_1_1_entity_handle.html">EntityHandle</a> &gt; &amp;uuids) const</td></tr>
 <tr class="memdesc:a00f1136a1cf8f8373f323c9be7f7f609"><td class="mdescLeft">&#160;</td><td class="mdescRight">Try to find a list of entities matching the UUID's provided.  <a href="#a00f1136a1cf8f8373f323c9be7f7f609">More...</a><br /></td></tr>
 <tr class="separator:a00f1136a1cf8f8373f323c9be7f7f609"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a33a9136210f6c1228e759b930ef0050f"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a33a9136210f6c1228e759b930ef0050f"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#a33a9136210f6c1228e759b930ef0050f">getComponent</a> (const <a class="el" href="structmini_1_1_entity_handle.html">EntityHandle</a> &amp;entityHandle) const</td></tr>
-<tr class="memdesc:a33a9136210f6c1228e759b930ef0050f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Search for a component type in an entity.  <a href="#a33a9136210f6c1228e759b930ef0050f">More...</a><br /></td></tr>
-<tr class="separator:a33a9136210f6c1228e759b930ef0050f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a08f5e11d617301109f541d75806b75bf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmini_1_1ecs_base_component.html">ecsBaseComponent</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#a08f5e11d617301109f541d75806b75bf">getComponent</a> (const <a class="el" href="structmini_1_1_entity_handle.html">EntityHandle</a> &amp;entityHandle, const ComponentID &amp;componentID) const</td></tr>
-<tr class="memdesc:a08f5e11d617301109f541d75806b75bf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve a component.  <a href="#a08f5e11d617301109f541d75806b75bf">More...</a><br /></td></tr>
-<tr class="separator:a08f5e11d617301109f541d75806b75bf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a349dad85669ff8f1b1476c815d3ce56b"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
-<tr class="memitem:a349dad85669ff8f1b1476c815d3ce56b"><td class="memTemplItemLeft" align="right" valign="top">T *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#a349dad85669ff8f1b1476c815d3ce56b">getComponent</a> (const <a class="el" href="structmini_1_1_component_handle.html">ComponentHandle</a> &amp;componentHandle) const</td></tr>
-<tr class="memdesc:a349dad85669ff8f1b1476c815d3ce56b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Try to retrieve a component matching the UUID provided.  <a href="#a349dad85669ff8f1b1476c815d3ce56b">More...</a><br /></td></tr>
-<tr class="separator:a349dad85669ff8f1b1476c815d3ce56b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aabe761321538998da5c7b775482c04f5"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmini_1_1ecs_base_component.html">ecsBaseComponent</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#aabe761321538998da5c7b775482c04f5">getComponent</a> (const <a class="el" href="structmini_1_1_component_handle.html">ComponentHandle</a> &amp;componentHandle) const</td></tr>
-<tr class="memdesc:aabe761321538998da5c7b775482c04f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Try to find a component matching the UUID provided.  <a href="#aabe761321538998da5c7b775482c04f5">More...</a><br /></td></tr>
-<tr class="separator:aabe761321538998da5c7b775482c04f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb72e78bbbf3d9b0f849680d2295d876"><td class="memTemplParams" colspan="2">template&lt;typename Component &gt; </td></tr>
+<tr class="memitem:abb72e78bbbf3d9b0f849680d2295d876"><td class="memTemplItemLeft" align="right" valign="top">Component *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#abb72e78bbbf3d9b0f849680d2295d876">getComponent</a> (const <a class="el" href="structmini_1_1_entity_handle.html">EntityHandle</a> &amp;entityHandle)</td></tr>
+<tr class="memdesc:abb72e78bbbf3d9b0f849680d2295d876"><td class="mdescLeft">&#160;</td><td class="mdescRight">Search for a component type in an entity.  <a href="#abb72e78bbbf3d9b0f849680d2295d876">More...</a><br /></td></tr>
+<tr class="separator:abb72e78bbbf3d9b0f849680d2295d876"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af4d6779585349a21983d59258ef97161"><td class="memTemplParams" colspan="2">template&lt;typename Component &gt; </td></tr>
+<tr class="memitem:af4d6779585349a21983d59258ef97161"><td class="memTemplItemLeft" align="right" valign="top">Component *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#af4d6779585349a21983d59258ef97161">getComponent</a> (<a class="el" href="structmini_1_1ecs_entity.html">ecsEntity</a> &amp;entity)</td></tr>
+<tr class="memdesc:af4d6779585349a21983d59258ef97161"><td class="mdescLeft">&#160;</td><td class="mdescRight">Search for a component type in an entity.  <a href="#af4d6779585349a21983d59258ef97161">More...</a><br /></td></tr>
+<tr class="separator:af4d6779585349a21983d59258ef97161"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a42489e91d8bc6d06641c52200786bc0e"><td class="memTemplParams" colspan="2">template&lt;typename Component &gt; </td></tr>
+<tr class="memitem:a42489e91d8bc6d06641c52200786bc0e"><td class="memTemplItemLeft" align="right" valign="top">Component *&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#a42489e91d8bc6d06641c52200786bc0e">getComponent</a> (const <a class="el" href="structmini_1_1_component_handle.html">ComponentHandle</a> &amp;componentHandle)</td></tr>
+<tr class="memdesc:a42489e91d8bc6d06641c52200786bc0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Try to retrieve a component matching the UUID provided.  <a href="#a42489e91d8bc6d06641c52200786bc0e">More...</a><br /></td></tr>
+<tr class="separator:a42489e91d8bc6d06641c52200786bc0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4dd8e567061ae728e43ddfc7fbc3cfcc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classmini_1_1ecs_base_component.html">ecsBaseComponent</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#a4dd8e567061ae728e43ddfc7fbc3cfcc">getComponent</a> (const <a class="el" href="structmini_1_1_component_handle.html">ComponentHandle</a> &amp;componentHandle)</td></tr>
+<tr class="memdesc:a4dd8e567061ae728e43ddfc7fbc3cfcc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Try to find a component matching the UUID provided.  <a href="#a4dd8e567061ae728e43ddfc7fbc3cfcc">More...</a><br /></td></tr>
+<tr class="separator:a4dd8e567061ae728e43ddfc7fbc3cfcc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa55610b7338b9e79923e819a578d0c00"><td class="memTemplParams" colspan="2">template&lt;typename... T_types&gt; </td></tr>
-<tr class="memitem:aa55610b7338b9e79923e819a578d0c00"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::tuple&lt; T_types... &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#aa55610b7338b9e79923e819a578d0c00">getComponents</a> (const std::vector&lt; std::pair&lt; ComponentID, <a class="el" href="classmini_1_1ecs_system.html#a7c18415ccc49cb8017907324ce2640a2">ecsSystem::RequirementsFlag</a> &gt;&gt; &amp;componentTypes)</td></tr>
+<tr class="memitem:aa55610b7338b9e79923e819a578d0c00"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::tuple&lt; T_types... &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#aa55610b7338b9e79923e819a578d0c00">getComponents</a> (const std::vector&lt; std::pair&lt; ComponentID, <a class="el" href="classmini_1_1ecs_system.html#a4b05885707c91fd44814659bf8ea194e">ecsSystem::RequirementsFlag</a> &gt;&gt; &amp;componentTypes)</td></tr>
 <tr class="memdesc:aa55610b7338b9e79923e819a578d0c00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve a list of entity components corresponding to the input.  <a href="#aa55610b7338b9e79923e819a578d0c00">More...</a><br /></td></tr>
 <tr class="separator:aa55610b7338b9e79923e819a578d0c00"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a5cb35863486ebcf4f07e0c0f5424516b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#a5cb35863486ebcf4f07e0c0f5424516b">clear</a> () noexcept</td></tr>
-<tr class="memdesc:a5cb35863486ebcf4f07e0c0f5424516b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the data out of this <a class="el" href="classmini_1_1ecs_world.html" title="A set of ECS entities and components forming a single level.">ecsWorld</a>.  <a href="#a5cb35863486ebcf4f07e0c0f5424516b">More...</a><br /></td></tr>
-<tr class="separator:a5cb35863486ebcf4f07e0c0f5424516b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a880962996c0f7551ae13d292196e45b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#a880962996c0f7551ae13d292196e45b7">clear</a> ()</td></tr>
+<tr class="memdesc:a880962996c0f7551ae13d292196e45b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the data out of this <a class="el" href="classmini_1_1ecs_world.html" title="A set of ECS entities and components forming a single level.">ecsWorld</a>.  <a href="#a880962996c0f7551ae13d292196e45b7">More...</a><br /></td></tr>
+<tr class="separator:a880962996c0f7551ae13d292196e45b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a77bf54921c797c5285fec36628a706b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#a77bf54921c797c5285fec36628a706b1">updateSystems</a> (<a class="el" href="classmini_1_1ecs_system_list.html">ecsSystemList</a> &amp;systems, const double &amp;deltaTime)</td></tr>
 <tr class="memdesc:a77bf54921c797c5285fec36628a706b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the components of all systems provided.  <a href="#a77bf54921c797c5285fec36628a706b1">More...</a><br /></td></tr>
 <tr class="separator:a77bf54921c797c5285fec36628a706b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af6df1ee9cb52984356b3161a929c92de"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#af6df1ee9cb52984356b3161a929c92de">updateSystem</a> (<a class="el" href="classmini_1_1ecs_system.html">ecsSystem</a> *system, const double &amp;deltaTime)</td></tr>
-<tr class="memdesc:af6df1ee9cb52984356b3161a929c92de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the components of a single system.  <a href="#af6df1ee9cb52984356b3161a929c92de">More...</a><br /></td></tr>
-<tr class="separator:af6df1ee9cb52984356b3161a929c92de"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab20d332fd9c3b6c66fc3de06696fecaa"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#ab20d332fd9c3b6c66fc3de06696fecaa">updateSystem</a> (const std::shared_ptr&lt; <a class="el" href="classmini_1_1ecs_system.html">ecsSystem</a> &gt; &amp;system, const double &amp;deltaTime)</td></tr>
-<tr class="memdesc:ab20d332fd9c3b6c66fc3de06696fecaa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the components of a single system.  <a href="#ab20d332fd9c3b6c66fc3de06696fecaa">More...</a><br /></td></tr>
-<tr class="separator:ab20d332fd9c3b6c66fc3de06696fecaa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3212ae290a6ece6a5086cde3ba358755"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#a3212ae290a6ece6a5086cde3ba358755">updateSystem</a> (const double &amp;deltaTime, const std::vector&lt; std::pair&lt; ComponentID, <a class="el" href="classmini_1_1ecs_system.html#a7c18415ccc49cb8017907324ce2640a2">ecsSystem::RequirementsFlag</a> &gt;&gt; &amp;componentTypes, const std::function&lt; void(const double &amp;, const std::vector&lt; std::vector&lt; <a class="el" href="classmini_1_1ecs_base_component.html">ecsBaseComponent</a> * &gt;&gt; &amp;)&gt; &amp;func)</td></tr>
+<tr class="memitem:ab5ce11894d45e4638ba3843016039d6c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#ab5ce11894d45e4638ba3843016039d6c">updateSystem</a> (<a class="el" href="classmini_1_1ecs_system.html">ecsSystem</a> &amp;system, const double &amp;deltaTime)</td></tr>
+<tr class="memdesc:ab5ce11894d45e4638ba3843016039d6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the components of a single system.  <a href="#ab5ce11894d45e4638ba3843016039d6c">More...</a><br /></td></tr>
+<tr class="separator:ab5ce11894d45e4638ba3843016039d6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3212ae290a6ece6a5086cde3ba358755"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#a3212ae290a6ece6a5086cde3ba358755">updateSystem</a> (const double &amp;deltaTime, const std::vector&lt; std::pair&lt; ComponentID, <a class="el" href="classmini_1_1ecs_system.html#a4b05885707c91fd44814659bf8ea194e">ecsSystem::RequirementsFlag</a> &gt;&gt; &amp;componentTypes, const std::function&lt; void(const double &amp;, const std::vector&lt; std::vector&lt; <a class="el" href="classmini_1_1ecs_base_component.html">ecsBaseComponent</a> * &gt;&gt; &amp;)&gt; &amp;func)</td></tr>
 <tr class="memdesc:a3212ae290a6ece6a5086cde3ba358755"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the components of a single system.  <a href="#a3212ae290a6ece6a5086cde3ba358755">More...</a><br /></td></tr>
 <tr class="separator:a3212ae290a6ece6a5086cde3ba358755"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
-<tr class="memitem:a81705670359132f08d68f95cd2c24808"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classmini_1_1ecs_base_component.html">ecsBaseComponent</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#a81705670359132f08d68f95cd2c24808">getComponent</a> (const std::vector&lt; std::tuple&lt; ComponentID, int, <a class="el" href="structmini_1_1_component_handle.html">ComponentHandle</a> &gt;&gt; &amp;entityComponents, const ComponentDataSpace &amp;mem_array, const ComponentID &amp;componentID) noexcept</td></tr>
-<tr class="memdesc:a81705670359132f08d68f95cd2c24808"><td class="mdescLeft">&#160;</td><td class="mdescRight">Try to find a component matching the runtime ID provided.  <a href="#a81705670359132f08d68f95cd2c24808">More...</a><br /></td></tr>
-<tr class="separator:a81705670359132f08d68f95cd2c24808"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3ed17614eb9c32e6babb5d53be36e667"><td class="memItemLeft" align="right" valign="top">static <a class="el" href="classmini_1_1ecs_handle.html">ecsHandle</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#a3ed17614eb9c32e6babb5d53be36e667">generateUUID</a> ()</td></tr>
-<tr class="memdesc:a3ed17614eb9c32e6babb5d53be36e667"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a universally unique identifier for entities or components.  <a href="#a3ed17614eb9c32e6babb5d53be36e667">More...</a><br /></td></tr>
+<tr class="memdesc:a3ed17614eb9c32e6babb5d53be36e667"><td class="mdescLeft">&#160;</td><td class="mdescRight">Generate a universally unique identifier.  <a href="#a3ed17614eb9c32e6babb5d53be36e667">More...</a><br /></td></tr>
 <tr class="separator:a3ed17614eb9c32e6babb5d53be36e667"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -202,14 +213,11 @@ Static Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a id="a5cb35863486ebcf4f07e0c0f5424516b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5cb35863486ebcf4f07e0c0f5424516b">&#9670;&nbsp;</a></span>clear()</h2>
+<a id="a880962996c0f7551ae13d292196e45b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a880962996c0f7551ae13d292196e45b7">&#9670;&nbsp;</a></span>clear()</h2>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void ecsWorld::clear </td>
@@ -218,11 +226,6 @@ Static Public Member Functions</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
 <p>Clear the data out of this <a class="el" href="classmini_1_1ecs_world.html" title="A set of ECS entities and components forming a single level.">ecsWorld</a>. </p>
@@ -253,29 +256,29 @@ Static Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Generate a universally unique identifier for entities or components. </p>
+<p>Generate a universally unique identifier. </p>
 <p>generateUUID</p>
-<dl class="section return"><dt>Returns</dt><dd>a new ID. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>a UUID. </dd></dl>
 
 </div>
 </div>
-<a id="a33a9136210f6c1228e759b930ef0050f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a33a9136210f6c1228e759b930ef0050f">&#9670;&nbsp;</a></span>getComponent() <span class="overload">[1/5]</span></h2>
+<a id="abb72e78bbbf3d9b0f849680d2295d876"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb72e78bbbf3d9b0f849680d2295d876">&#9670;&nbsp;</a></span>getComponent() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename Component &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">T* mini::ecsWorld::getComponent </td>
+          <td class="memname">Component* mini::ecsWorld::getComponent </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structmini_1_1_entity_handle.html">EntityHandle</a> &amp;&#160;</td>
           <td class="paramname"><em>entityHandle</em></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
   </td>
@@ -288,7 +291,7 @@ template&lt;typename T &gt; </div>
 <p>Search for a component type in an entity. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T</td><td>the category of component being retrieved. </td></tr>
+    <tr><td class="paramname">Component</td><td>the category of component being retrieved. </td></tr>
   </table>
   </dd>
 </dl>
@@ -302,62 +305,66 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="a08f5e11d617301109f541d75806b75bf"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a08f5e11d617301109f541d75806b75bf">&#9670;&nbsp;</a></span>getComponent() <span class="overload">[2/5]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classmini_1_1ecs_base_component.html">ecsBaseComponent</a> * ecsWorld::getComponent </td>
-          <td>(</td>
-          <td class="paramtype">const <a class="el" href="structmini_1_1_entity_handle.html">EntityHandle</a> &amp;&#160;</td>
-          <td class="paramname"><em>entityHandle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const ComponentID &amp;&#160;</td>
-          <td class="paramname"><em>componentID</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Retrieve a component. </p>
-<p>getComponent</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">entityHandle</td><td>handle to the entity to retrieve from. </td></tr>
-    <tr><td class="paramname">componentID</td><td>the runtime class ID of the component. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>the specific component on success, nullptr otherwise. </dd></dl>
-
-</div>
-</div>
-<a id="a349dad85669ff8f1b1476c815d3ce56b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a349dad85669ff8f1b1476c815d3ce56b">&#9670;&nbsp;</a></span>getComponent() <span class="overload">[3/5]</span></h2>
+<a id="af4d6779585349a21983d59258ef97161"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af4d6779585349a21983d59258ef97161">&#9670;&nbsp;</a></span>getComponent() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename T &gt; </div>
+template&lt;typename Component &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">T* mini::ecsWorld::getComponent </td>
+          <td class="memname">Component* mini::ecsWorld::getComponent </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmini_1_1ecs_entity.html">ecsEntity</a> &amp;&#160;</td>
+          <td class="paramname"><em>entity</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Search for a component type in an entity. </p>
+<dl class="tparams"><dt>Template Parameters</dt><dd>
+  <table class="tparams">
+    <tr><td class="paramname">Component</td><td>the category of component being retrieved. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entity</td><td>the entity to get the component from. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>a component of type requested on success, nullptr otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="a42489e91d8bc6d06641c52200786bc0e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42489e91d8bc6d06641c52200786bc0e">&#9670;&nbsp;</a></span>getComponent() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Component &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">Component* mini::ecsWorld::getComponent </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structmini_1_1_component_handle.html">ComponentHandle</a> &amp;&#160;</td>
           <td class="paramname"><em>componentHandle</em></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
   </td>
@@ -370,7 +377,7 @@ template&lt;typename T &gt; </div>
 <p>Try to retrieve a component matching the UUID provided. </p>
 <dl class="tparams"><dt>Template Parameters</dt><dd>
   <table class="tparams">
-    <tr><td class="paramname">T</td><td>the class type of component. </td></tr>
+    <tr><td class="paramname">Component</td><td>the class type of component. </td></tr>
   </table>
   </dd>
 </dl>
@@ -384,8 +391,8 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
-<a id="aabe761321538998da5c7b775482c04f5"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aabe761321538998da5c7b775482c04f5">&#9670;&nbsp;</a></span>getComponent() <span class="overload">[4/5]</span></h2>
+<a id="a4dd8e567061ae728e43ddfc7fbc3cfcc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4dd8e567061ae728e43ddfc7fbc3cfcc">&#9670;&nbsp;</a></span>getComponent() <span class="overload">[4/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -395,7 +402,7 @@ template&lt;typename T &gt; </div>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structmini_1_1_component_handle.html">ComponentHandle</a> &amp;&#160;</td>
           <td class="paramname"><em>componentHandle</em></td><td>)</td>
-          <td> const</td>
+          <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -409,60 +416,6 @@ template&lt;typename T &gt; </div>
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>pointer to the found component on success, nullptr on failure. </dd></dl>
-
-</div>
-</div>
-<a id="a81705670359132f08d68f95cd2c24808"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a81705670359132f08d68f95cd2c24808">&#9670;&nbsp;</a></span>getComponent() <span class="overload">[5/5]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname"><a class="el" href="classmini_1_1ecs_base_component.html">ecsBaseComponent</a> * ecsWorld::getComponent </td>
-          <td>(</td>
-          <td class="paramtype">const std::vector&lt; std::tuple&lt; ComponentID, int, <a class="el" href="structmini_1_1_component_handle.html">ComponentHandle</a> &gt;&gt; &amp;&#160;</td>
-          <td class="paramname"><em>entityComponents</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const ComponentDataSpace &amp;&#160;</td>
-          <td class="paramname"><em>mem_array</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const ComponentID &amp;&#160;</td>
-          <td class="paramname"><em>componentID</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel">static</span><span class="mlabel">noexcept</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Try to find a component matching the runtime ID provided. </p>
-<p>getComponent</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">entityComponents</td><td>the array of entity component IDS. </td></tr>
-    <tr><td class="paramname">mem_array</td><td>the array of component data. </td></tr>
-    <tr><td class="paramname">componentID</td><td>the class ID of the component. </td></tr>
-  </table>
-  </dd>
-</dl>
-<dl class="section return"><dt>Returns</dt><dd>the component pointer matching the ID specified. </dd></dl>
 
 </div>
 </div>
@@ -480,7 +433,7 @@ template&lt;typename... T_types&gt; </div>
         <tr>
           <td class="memname">std::vector&lt;std::tuple&lt;T_types...&gt; &gt; mini::ecsWorld::getComponents </td>
           <td>(</td>
-          <td class="paramtype">const std::vector&lt; std::pair&lt; ComponentID, <a class="el" href="classmini_1_1ecs_system.html#a7c18415ccc49cb8017907324ce2640a2">ecsSystem::RequirementsFlag</a> &gt;&gt; &amp;&#160;</td>
+          <td class="paramtype">const std::vector&lt; std::pair&lt; ComponentID, <a class="el" href="classmini_1_1ecs_system.html#a4b05885707c91fd44814659bf8ea194e">ecsSystem::RequirementsFlag</a> &gt;&gt; &amp;&#160;</td>
           <td class="paramname"><em>componentTypes</em></td><td>)</td>
           <td></td>
         </tr>
@@ -559,7 +512,7 @@ template&lt;typename... T_types&gt; </div>
 </div>
 </div>
 <a id="a64ef95d18c4fdbe6093eabd5686ae056"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a64ef95d18c4fdbe6093eabd5686ae056">&#9670;&nbsp;</a></span>makeComponent() <span class="overload">[1/2]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a64ef95d18c4fdbe6093eabd5686ae056">&#9670;&nbsp;</a></span>makeComponent() <span class="overload">[1/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -584,7 +537,7 @@ template&lt;typename... T_types&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Adds a component to an entity. </p>
+<p>Adds a new component for the specified entity. </p>
 <p>makeComponent</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -593,26 +546,21 @@ template&lt;typename... T_types&gt; </div>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>handle to this new component. </dd></dl>
 
 </div>
 </div>
-<a id="ae1f584bf9def7cbcaa76a1ea7446e890"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ae1f584bf9def7cbcaa76a1ea7446e890">&#9670;&nbsp;</a></span>makeComponent() <span class="overload">[2/2]</span></h2>
+<a id="ae0c0bd250c2ba6aea8bb566e13128a93"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae0c0bd250c2ba6aea8bb566e13128a93">&#9670;&nbsp;</a></span>makeComponent() <span class="overload">[2/4]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structmini_1_1_component_handle.html">ComponentHandle</a> ecsWorld::makeComponent </td>
+          <td class="memname"><a class="el" href="structmini_1_1_component_handle.html">ComponentHandle</a> mini::ecsWorld::makeComponent </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structmini_1_1_entity_handle.html">EntityHandle</a> &amp;&#160;</td>
-          <td class="paramname"><em>entityHandle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const ComponentID &amp;&#160;</td>
-          <td class="paramname"><em>componentID</em>, </td>
+          <td class="paramtype"><a class="el" href="structmini_1_1ecs_entity.html">ecsEntity</a> &amp;&#160;</td>
+          <td class="paramname"><em>entity</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -628,20 +576,94 @@ template&lt;typename... T_types&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Adds a component to an entity. </p>
+<p>Adds a new component for the specified entity. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">entityHandle</td><td>handle to the component's parent entity. </td></tr>
-    <tr><td class="paramname">componentID</td><td>the runtime component class. </td></tr>
+    <tr><td class="paramname">entity</td><td>the entity to add the component to. </td></tr>
     <tr><td class="paramname">component</td><td>the component being added. </td></tr>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>handle to this new component. </dd></dl>
 
 </div>
 </div>
-<a id="af033b07dfa7b5ed50045b0340dea49f9"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af033b07dfa7b5ed50045b0340dea49f9">&#9670;&nbsp;</a></span>makeEntity()</h2>
+<a id="a7850215955a919bd4018895482d936a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7850215955a919bd4018895482d936a9">&#9670;&nbsp;</a></span>makeComponent() <span class="overload">[3/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Component &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structmini_1_1_component_handle.html">ComponentHandle</a> mini::ecsWorld::makeComponent </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structmini_1_1_entity_handle.html">EntityHandle</a> &amp;&#160;</td>
+          <td class="paramname"><em>entityHandle</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Generates a component from the input template parameter. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entityHandle</td><td>handle to the component's parent entity. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>handle to this new component. </dd></dl>
+
+</div>
+</div>
+<a id="adb714642e62b2bb854e81b8c24f300c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adb714642e62b2bb854e81b8c24f300c8">&#9670;&nbsp;</a></span>makeComponent() <span class="overload">[4/4]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Component &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structmini_1_1_component_handle.html">ComponentHandle</a> mini::ecsWorld::makeComponent </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmini_1_1ecs_entity.html">ecsEntity</a> &amp;&#160;</td>
+          <td class="paramname"><em>entity</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Generates a component from the input template parameter. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entity</td><td>the entity to add the component to. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>handle to this new component. </dd></dl>
+
+</div>
+</div>
+<a id="a48258d28c905d8ee0b4687ab8b9a108a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a48258d28c905d8ee0b4687ab8b9a108a">&#9670;&nbsp;</a></span>makeEntity()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -650,13 +672,13 @@ template&lt;typename... T_types&gt; </div>
           <td class="memname"><a class="el" href="structmini_1_1_entity_handle.html">EntityHandle</a> ecsWorld::makeEntity </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="classmini_1_1ecs_base_component.html">ecsBaseComponent</a> *const *const&#160;</td>
-          <td class="paramname"><em>components</em>, </td>
+          <td class="paramname"><em>components</em> = <code>nullptr</code>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const size_t &amp;&#160;</td>
-          <td class="paramname"><em>numComponents</em>&#160;</td>
+          <td class="paramtype">const size_t&#160;</td>
+          <td class="paramname"><em>numComponents</em> = <code>0ULL</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -666,7 +688,7 @@ template&lt;typename... T_types&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Create an entity from a list of input components. </p>
+<p>Create an entity from an optional list of components. </p>
 <p>makeEntity</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -675,6 +697,7 @@ template&lt;typename... T_types&gt; </div>
   </table>
   </dd>
 </dl>
+<dl class="section return"><dt>Returns</dt><dd>handle to this new entity. </dd></dl>
 
 </div>
 </div>
@@ -715,7 +738,7 @@ template&lt;typename... T_types&gt; </div>
 </div>
 </div>
 <a id="adf2889707e46dc28c909174202b06b78"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adf2889707e46dc28c909174202b06b78">&#9670;&nbsp;</a></span>removeComponent()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#adf2889707e46dc28c909174202b06b78">&#9670;&nbsp;</a></span>removeComponent() <span class="overload">[1/3]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -730,7 +753,7 @@ template&lt;typename... T_types&gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Search for and remove a component matching the specific handle. </p>
+<p>Search for and remove a component matching the specified handle. </p>
 <p>removeComponent</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -742,8 +765,82 @@ template&lt;typename... T_types&gt; </div>
 
 </div>
 </div>
+<a id="af3c838001ea0a18b11e40f526cc3489a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3c838001ea0a18b11e40f526cc3489a">&#9670;&nbsp;</a></span>removeComponent() <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Component &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool mini::ecsWorld::removeComponent </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structmini_1_1_entity_handle.html">EntityHandle</a> &amp;&#160;</td>
+          <td class="paramname"><em>entityHandle</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Search for an entity and remove a specific component class from it. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entityHandle</td><td>handle to the entity to be modified. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true on successful removal, false otherwise. </dd></dl>
+
+</div>
+</div>
+<a id="abc1f258bbbc22debb07961f42a727e19"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc1f258bbbc22debb07961f42a727e19">&#9670;&nbsp;</a></span>removeComponent() <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Component &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool mini::ecsWorld::removeComponent </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structmini_1_1ecs_entity.html">ecsEntity</a> &amp;&#160;</td>
+          <td class="paramname"><em>entity</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Remove the specific component class from the specified entity. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">entity</td><td>the entity to remove the component from. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>true on successful removal, false otherwise. </dd></dl>
+
+</div>
+</div>
 <a id="a7f5a0977700cb36d87d65b5796e9a5c2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7f5a0977700cb36d87d65b5796e9a5c2">&#9670;&nbsp;</a></span>removeEntity()</h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a7f5a0977700cb36d87d65b5796e9a5c2">&#9670;&nbsp;</a></span>removeEntity() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -770,38 +867,26 @@ template&lt;typename... T_types&gt; </div>
 
 </div>
 </div>
-<a id="ad6fc53581b3a3ef68c21f1ab071cac58"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad6fc53581b3a3ef68c21f1ab071cac58">&#9670;&nbsp;</a></span>removeEntityComponent()</h2>
+<a id="a2edff317b2d064d7b00d1e45f75aed6b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2edff317b2d064d7b00d1e45f75aed6b">&#9670;&nbsp;</a></span>removeEntity() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool ecsWorld::removeEntityComponent </td>
+          <td class="memname">bool mini::ecsWorld::removeEntity </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structmini_1_1_entity_handle.html">EntityHandle</a> &amp;&#160;</td>
-          <td class="paramname"><em>entityHandle</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
+          <td class="paramtype"><a class="el" href="structmini_1_1ecs_entity.html">ecsEntity</a> &amp;&#160;</td>
+          <td class="paramname"><em>entity</em></td><td>)</td>
           <td></td>
-          <td class="paramtype">const ComponentID &amp;&#160;</td>
-          <td class="paramname"><em>componentID</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Remove a specific component class from within a specific entity. </p>
-<p>removeEntityComponent</p>
+<p>Remove the entity specified. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">entityHandle</td><td>handle component's parent entity. </td></tr>
-    <tr><td class="paramname">componentID</td><td>the runtime ID component class ID. </td></tr>
+    <tr><td class="paramname">entity</td><td>the entity to be removed. </td></tr>
   </table>
   </dd>
 </dl>
@@ -809,8 +894,8 @@ template&lt;typename... T_types&gt; </div>
 
 </div>
 </div>
-<a id="af6df1ee9cb52984356b3161a929c92de"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af6df1ee9cb52984356b3161a929c92de">&#9670;&nbsp;</a></span>updateSystem() <span class="overload">[1/3]</span></h2>
+<a id="ab5ce11894d45e4638ba3843016039d6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab5ce11894d45e4638ba3843016039d6c">&#9670;&nbsp;</a></span>updateSystem() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -818,7 +903,7 @@ template&lt;typename... T_types&gt; </div>
         <tr>
           <td class="memname">void ecsWorld::updateSystem </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classmini_1_1ecs_system.html">ecsSystem</a> *&#160;</td>
+          <td class="paramtype"><a class="el" href="classmini_1_1ecs_system.html">ecsSystem</a> &amp;&#160;</td>
           <td class="paramname"><em>system</em>, </td>
         </tr>
         <tr>
@@ -847,45 +932,8 @@ template&lt;typename... T_types&gt; </div>
 
 </div>
 </div>
-<a id="ab20d332fd9c3b6c66fc3de06696fecaa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab20d332fd9c3b6c66fc3de06696fecaa">&#9670;&nbsp;</a></span>updateSystem() <span class="overload">[2/3]</span></h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ecsWorld::updateSystem </td>
-          <td>(</td>
-          <td class="paramtype">const std::shared_ptr&lt; <a class="el" href="classmini_1_1ecs_system.html">ecsSystem</a> &gt; &amp;&#160;</td>
-          <td class="paramname"><em>system</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const double &amp;&#160;</td>
-          <td class="paramname"><em>deltaTime</em>&#160;</td>
-        </tr>
-        <tr>
-          <td></td>
-          <td>)</td>
-          <td></td><td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Update the components of a single system. </p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">system</td><td>the system to update. </td></tr>
-    <tr><td class="paramname">deltaTime</td><td>the delta time. </td></tr>
-  </table>
-  </dd>
-</dl>
-
-</div>
-</div>
 <a id="a3212ae290a6ece6a5086cde3ba358755"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3212ae290a6ece6a5086cde3ba358755">&#9670;&nbsp;</a></span>updateSystem() <span class="overload">[3/3]</span></h2>
+<h2 class="memtitle"><span class="permalink"><a href="#a3212ae290a6ece6a5086cde3ba358755">&#9670;&nbsp;</a></span>updateSystem() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -899,7 +947,7 @@ template&lt;typename... T_types&gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const std::vector&lt; std::pair&lt; ComponentID, <a class="el" href="classmini_1_1ecs_system.html#a7c18415ccc49cb8017907324ce2640a2">ecsSystem::RequirementsFlag</a> &gt;&gt; &amp;&#160;</td>
+          <td class="paramtype">const std::vector&lt; std::pair&lt; ComponentID, <a class="el" href="classmini_1_1ecs_system.html#a4b05885707c91fd44814659bf8ea194e">ecsSystem::RequirementsFlag</a> &gt;&gt; &amp;&#160;</td>
           <td class="paramname"><em>componentTypes</em>&#160;</td>
         </tr>
         <tr>
