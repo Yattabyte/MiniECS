@@ -187,6 +187,9 @@ class ecsWorld {
         return entityComponents;
     }
 
+    void migrateEntityTo(const EntityHandle& UUID, ecsWorld& otherWorld);
+    void migrateEntityTo(ecsEntity& entity, ecsWorld& otherWorld);
+
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Clear the data out of this ecsWorld.
     void clear();

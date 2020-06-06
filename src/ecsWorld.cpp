@@ -15,12 +15,17 @@ EntityHandle ecsWorld::makeEntity(
     const size_t numComponents) {
     auto UUID = EntityHandle(generateUUID());
 
-    m_entities.insert_or_assign(
-        UUID, std::make_shared<ecsEntity>(ecsEntity{ UUID, {} }));
+    // Insert and retrieve the new entity's reference
+    auto& entity =
+        *m_entities
+             .insert_or_assign(
+                 UUID, std::make_shared<ecsEntity>(ecsEntity{ UUID, {} }))
+             .first->second;
 
+    // Insert all components directly into the entity
     for (size_t i = 0; i < numComponents; ++i)
         [[maybe_unused]] const auto componentHandle =
-            makeComponent(UUID, components[i]);
+            makeComponent(entity, components[i]);
 
     return UUID;
 }
@@ -140,6 +145,33 @@ ecsWorld& ecsWorld::operator=(ecsWorld&& other) noexcept {
         m_entities = std::move(other.m_entities);
     }
     return *this;
+}
+
+void ecsWorld::migrateEntityTo(const EntityHandle& UUID, ecsWorld& otherWorld) {
+    const auto entity = getEntity(UUID);
+    if (entity == nullptr)
+        return;
+
+    migrateEntityTo(*entity, otherWorld);
+}
+
+void ecsWorld::migrateEntityTo(ecsEntity& entity, ecsWorld& otherWorld) {
+    // Create a new entity in their world
+    auto& otherEntity =
+        *otherWorld.m_entities
+             .insert_or_assign(
+                 entity.m_handle,
+                 std::make_shared<ecsEntity>(ecsEntity{ entity.m_handle, {} }))
+             .first->second;
+
+    // Copy over the components from our world
+    for (auto& [id, createFn, componentHandle] : entity.m_components)
+        [[maybe_unused]] const auto newComponentHandle =
+            otherWorld.makeComponent(
+                otherEntity, (ecsBaseComponent*)(m_components[id][createFn]));
+
+    // Remove from our world
+    removeEntity(entity);
 }
 
 ///////////////////////////////////////////////////////////////////////////

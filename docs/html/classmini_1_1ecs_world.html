@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">MiniECS
-   &#160;<span id="projectnumber">0.6.0</span>
+   &#160;<span id="projectnumber">0.7.0</span>
    </div>
    <div id="projectbrief">A set of simple Entity, Component, and Systems (ECS) classes for use in games and other software.</div>
   </td>
@@ -156,6 +156,12 @@ Public Member Functions</h2></td></tr>
 <tr class="memitem:aa55610b7338b9e79923e819a578d0c00"><td class="memTemplItemLeft" align="right" valign="top">std::vector&lt; std::tuple&lt; T_types... &gt; &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#aa55610b7338b9e79923e819a578d0c00">getComponents</a> (const std::vector&lt; std::pair&lt; ComponentID, <a class="el" href="classmini_1_1ecs_system.html#a4b05885707c91fd44814659bf8ea194e">ecsSystem::RequirementsFlag</a> &gt;&gt; &amp;componentTypes)</td></tr>
 <tr class="memdesc:aa55610b7338b9e79923e819a578d0c00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve a list of entity components corresponding to the input.  <a href="#aa55610b7338b9e79923e819a578d0c00">More...</a><br /></td></tr>
 <tr class="separator:aa55610b7338b9e79923e819a578d0c00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a839cde659068aaf71c559fedcf982b12"><td class="memItemLeft" align="right" valign="top"><a id="a839cde659068aaf71c559fedcf982b12"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>migrateEntityTo</b> (const <a class="el" href="structmini_1_1_entity_handle.html">EntityHandle</a> &amp;UUID, <a class="el" href="classmini_1_1ecs_world.html">ecsWorld</a> &amp;otherWorld)</td></tr>
+<tr class="separator:a839cde659068aaf71c559fedcf982b12"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abbb0c6a241b26c4d62069120692b8c03"><td class="memItemLeft" align="right" valign="top"><a id="abbb0c6a241b26c4d62069120692b8c03"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>migrateEntityTo</b> (<a class="el" href="structmini_1_1ecs_entity.html">ecsEntity</a> &amp;entity, <a class="el" href="classmini_1_1ecs_world.html">ecsWorld</a> &amp;otherWorld)</td></tr>
+<tr class="separator:abbb0c6a241b26c4d62069120692b8c03"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a880962996c0f7551ae13d292196e45b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#a880962996c0f7551ae13d292196e45b7">clear</a> ()</td></tr>
 <tr class="memdesc:a880962996c0f7551ae13d292196e45b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the data out of this <a class="el" href="classmini_1_1ecs_world.html" title="A set of ECS entities and components forming a single level.">ecsWorld</a>.  <a href="#a880962996c0f7551ae13d292196e45b7">More...</a><br /></td></tr>
 <tr class="separator:a880962996c0f7551ae13d292196e45b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
