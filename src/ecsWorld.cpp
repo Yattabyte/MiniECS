@@ -168,7 +168,7 @@ void ecsWorld::migrateEntityTo(ecsEntity& entity, ecsWorld& otherWorld) {
     for (auto& [id, createFn, componentHandle] : entity.m_components)
         [[maybe_unused]] const auto newComponentHandle =
             otherWorld.makeComponent(
-                otherEntity, (ecsBaseComponent*)(m_components[id][createFn]));
+                otherEntity, reinterpret_cast<ecsBaseComponent*>(&m_components[id][createFn]));
 
     // Remove from our world
     removeEntity(entity);
