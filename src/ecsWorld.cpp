@@ -17,7 +17,7 @@ EntityHandle ecsWorld::makeEntity(const ecsBaseComponent* const* const component
     auto& entity = *m_entities.insert_or_assign(UUID, std::make_shared<ecsEntity>(ecsEntity{ UUID, {} })).first->second;
 
     // Insert all components directly into the entity
-    for (auto i = 0; i < numComponents; ++i) {
+    for (size_t i = 0; i < numComponents; ++i) {
         [[maybe_unused]] const auto componentHandle = makeComponent(entity, components[i]);
     }
 
@@ -448,7 +448,7 @@ std::vector<std::vector<ecsBaseComponent*>> ecsWorld::getRelevantComponents(
 
             const auto& entityComponents = entity->m_components;
             bool isValid = true;
-            for (auto j = 0; j < componentTypesCount; ++j) {
+            for (size_t j = 0; j < componentTypesCount; ++j) {
                 if (j == minSizeIndex) {
                     continue;
                 }

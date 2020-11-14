@@ -40,7 +40,8 @@ int main() noexcept {
     assert(std::get<0>(qwe[0]) != nullptr);
     assert(std::get<1>(qwe[0]) == nullptr);
 
+    constexpr auto timeStep = 0.01;
     FooSystem system;
-    world.updateSystem(system, 0.01);
+    world.updateSystem(system, timeStep);
     return 0;
 }

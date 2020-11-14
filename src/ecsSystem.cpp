@@ -43,7 +43,7 @@ bool ecsSystemList::addSystem(const std::shared_ptr<ecsSystem>& system) {
 
 bool ecsSystemList::removeSystem(const ecsSystem& system) {
     const auto systemCount = m_systems.size();
-    for (auto i = 0; i < systemCount; ++i) {
+    for (size_t i = 0; i < systemCount; ++i) {
         if (&system == m_systems[i].get()) {
             m_systems.erase(m_systems.begin() + i);
             return true;
