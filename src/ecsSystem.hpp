@@ -41,8 +41,7 @@ class ecsSystem {
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Retrieves the component types supported by this system.
     /// \return	the component types supported by this system.
-    [[nodiscard]] std::vector<std::pair<ComponentID, RequirementsFlag>>
-    getComponentTypes() const {
+    [[nodiscard]] std::vector<std::pair<ComponentID, RequirementsFlag>> getComponentTypes() const {
         return m_componentTypes;
     }
     ///////////////////////////////////////////////////////////////////////////
@@ -54,9 +53,8 @@ class ecsSystem {
     /// \brief  Tick this system by deltaTime.
     /// \param	deltaTime	    the amount of time passed since last update.
     /// \param	components	    the components to update.
-    virtual void updateComponents(
-        const double& deltaTime,
-        const std::vector<std::vector<ecsBaseComponent*>>& components) = 0;
+    virtual void
+    updateComponents(const double deltaTime, const std::vector<std::vector<ecsBaseComponent*>>& components) = 0;
 
     protected:
     ///////////////////////////////////////////////////////////////////////////
@@ -64,12 +62,12 @@ class ecsSystem {
     /// \param	componentType	the type of component to use
     /// \param	componentFlag	flag indicating required/optional.
     void addComponentType(
-        const ComponentID& componentType,
-        const RequirementsFlag& componentFlag = RequirementsFlag::REQUIRED);
+        const ComponentID componentType, const RequirementsFlag componentFlag = RequirementsFlag::REQUIRED);
 
     private:
-    std::vector<std::pair<ComponentID, RequirementsFlag>>
-        m_componentTypes; ///< Required component types.
+    ///////////////////////////////////////////////////////////////////////////
+    /// Private Attributes
+    std::vector<std::pair<ComponentID, RequirementsFlag>> m_componentTypes; ///< Required component types.
 };
 
 ///////////////////////////////////////////////////////////////////////////
@@ -85,10 +83,7 @@ class ecsSystemList final {
     /// \brief  Retrieve a specific system at a given index.
     /// \param	index	the index to fetch the system from.
     /// \return			the system found at the index specified.
-    [[nodiscard]] std::shared_ptr<ecsSystem>
-    operator[](const size_t& index) const noexcept {
-        return m_systems[index];
-    }
+    [[nodiscard]] std::shared_ptr<ecsSystem> operator[](const size_t index) const noexcept { return m_systems[index]; }
 
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Generate a system with a specific type and input arguments.
@@ -114,33 +109,27 @@ class ecsSystemList final {
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Retrieve an iterator to the beginning of this system list.
     /// \return	an iterator to the beginning of this system list.
-    [[nodiscard]] std::vector<std::shared_ptr<ecsSystem>>::iterator
-    begin() noexcept {
-        return m_systems.begin();
-    }
+    [[nodiscard]] std::vector<std::shared_ptr<ecsSystem>>::iterator begin() noexcept { return m_systems.begin(); }
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Retrieve a const iterator to the beginning of this system list.
     /// \return	a const iterator to the beginning of this system list.
-    [[nodiscard]] std::vector<std::shared_ptr<ecsSystem>>::const_iterator
-    cbegin() const noexcept {
+    [[nodiscard]] std::vector<std::shared_ptr<ecsSystem>>::const_iterator cbegin() const noexcept {
         return m_systems.cbegin();
     }
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Retrieve an iterator to the end of this system list.
     /// \return	an iterator to the end of this system list.
-    [[nodiscard]] std::vector<std::shared_ptr<ecsSystem>>::iterator
-    end() noexcept {
-        return m_systems.end();
-    }
+    [[nodiscard]] std::vector<std::shared_ptr<ecsSystem>>::iterator end() noexcept { return m_systems.end(); }
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Retrieve a const iterator to the end of this system list.
     /// \return	a const iterator to the end of this system list.
-    [[nodiscard]] std::vector<std::shared_ptr<ecsSystem>>::const_iterator
-    cend() const noexcept {
+    [[nodiscard]] std::vector<std::shared_ptr<ecsSystem>>::const_iterator cend() const noexcept {
         return m_systems.cend();
     }
 
     private:
+    ///////////////////////////////////////////////////////////////////////////
+    /// Private Attributes
     std::vector<std::shared_ptr<ecsSystem>> m_systems; ///< List of systems.
 };
 };     // namespace mini

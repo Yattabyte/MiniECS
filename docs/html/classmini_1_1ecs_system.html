@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">MiniECS
-   &#160;<span id="projectnumber">0.7.0</span>
+   &#160;<span id="projectnumber">0.7.1</span>
    </div>
    <div id="projectbrief">A set of simple Entity, Component, and Systems (ECS) classes for use in games and other software.</div>
   </td>
@@ -131,21 +131,21 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 <tr class="memitem:af9f8caa3b135b4a4c481a0d3d260259c"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_system.html#af9f8caa3b135b4a4c481a0d3d260259c">isValid</a> () const noexcept</td></tr>
 <tr class="memdesc:af9f8caa3b135b4a4c481a0d3d260259c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieves whether or not this system &gt;= 1 mandatory component.  <a href="#af9f8caa3b135b4a4c481a0d3d260259c">More...</a><br /></td></tr>
 <tr class="separator:af9f8caa3b135b4a4c481a0d3d260259c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8088e826f6f2cc80e6c6d10ed595c60b"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_system.html#a8088e826f6f2cc80e6c6d10ed595c60b">updateComponents</a> (const double &amp;deltaTime, const std::vector&lt; std::vector&lt; <a class="el" href="classmini_1_1ecs_base_component.html">ecsBaseComponent</a> * &gt;&gt; &amp;components)=0</td></tr>
-<tr class="memdesc:a8088e826f6f2cc80e6c6d10ed595c60b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tick this system by deltaTime.  <a href="#a8088e826f6f2cc80e6c6d10ed595c60b">More...</a><br /></td></tr>
-<tr class="separator:a8088e826f6f2cc80e6c6d10ed595c60b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af8c1f1e67eb153fc50bbec083fe2290d"><td class="memItemLeft" align="right" valign="top">virtual void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_system.html#af8c1f1e67eb153fc50bbec083fe2290d">updateComponents</a> (const double deltaTime, const std::vector&lt; std::vector&lt; <a class="el" href="classmini_1_1ecs_base_component.html">ecsBaseComponent</a> * &gt;&gt; &amp;components)=0</td></tr>
+<tr class="memdesc:af8c1f1e67eb153fc50bbec083fe2290d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Tick this system by deltaTime.  <a href="#af8c1f1e67eb153fc50bbec083fe2290d">More...</a><br /></td></tr>
+<tr class="separator:af8c1f1e67eb153fc50bbec083fe2290d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
-<tr class="memitem:a47e1d419869144abeade2de71e0fdd8e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_system.html#a47e1d419869144abeade2de71e0fdd8e">addComponentType</a> (const ComponentID &amp;componentType, const <a class="el" href="classmini_1_1ecs_system.html#a4b05885707c91fd44814659bf8ea194e">RequirementsFlag</a> &amp;componentFlag=RequirementsFlag::REQUIRED)</td></tr>
-<tr class="memdesc:a47e1d419869144abeade2de71e0fdd8e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a component type to be used by this system.  <a href="#a47e1d419869144abeade2de71e0fdd8e">More...</a><br /></td></tr>
-<tr class="separator:a47e1d419869144abeade2de71e0fdd8e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afa293f96ae7de17606598445d7224a6c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_system.html#afa293f96ae7de17606598445d7224a6c">addComponentType</a> (const ComponentID componentType, const <a class="el" href="classmini_1_1ecs_system.html#a4b05885707c91fd44814659bf8ea194e">RequirementsFlag</a> componentFlag=RequirementsFlag::REQUIRED)</td></tr>
+<tr class="memdesc:afa293f96ae7de17606598445d7224a6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Add a component type to be used by this system.  <a href="#afa293f96ae7de17606598445d7224a6c">More...</a><br /></td></tr>
+<tr class="separator:afa293f96ae7de17606598445d7224a6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>An interface for an <a class="el" href="classmini_1_1ecs_system.html" title="An interface for an ecsSystem.">ecsSystem</a>. </p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
-<a id="a47e1d419869144abeade2de71e0fdd8e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a47e1d419869144abeade2de71e0fdd8e">&#9670;&nbsp;</a></span>addComponentType()</h2>
+<a id="afa293f96ae7de17606598445d7224a6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa293f96ae7de17606598445d7224a6c">&#9670;&nbsp;</a></span>addComponentType()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -156,13 +156,13 @@ Protected Member Functions</h2></td></tr>
         <tr>
           <td class="memname">void ecsSystem::addComponentType </td>
           <td>(</td>
-          <td class="paramtype">const ComponentID &amp;&#160;</td>
+          <td class="paramtype">const ComponentID&#160;</td>
           <td class="paramname"><em>componentType</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const <a class="el" href="classmini_1_1ecs_system.html#a4b05885707c91fd44814659bf8ea194e">RequirementsFlag</a> &amp;&#160;</td>
+          <td class="paramtype">const <a class="el" href="classmini_1_1ecs_system.html#a4b05885707c91fd44814659bf8ea194e">RequirementsFlag</a>&#160;</td>
           <td class="paramname"><em>componentFlag</em> = <code>RequirementsFlag::REQUIRED</code>&#160;</td>
         </tr>
         <tr>
@@ -247,8 +247,8 @@ Protected Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a8088e826f6f2cc80e6c6d10ed595c60b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8088e826f6f2cc80e6c6d10ed595c60b">&#9670;&nbsp;</a></span>updateComponents()</h2>
+<a id="af8c1f1e67eb153fc50bbec083fe2290d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af8c1f1e67eb153fc50bbec083fe2290d">&#9670;&nbsp;</a></span>updateComponents()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -259,7 +259,7 @@ Protected Member Functions</h2></td></tr>
         <tr>
           <td class="memname">virtual void mini::ecsSystem::updateComponents </td>
           <td>(</td>
-          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramtype">const double&#160;</td>
           <td class="paramname"><em>deltaTime</em>, </td>
         </tr>
         <tr>
@@ -290,7 +290,7 @@ Protected Member Functions</h2></td></tr>
   </dd>
 </dl>
 
-<p>Implemented in <a class="el" href="class_foo_system.html#a8484deb1760a2ef0a204d003b98f2079">FooSystem</a>.</p>
+<p>Implemented in <a class="el" href="class_foo_system.html#a9441c3ef0ad9649d9beb8ac0aa90cf93">FooSystem</a>.</p>
 
 </div>
 </div>

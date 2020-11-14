@@ -30,8 +30,7 @@ class ecsWorld {
     /// \brief  Move an ECS world.
     /// \param	other				another ecsWorld to move to here.
     ecsWorld(ecsWorld&& other) noexcept
-        : m_components(std::move(other.m_components)),
-          m_entities(std::move(other.m_entities)) {}
+        : m_components(std::move(other.m_components)), m_entities(std::move(other.m_entities)) {}
 
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Move the data from another ecsWorld into this.
@@ -44,39 +43,32 @@ class ecsWorld {
     /// \param	components			array of component pointers to hard copy.
     /// \param	numComponents		the number of components in the array.
     /// \return handle to this new entity.
-    EntityHandle makeEntity(
-        const ecsBaseComponent* const* const components = nullptr,
-        const size_t numComponents = 0ULL);
+    EntityHandle
+    makeEntity(const ecsBaseComponent* const* const components = nullptr, const size_t numComponents = 0ULL);
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Adds a new component for the specified entity.
     /// \param	entityHandle		handle to the component's parent entity.
     /// \param	component			the component being added.
     /// \return handle to this new component.
-    ComponentHandle makeComponent(
-        const EntityHandle& entityHandle,
-        const ecsBaseComponent* const component);
+    ComponentHandle makeComponent(const EntityHandle& entityHandle, const ecsBaseComponent* const component);
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Adds a new component for the specified entity.
     /// \param	entity      		the entity to add the component to.
     /// \param	component			the component being added.
     /// \return handle to this new component.
-    ComponentHandle
-    makeComponent(ecsEntity& entity, const ecsBaseComponent* const component);
+    ComponentHandle makeComponent(ecsEntity& entity, const ecsBaseComponent* const component);
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Generates a component from the input template parameter.
     /// \param	entityHandle		handle to the component's parent entity.
     /// \return handle to this new component.
-    template <typename Component>
-    ComponentHandle makeComponent(const EntityHandle& entityHandle) {
-        return makeComponentInternal(
-            entityHandle, Component::Runtime_ID, nullptr);
+    template <typename Component> ComponentHandle makeComponent(const EntityHandle& entityHandle) {
+        return makeComponentInternal(entityHandle, Component::Runtime_ID, nullptr);
     }
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Generates a component from the input template parameter.
     /// \param	entity      		the entity to add the component to.
     /// \return handle to this new component.
-    template <typename Component>
-    ComponentHandle makeComponent(ecsEntity& entity) {
+    template <typename Component> ComponentHandle makeComponent(ecsEntity& entity) {
         return makeComponentInternal(entity, Component::Runtime_ID, nullptr);
     }
 
@@ -99,8 +91,7 @@ class ecsWorld {
     /// \brief  Search for an entity and remove a specific component class from
     /// it. \param	entityHandle		handle to the entity to be modified.
     /// \return	true on successful removal, false otherwise.
-    template <typename Component>
-    bool removeComponent(const EntityHandle& entityHandle) {
+    template <typename Component> bool removeComponent(const EntityHandle& entityHandle) {
         return removeComponentInternal(entityHandle, Component::Runtime_ID);
     }
     ///////////////////////////////////////////////////////////////////////////
@@ -115,73 +106,58 @@ class ecsWorld {
     /// \brief  Try to find an entity matching the UUID provided.
     /// \param	UUID			    the target entity's UUID.
     /// \return	pointer to the found entity on success, nullptr on failure.
-    [[nodiscard]] std::shared_ptr<ecsEntity>
-    getEntity(const EntityHandle& UUID) const;
+    [[nodiscard]] std::shared_ptr<ecsEntity> getEntity(const EntityHandle& UUID) const;
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Try to find a list of entities matching the UUID's provided.
     /// \param	uuids			    list of target entity UUID's.
     /// \return	list of pointers to the found entities (nullptr's omitted).
-    [[nodiscard]] std::vector<std::shared_ptr<ecsEntity>>
-    getEntities(const std::vector<EntityHandle>& uuids) const;
+    [[nodiscard]] std::vector<std::shared_ptr<ecsEntity>> getEntities(const std::vector<EntityHandle>& uuids) const;
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Search for a component type in an entity.
     /// \tparam	Component           the category of component being retrieved.
     /// \param	entityHandle	    handle to the entity to retrieve from.
     /// \return	a component of type requested on success, nullptr otherwise.
-    template <typename Component>
-    [[nodiscard]] Component* getComponent(const EntityHandle& entityHandle) {
-        return dynamic_cast<Component*>(
-            getComponentInternal(entityHandle, Component::Runtime_ID));
+    template <typename Component>[[nodiscard]] Component* getComponent(const EntityHandle& entityHandle) {
+        return dynamic_cast<Component*>(getComponentInternal(entityHandle, Component::Runtime_ID));
     }
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Search for a component type in an entity.
     /// \tparam	Component           the category of component being retrieved.
     /// \param	entity   	        the entity to get the component from.
     /// \return	a component of type requested on success, nullptr otherwise.
-    template <typename Component>
-    [[nodiscard]] Component* getComponent(ecsEntity& entity) {
-        return dynamic_cast<Component*>(
-            getComponentInternal(entity, Component::Runtime_ID));
+    template <typename Component>[[nodiscard]] Component* getComponent(ecsEntity& entity) {
+        return dynamic_cast<Component*>(getComponentInternal(entity, Component::Runtime_ID));
     }
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Try to retrieve a component matching the UUID provided.
     /// \tparam	Component   		the class type of component.
     /// \param	componentHandle		the target component's handle.
     /// \return	the component of type T on success, nullptr otherwise.
-    template <typename Component>
-    [[nodiscard]] Component*
-    getComponent(const ComponentHandle& componentHandle) {
+    template <typename Component>[[nodiscard]] Component* getComponent(const ComponentHandle& componentHandle) {
         return dynamic_cast<Component*>(getComponent(componentHandle));
     }
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Try to find a component matching the UUID provided.
     /// \param	componentHandle		the target component's UUID.
     /// \return pointer to the found component on success, nullptr on failure.
-    [[nodiscard]] ecsBaseComponent*
-    getComponent(const ComponentHandle& componentHandle);
+    [[nodiscard]] ecsBaseComponent* getComponent(const ComponentHandle& componentHandle);
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Retrieve a list of entity components corresponding to the input.
     /// \param	componentTypes		list of component types to retrieve.
     template <typename... T_types>
-    [[nodiscard]] std::vector<std::tuple<T_types...>> getComponents(
-        const std::vector<std::pair<ComponentID, ecsSystem::RequirementsFlag>>&
-            componentTypes) {
+    [[nodiscard]] std::vector<std::tuple<T_types...>>
+    getComponents(const std::vector<std::pair<ComponentID, ecsSystem::RequirementsFlag>>& componentTypes) {
         std::vector<std::tuple<T_types...>> entityComponents;
 
         // Cast each component set to the types requested
-        for (const auto& groupedComponents :
-             getRelevantComponents(componentTypes)) {
+        for (const auto& groupedComponents : getRelevantComponents(componentTypes)) {
             // Convert the component set to a standard array
             std::array<ecsBaseComponent*, sizeof...(T_types)> arr;
-            std::copy_n(
-                groupedComponents.cbegin(), sizeof...(T_types), arr.begin());
+            std::copy_n(groupedComponents.cbegin(), sizeof...(T_types), arr.begin());
 
             // Cast the array to our types and emplace it back in our vector
             std::apply(
-                [&entityComponents](auto&... args) {
-                    entityComponents.emplace_back(
-                        dynamic_cast<T_types>(args)...);
-                },
+                [&entityComponents](auto&... args) { entityComponents.emplace_back(dynamic_cast<T_types>(args)...); },
                 arr);
         }
         return entityComponents;
@@ -201,24 +177,20 @@ class ecsWorld {
     /// \brief  Update the components of all systems provided.
     /// \param	systems				the systems to update.
     /// \param	deltaTime			the delta time.
-    void updateSystems(ecsSystemList& systems, const double& deltaTime);
+    void updateSystems(ecsSystemList& systems, const double deltaTime);
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Update the components of a single system.
     /// \param	system				the system to update.
     /// \param	deltaTime			the delta time.
-    void updateSystem(ecsSystem& system, const double& deltaTime);
+    void updateSystem(ecsSystem& system, const double deltaTime);
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Update the components of a single system.
     /// \param	deltaTime			the delta time.
     /// \param	componentTypes		list of component types to retrieve.
     /// \param	func				lambda function serving as a system.
     void updateSystem(
-        const double& deltaTime,
-        const std::vector<std::pair<ComponentID, ecsSystem::RequirementsFlag>>&
-            componentTypes,
-        const std::function<void(
-            const double&, const std::vector<std::vector<ecsBaseComponent*>>&)>&
-            func);
+        const double deltaTime, const std::vector<std::pair<ComponentID, ecsSystem::RequirementsFlag>>& componentTypes,
+        const std::function<void(const double, const std::vector<std::vector<ecsBaseComponent*>>&)>& func);
 
     private:
     ///////////////////////////////////////////////////////////////////////////
@@ -233,58 +205,51 @@ class ecsWorld {
     /// \brief  Check if a component ID is valid and registered.
     /// \param	componentID			the component ID to verify.
     /// \return	true if valid and registered, false otherwise.
-    [[nodiscard]] static bool
-    isComponentIDValid(const ComponentID& componentID) noexcept;
+    [[nodiscard]] static bool isComponentIDValid(const ComponentID componentID) noexcept;
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Adds a component to an entity.
     /// \param	entityHandle		handle to the component's parent entity.
     /// \param	componentID			the runtime component class.
     /// \param  component			the component being added.
     ComponentHandle makeComponentInternal(
-        const EntityHandle& entityHandle, const ComponentID& componentID,
-        const ecsBaseComponent* const component);
+        const EntityHandle& entityHandle, const ComponentID componentID, const ecsBaseComponent* const component);
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Adds a component to an entity.
     /// \param	entity      		the entity to add a component to.
     /// \param	componentID			the runtime component class.
     /// \param  component			the component being added.
-    ComponentHandle makeComponentInternal(
-        ecsEntity& entity, const ComponentID& componentID,
-        const ecsBaseComponent* const component);
+    ComponentHandle
+    makeComponentInternal(ecsEntity& entity, const ComponentID componentID, const ecsBaseComponent* const component);
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Remove a specific component class from within a specific entity.
     /// \param	entityHandle		handle component's parent entity.
     /// \param	componentID			the runtime ID component class ID.
     /// \return	true on successful removal, false otherwise.
-    bool removeComponentInternal(
-        const EntityHandle& entityHandle, const ComponentID& componentID);
+    bool removeComponentInternal(const EntityHandle& entityHandle, const ComponentID componentID);
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Remove a specific component class from within a specific entity.
     /// \param	entity      		the entity to remove the component from.
     /// \param	componentID			the runtime ID component class ID.
     /// \return	true on successful removal, false otherwise.
-    bool
-    removeComponentInternal(ecsEntity& entity, const ComponentID& componentID);
+    bool removeComponentInternal(ecsEntity& entity, const ComponentID componentID);
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Retrieve a component.
     /// \param	entityHandle		handle to the entity to retrieve from.
     /// \param	componentID			the runtime class ID of the component.
     /// \return the specific component on success, nullptr otherwise.
-    [[nodiscard]] ecsBaseComponent* getComponentInternal(
-        const EntityHandle& entityHandle, const ComponentID& componentID);
+    [[nodiscard]] ecsBaseComponent*
+    getComponentInternal(const EntityHandle& entityHandle, const ComponentID componentID);
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Retrieve a component.
     /// \param	ecsEntity   		the entity to get the component from.
     /// \param	componentID			the runtime class ID of the component.
     /// \return the specific component on success, nullptr otherwise.
-    [[nodiscard]] ecsBaseComponent*
-    getComponentInternal(ecsEntity& entity, const ComponentID& componentID);
+    [[nodiscard]] ecsBaseComponent* getComponentInternal(ecsEntity& entity, const ComponentID componentID);
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Delete a component matching an index and runtime ID.
     /// \param	componentID			the component class/category ID.
     /// \param	index				the component index to delete.
-    void removeComponentInternal(
-        const ComponentID& componentID, const ComponentID& index);
+    void removeComponentInternal(const ComponentID componentID, const ComponentID index);
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Try to find a component matching the runtime ID provided.
     /// \param	entityComponents	the array of entity component IDS.
@@ -292,24 +257,22 @@ class ecsWorld {
     /// \param  componentID			the class ID of the component.
     /// \return	the component pointer matching the ID specified.
     [[nodiscard]] static ecsBaseComponent* getComponentInternal(
-        const std::vector<std::tuple<ComponentID, int, ComponentHandle>>&
-            entityComponents,
-        ComponentDataSpace& mem_array, const ComponentID& componentID) noexcept;
+        const std::vector<std::tuple<ComponentID, int, ComponentHandle>>& entityComponents,
+        ComponentDataSpace& mem_array, const ComponentID componentID) noexcept;
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Retrieve the components relevant to an ECS system.
     /// \param	componentTypes		list of component types to retrieve.
     [[nodiscard]] std::vector<std::vector<ecsBaseComponent*>>
-    getRelevantComponents(
-        const std::vector<std::pair<ComponentID, ecsSystem::RequirementsFlag>>&
-            componentTypes);
+    getRelevantComponents(const std::vector<std::pair<ComponentID, ecsSystem::RequirementsFlag>>& componentTypes);
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Find the least common component.
     /// \param	componentTypes		the component types.
     /// \return	the byte-size of the least common component.
-    [[nodiscard]] size_t findLeastCommonComponent(
-        const std::vector<std::pair<ComponentID, ecsSystem::RequirementsFlag>>&
-            componentTypes);
+    [[nodiscard]] size_t
+    findLeastCommonComponent(const std::vector<std::pair<ComponentID, ecsSystem::RequirementsFlag>>& componentTypes);
 
+    ///////////////////////////////////////////////////////////////////////////
+    /// Private Attributes
     ComponentMap m_components = {}; ///< Map of all components in this world.
     EntityMap m_entities = {};      ///< Map of all entities in this world.
 };

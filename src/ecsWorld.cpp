@@ -10,22 +10,16 @@ using namespace mini;
 /// makeEntity
 ///////////////////////////////////////////////////////////////////////////
 
-EntityHandle ecsWorld::makeEntity(
-    const ecsBaseComponent* const* const components,
-    const size_t numComponents) {
+EntityHandle ecsWorld::makeEntity(const ecsBaseComponent* const* const components, const size_t numComponents) {
     auto UUID = EntityHandle(generateUUID());
 
     // Insert and retrieve the new entity's reference
-    auto& entity =
-        *m_entities
-             .insert_or_assign(
-                 UUID, std::make_shared<ecsEntity>(ecsEntity{ UUID, {} }))
-             .first->second;
+    auto& entity = *m_entities.insert_or_assign(UUID, std::make_shared<ecsEntity>(ecsEntity{ UUID, {} })).first->second;
 
     // Insert all components directly into the entity
-    for (size_t i = 0; i < numComponents; ++i)
-        [[maybe_unused]] const auto componentHandle =
-            makeComponent(entity, components[i]);
+    for (auto i = 0; i < numComponents; ++i) {
+        [[maybe_unused]] const auto componentHandle = makeComponent(entity, components[i]);
+    }
 
     return UUID;
 }
@@ -34,16 +28,13 @@ EntityHandle ecsWorld::makeEntity(
 /// makeComponent
 ///////////////////////////////////////////////////////////////////////////
 
-ComponentHandle ecsWorld::makeComponent(
-    const EntityHandle& entityHandle, const ecsBaseComponent* const component) {
-    return makeComponentInternal(
-        entityHandle, component->m_runtimeID, component);
+ComponentHandle ecsWorld::makeComponent(const EntityHandle& entityHandle, const ecsBaseComponent* const component) {
+    return makeComponentInternal(entityHandle, component->m_runtimeID, component);
 }
 
 ///////////////////////////////////////////////////////////////////////////
 
-ComponentHandle mini::ecsWorld::makeComponent(
-    ecsEntity& entity, const ecsBaseComponent* const component) {
+ComponentHandle mini::ecsWorld::makeComponent(ecsEntity& entity, const ecsBaseComponent* const component) {
     return makeComponentInternal(entity, component->m_runtimeID, component);
 }
 
@@ -53,8 +44,9 @@ ComponentHandle mini::ecsWorld::makeComponent(
 
 bool ecsWorld::removeEntity(const EntityHandle& entityHandle) {
     const auto entity = getEntity(entityHandle);
-    if (entity == nullptr)
+    if (entity == nullptr) {
         return false;
+    }
 
     return removeEntity(*entity);
 }
@@ -63,8 +55,9 @@ bool ecsWorld::removeEntity(const EntityHandle& entityHandle) {
 
 bool mini::ecsWorld::removeEntity(ecsEntity& entity) {
     // Delete this entity's components
-    for (auto& [id, createFn, componentHandle] : entity.m_components)
+    for (auto& [id, createFn, componentHandle] : entity.m_components) {
         removeComponentInternal(id, createFn);
+    }
 
     // Delete this entity
     m_entities.erase(entity.m_handle);
@@ -78,11 +71,11 @@ bool mini::ecsWorld::removeEntity(ecsEntity& entity) {
 bool ecsWorld::removeComponent(const ComponentHandle& componentHandle) {
     // Check if the component handle is valid
     const auto& component = getComponent(componentHandle);
-    if (component == nullptr)
+    if (component == nullptr) {
         return false;
+    }
 
-    return removeComponentInternal(
-        component->m_entityHandle, component->m_runtimeID);
+    return removeComponentInternal(component->m_entityHandle, component->m_runtimeID);
 }
 
 ///////////////////////////////////////////////////////////////////////////
@@ -90,12 +83,14 @@ bool ecsWorld::removeComponent(const ComponentHandle& componentHandle) {
 ///////////////////////////////////////////////////////////////////////////
 
 std::shared_ptr<ecsEntity> ecsWorld::getEntity(const EntityHandle& UUID) const {
-    if (!UUID.isValid())
-        return {};
+    if (!UUID.isValid()) {
+        return nullptr;
+    }
 
     const auto pos = m_entities.find(UUID);
-    if (pos == m_entities.end())
-        return {};
+    if (pos == m_entities.end()) {
+        return nullptr;
+    }
 
     return pos->second;
 }
@@ -104,13 +99,15 @@ std::shared_ptr<ecsEntity> ecsWorld::getEntity(const EntityHandle& UUID) const {
 /// getEntities
 ///////////////////////////////////////////////////////////////////////////
 
-std::vector<std::shared_ptr<ecsEntity>>
-ecsWorld::getEntities(const std::vector<EntityHandle>& uuids) const {
+std::vector<std::shared_ptr<ecsEntity>> ecsWorld::getEntities(const std::vector<EntityHandle>& uuids) const {
     std::vector<std::shared_ptr<ecsEntity>> entities;
     entities.reserve(uuids.size());
-    for (const auto& uuid : uuids)
-        if (const auto entity = getEntity(uuid))
+    for (const auto& uuid : uuids) {
+        if (const auto entity = getEntity(uuid)) {
             entities.emplace_back(entity);
+        }
+    }
+
     return entities;
 }
 
@@ -118,18 +115,19 @@ ecsWorld::getEntities(const std::vector<EntityHandle>& uuids) const {
 /// getComponent
 ///////////////////////////////////////////////////////////////////////////
 
-ecsBaseComponent*
-ecsWorld::getComponent(const ComponentHandle& componentHandle) {
-    if (!componentHandle.isValid())
+ecsBaseComponent* ecsWorld::getComponent(const ComponentHandle& componentHandle) {
+    if (!componentHandle.isValid()) {
         return nullptr;
+    }
 
     // Search all entities in the list supplied
     for (const auto& [entityHandle, entity] : m_entities) {
         // Check if this entity contains the component handle
-        for (const auto& [compID, fn, compHandle] : entity->m_components)
-            if (compHandle == componentHandle)
-                return reinterpret_cast<ecsBaseComponent*>(
-                    &(m_components[compID].at(fn)));
+        for (const auto& [compID, fn, compHandle] : entity->m_components) {
+            if (compHandle == componentHandle) {
+                return reinterpret_cast<ecsBaseComponent*>(&(m_components[compID].at(fn)));
+            }
+        }
     }
 
     return nullptr;
@@ -147,28 +145,33 @@ ecsWorld& ecsWorld::operator=(ecsWorld&& other) noexcept {
     return *this;
 }
 
+///////////////////////////////////////////////////////////////////////////
+/// migrateEntityTo
+///////////////////////////////////////////////////////////////////////////
+
 void ecsWorld::migrateEntityTo(const EntityHandle& UUID, ecsWorld& otherWorld) {
     const auto entity = getEntity(UUID);
-    if (entity == nullptr)
+    if (entity == nullptr) {
         return;
+    }
 
     migrateEntityTo(*entity, otherWorld);
 }
+
+///////////////////////////////////////////////////////////////////////////
 
 void ecsWorld::migrateEntityTo(ecsEntity& entity, ecsWorld& otherWorld) {
     // Create a new entity in their world
     auto& otherEntity =
         *otherWorld.m_entities
-             .insert_or_assign(
-                 entity.m_handle,
-                 std::make_shared<ecsEntity>(ecsEntity{ entity.m_handle, {} }))
+             .insert_or_assign(entity.m_handle, std::make_shared<ecsEntity>(ecsEntity{ entity.m_handle, {} }))
              .first->second;
 
     // Copy over the components from our world
-    for (auto& [id, createFn, componentHandle] : entity.m_components)
+    for (auto& [id, createFn, componentHandle] : entity.m_components) {
         [[maybe_unused]] const auto newComponentHandle =
-            otherWorld.makeComponent(
-                otherEntity, reinterpret_cast<ecsBaseComponent*>(&m_components[id][createFn]));
+            otherWorld.makeComponent(otherEntity, reinterpret_cast<ecsBaseComponent*>(&m_components[id][createFn]));
+    }
 
     // Remove from our world
     removeEntity(entity);
@@ -181,11 +184,11 @@ void ecsWorld::migrateEntityTo(ecsEntity& entity, ecsWorld& otherWorld) {
 void ecsWorld::clear() {
     // Remove all components
     for (auto& m_component : m_components) {
-        const auto& [createFn, freeFn, typeSize] =
-            ecsBaseComponent::m_componentRegistry[m_component.first];
+        const auto& [createFn, freeFn, typeSize] = ecsBaseComponent::m_componentRegistry[m_component.first];
         const auto containerSize = m_component.second.size();
-        for (size_t i = 0; i < containerSize; i += typeSize)
+        for (size_t i = 0; i < containerSize; i += typeSize) {
             freeFn(reinterpret_cast<ecsBaseComponent*>(&m_component.second[i]));
+        }
         m_component.second.clear();
     }
     m_components.clear();
@@ -199,11 +202,17 @@ void ecsWorld::clear() {
 ///////////////////////////////////////////////////////////////////////////
 
 ecsHandle ecsWorld::generateUUID() {
+    constexpr auto maxRandom = 16;
+    constexpr auto minDist = 0;
+    constexpr auto maxDist = 255;
+    constexpr auto minUUIDSize = 0;
+    constexpr auto maxUUIDSize = 32;
     std::stringstream stringStream;
-    for (auto i = 0; i < 16; i++) {
+
+    for (auto i = 0; i < maxRandom; i++) {
         std::random_device random;
         std::mt19937 generator(random());
-        std::uniform_int_distribution<int> distribution(0, 255);
+        std::uniform_int_distribution<int> distribution(minDist, maxDist);
         const auto randomChar = distribution(generator);
         std::stringstream hexstream;
         hexstream << std::hex << randomChar;
@@ -212,7 +221,7 @@ ecsHandle ecsWorld::generateUUID() {
     }
     const auto& string = stringStream.str();
     ecsHandle handle;
-    std::copy(&string[0], &string[32], &handle.m_uuid[0]);
+    std::copy(&string[minUUIDSize], &string[maxUUIDSize], &handle.m_uuid[minUUIDSize]);
     return handle;
 }
 
@@ -220,9 +229,8 @@ ecsHandle ecsWorld::generateUUID() {
 /// isComponentIDValid
 ///////////////////////////////////////////////////////////////////////////
 
-bool ecsWorld::isComponentIDValid(const ComponentID& componentID) noexcept {
-    return static_cast<size_t>(componentID) <
-           ecsBaseComponent::m_componentRegistry.size();
+bool ecsWorld::isComponentIDValid(const ComponentID componentID) noexcept {
+    return static_cast<size_t>(componentID) < ecsBaseComponent::m_componentRegistry.size();
 }
 
 ///////////////////////////////////////////////////////////////////////////
@@ -230,11 +238,11 @@ bool ecsWorld::isComponentIDValid(const ComponentID& componentID) noexcept {
 ///////////////////////////////////////////////////////////////////////////
 
 ComponentHandle ecsWorld::makeComponentInternal(
-    const EntityHandle& entityHandle, const ComponentID& componentID,
-    const ecsBaseComponent* const component) {
+    const EntityHandle& entityHandle, const ComponentID componentID, const ecsBaseComponent* const component) {
     const auto entity = getEntity(entityHandle);
-    if (entity == nullptr)
+    if (entity == nullptr) {
         return ComponentHandle();
+    }
 
     return makeComponentInternal(*entity, componentID, component);
 }
@@ -242,25 +250,24 @@ ComponentHandle ecsWorld::makeComponentInternal(
 ///////////////////////////////////////////////////////////////////////////
 
 ComponentHandle mini::ecsWorld::makeComponentInternal(
-    ecsEntity& entity, const ComponentID& componentID,
-    const ecsBaseComponent* const component) {
+    ecsEntity& entity, const ComponentID componentID, const ecsBaseComponent* const component) {
     // Check if component ID is valid
-    if (!isComponentIDValid(componentID))
+    if (!isComponentIDValid(componentID)) {
         return ComponentHandle();
+    }
 
     // Prevent adding duplicate component types to the same entity
-    for (auto& [ID, fn, compHandle] : entity.m_components)
-        if (ID == componentID)
+    for (auto& [ID, fn, compHandle] : entity.m_components) {
+        if (ID == componentID) {
             return compHandle;
+        }
+    }
 
     // Create new instance of this component
     auto UUID = ComponentHandle(generateUUID());
-    const auto& createfn =
-        std::get<0>(ecsBaseComponent::m_componentRegistry[componentID]);
+    const auto& createfn = std::get<0>(ecsBaseComponent::m_componentRegistry[componentID]);
     entity.m_components.emplace_back(
-        componentID,
-        createfn(m_components[componentID], UUID, entity.m_handle, component),
-        UUID);
+        componentID, createfn(m_components[componentID], UUID, entity.m_handle, component), UUID);
     return UUID;
 }
 
@@ -268,22 +275,21 @@ ComponentHandle mini::ecsWorld::makeComponentInternal(
 /// removeComponentInternal
 ///////////////////////////////////////////////////////////////////////////
 
-bool ecsWorld::removeComponentInternal(
-    const EntityHandle& entityHandle, const ComponentID& componentID) {
+bool ecsWorld::removeComponentInternal(const EntityHandle& entityHandle, const ComponentID componentID) {
     const auto entity = getEntity(entityHandle);
-    if (entity == nullptr)
+    if (entity == nullptr) {
         return false;
+    }
 
     return removeComponentInternal(*entity, componentID);
 }
 
 ///////////////////////////////////////////////////////////////////////////
 
-bool mini::ecsWorld::removeComponentInternal(
-    ecsEntity& entity, const ComponentID& componentID) {
+bool mini::ecsWorld::removeComponentInternal(ecsEntity& entity, const ComponentID componentID) {
     auto& entityComponents = entity.m_components;
     const auto entityComponentCount = entityComponents.size();
-    for (size_t i = 0ULL; i < entityComponentCount; ++i) {
+    for (auto i = 0ULL; i < entityComponentCount; ++i) {
         const auto& [compId, fn, compHandle] = entityComponents[i];
         if (compId == componentID) {
             removeComponentInternal(compId, fn);
@@ -300,34 +306,26 @@ bool mini::ecsWorld::removeComponentInternal(
 
 ///////////////////////////////////////////////////////////////////////////
 
-void ecsWorld::removeComponentInternal(
-    const ComponentID& componentID, const ComponentID& index) {
+void ecsWorld::removeComponentInternal(const ComponentID componentID, const ComponentID index) {
     if (isComponentIDValid(componentID)) {
         auto& mem_array = m_components[componentID];
-        const auto& [createFn, freeFn, typeSize] =
-            ecsBaseComponent::m_componentRegistry[componentID];
+        const auto& [createFn, freeFn, typeSize] = ecsBaseComponent::m_componentRegistry[componentID];
         const auto srcIndex = mem_array.size() - typeSize;
 
-        const auto* srcComponent =
-            reinterpret_cast<ecsBaseComponent*>(&mem_array[srcIndex]);
-        auto* destComponent =
-            reinterpret_cast<ecsBaseComponent*>(&mem_array[index]);
+        const auto* srcComponent = reinterpret_cast<ecsBaseComponent*>(&mem_array[srcIndex]);
+        auto* destComponent = reinterpret_cast<ecsBaseComponent*>(&mem_array[index]);
         freeFn(destComponent);
 
         if (static_cast<size_t>(index) == srcIndex) {
             mem_array.resize(srcIndex);
             return;
         }
-        std::memcpy(
-            static_cast<void*>(destComponent),
-            static_cast<const void*>(srcComponent), typeSize);
+        std::memcpy(static_cast<void*>(destComponent), static_cast<const void*>(srcComponent), typeSize);
 
         // Update references
-        for (auto& component :
-             getEntity(srcComponent->m_entityHandle)->m_components) {
+        for (auto& component : getEntity(srcComponent->m_entityHandle)->m_components) {
             auto& [compID, fn, compHandle] = component;
-            if (componentID == compID &&
-                static_cast<ComponentID>(srcIndex) == fn) {
+            if (componentID == compID && static_cast<ComponentID>(srcIndex) == fn) {
                 fn = index;
                 break;
             }
@@ -340,33 +338,31 @@ void ecsWorld::removeComponentInternal(
 /// getComponentInternal
 ///////////////////////////////////////////////////////////////////////////
 
-ecsBaseComponent* ecsWorld::getComponentInternal(
-    const EntityHandle& entityHandle, const ComponentID& componentID) {
+ecsBaseComponent* ecsWorld::getComponentInternal(const EntityHandle& entityHandle, const ComponentID componentID) {
     const auto entity = getEntity(entityHandle);
-    if (entity == nullptr)
+    if (entity == nullptr) {
         return nullptr;
+    }
 
     return getComponentInternal(*entity, componentID);
 }
 
 ///////////////////////////////////////////////////////////////////////////
 
-ecsBaseComponent* mini::ecsWorld::getComponentInternal(
-    ecsEntity& entity, const ComponentID& componentID) {
-    return getComponentInternal(
-        entity.m_components, m_components[componentID], componentID);
+ecsBaseComponent* mini::ecsWorld::getComponentInternal(ecsEntity& entity, const ComponentID componentID) {
+    return getComponentInternal(entity.m_components, m_components[componentID], componentID);
 }
 
 ///////////////////////////////////////////////////////////////////////////
 
 ecsBaseComponent* ecsWorld::getComponentInternal(
-    const std::vector<std::tuple<ComponentID, int, ComponentHandle>>&
-        entityComponents,
-    ComponentDataSpace& mem_array, const ComponentID& componentID) noexcept {
+    const std::vector<std::tuple<ComponentID, int, ComponentHandle>>& entityComponents, ComponentDataSpace& mem_array,
+    const ComponentID componentID) noexcept {
     for (const auto& entityComponent : entityComponents) {
         const auto& [compId, fn, compHandle] = entityComponent;
-        if (componentID == compId)
+        if (componentID == compId) {
             return reinterpret_cast<ecsBaseComponent*>(&mem_array[fn]);
+        }
     }
     return nullptr;
 }
@@ -375,34 +371,30 @@ ecsBaseComponent* ecsWorld::getComponentInternal(
 /// updateSystems
 ///////////////////////////////////////////////////////////////////////////
 
-void ecsWorld::updateSystems(ecsSystemList& systems, const double& deltaTime) {
-    for (auto& system : systems)
+void ecsWorld::updateSystems(ecsSystemList& systems, const double deltaTime) {
+    for (auto& system : systems) {
         updateSystem(*system, deltaTime);
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////
 /// updateSystem
 ///////////////////////////////////////////////////////////////////////////
 
-void ecsWorld::updateSystem(ecsSystem& system, const double& deltaTime) {
-    if (const auto components =
-            getRelevantComponents(system.getComponentTypes());
-        !components.empty())
+void ecsWorld::updateSystem(ecsSystem& system, const double deltaTime) {
+    if (const auto components = getRelevantComponents(system.getComponentTypes()); !components.empty()) {
         system.updateComponents(deltaTime, components);
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////
 
 void ecsWorld::updateSystem(
-    const double& deltaTime,
-    const std::vector<std::pair<ComponentID, ecsSystem::RequirementsFlag>>&
-        componentTypes,
-    const std::function<void(
-        const double&, const std::vector<std::vector<ecsBaseComponent*>>&)>&
-        func) {
-    if (const auto components = getRelevantComponents(componentTypes);
-        !components.empty())
+    const double deltaTime, const std::vector<std::pair<ComponentID, ecsSystem::RequirementsFlag>>& componentTypes,
+    const std::function<void(const double, const std::vector<std::vector<ecsBaseComponent*>>&)>& func) {
+    if (const auto components = getRelevantComponents(componentTypes); !components.empty()) {
         func(deltaTime, components);
+    }
 }
 
 ///////////////////////////////////////////////////////////////////////////
@@ -410,24 +402,24 @@ void ecsWorld::updateSystem(
 ///////////////////////////////////////////////////////////////////////////
 
 std::vector<std::vector<ecsBaseComponent*>> ecsWorld::getRelevantComponents(
-    const std::vector<std::pair<ComponentID, ecsSystem::RequirementsFlag>>&
-        componentTypes) {
-    if (componentTypes.empty())
+    const std::vector<std::pair<ComponentID, ecsSystem::RequirementsFlag>>& componentTypes) {
+    if (componentTypes.empty()) {
         return {};
+    }
 
     std::vector<std::vector<ecsBaseComponent*>> components;
     const auto componentTypesCount = componentTypes.size();
     // Super simple procedure for system with 1 component type
     if (componentTypesCount == 1U) {
         const auto& componentID = componentTypes.front().first;
-        const auto& typeSize =
-            std::get<2>(ecsBaseComponent::m_componentRegistry[componentID]);
+        const auto& typeSize = std::get<2>(ecsBaseComponent::m_componentRegistry[componentID]);
         auto& mem_array = m_components[componentID];
         const auto mem_arraySize = mem_array.size();
         components.reserve(mem_arraySize / typeSize);
-        for (size_t j = 0; j < mem_arraySize; j += typeSize)
-            components.emplace_back(std::vector<ecsBaseComponent*>{
-                reinterpret_cast<ecsBaseComponent*>(&mem_array[j]) });
+        for (size_t j = 0; j < mem_arraySize; j += typeSize) {
+            components.emplace_back(
+                std::vector<ecsBaseComponent*>{ reinterpret_cast<ecsBaseComponent*>(&mem_array[j]) });
+        }
     }
     // More complex procedure for system with > 1 component type
     else {
@@ -435,14 +427,12 @@ std::vector<std::vector<ecsBaseComponent*>> ecsWorld::getRelevantComponents(
         std::vector<ComponentDataSpace*> componentArrays;
         componentArrays.reserve(componentTypesCount);
         std::transform(
-            componentTypes.cbegin(), componentTypes.cend(),
-            std::back_inserter(componentArrays),
+            componentTypes.cbegin(), componentTypes.cend(), std::back_inserter(componentArrays),
             [&](const auto& type) { return &m_components[std::get<0>(type)]; });
 
         const auto minSizeIndex = findLeastCommonComponent(componentTypes);
         const auto minComponentID = std::get<0>(componentTypes[minSizeIndex]);
-        const auto& typeSize =
-            std::get<2>(ecsBaseComponent::m_componentRegistry[minComponentID]);
+        const auto& typeSize = std::get<2>(ecsBaseComponent::m_componentRegistry[minComponentID]);
         auto& mem_array = *componentArrays[minSizeIndex];
         const auto mem_arraySize = mem_array.size();
         components.reserve(mem_arraySize / typeSize);
@@ -450,30 +440,29 @@ std::vector<std::vector<ecsBaseComponent*>> ecsWorld::getRelevantComponents(
         // Find all relevant components, store in componentParam
         std::vector<ecsBaseComponent*> componentParam(componentTypesCount);
         for (size_t i = 0; i < mem_arraySize; i += typeSize) {
-            componentParam[minSizeIndex] =
-                reinterpret_cast<ecsBaseComponent*>(&mem_array[i]);
-            const auto entity =
-                getEntity(componentParam[minSizeIndex]->m_entityHandle);
-            if (entity == nullptr)
+            componentParam[minSizeIndex] = reinterpret_cast<ecsBaseComponent*>(&mem_array[i]);
+            const auto entity = getEntity(componentParam[minSizeIndex]->m_entityHandle);
+            if (entity == nullptr) {
                 continue;
+            }
 
             const auto& entityComponents = entity->m_components;
             bool isValid = true;
-            for (size_t j = 0; j < componentTypesCount; ++j) {
-                if (j == minSizeIndex)
+            for (auto j = 0; j < componentTypesCount; ++j) {
+                if (j == minSizeIndex) {
                     continue;
+                }
 
                 const auto& [componentID, componentFlag] = componentTypes[j];
-                componentParam[j] = getComponentInternal(
-                    entityComponents, *componentArrays[j], componentID);
-                if (componentParam[j] == nullptr &&
-                    componentFlag == ecsSystem::RequirementsFlag::REQUIRED) {
+                componentParam[j] = getComponentInternal(entityComponents, *componentArrays[j], componentID);
+                if (componentParam[j] == nullptr && componentFlag == ecsSystem::RequirementsFlag::REQUIRED) {
                     isValid = false;
                     break;
                 }
             }
-            if (isValid)
+            if (isValid) {
                 components.emplace_back(componentParam);
+            }
         }
     }
     return components;
@@ -484,18 +473,17 @@ std::vector<std::vector<ecsBaseComponent*>> ecsWorld::getRelevantComponents(
 ///////////////////////////////////////////////////////////////////////////
 
 size_t ecsWorld::findLeastCommonComponent(
-    const std::vector<std::pair<ComponentID, ecsSystem::RequirementsFlag>>&
-        componentTypes) {
+    const std::vector<std::pair<ComponentID, ecsSystem::RequirementsFlag>>& componentTypes) {
     size_t minSize = std::numeric_limits<size_t>::max();
     size_t minIndex = std::numeric_limits<size_t>::max();
     size_t index(0ULL);
 
     for (const auto& [componentID, componentFlag] : componentTypes) {
-        if (componentFlag == ecsSystem::RequirementsFlag::OPTIONAL)
+        if (componentFlag == ecsSystem::RequirementsFlag::OPTIONAL) {
             continue;
+        }
 
-        const auto& typeSize =
-            std::get<2>(ecsBaseComponent::m_componentRegistry[componentID]);
+        const auto& typeSize = std::get<2>(ecsBaseComponent::m_componentRegistry[componentID]);
         const auto size = m_components[componentID].size() / typeSize;
         if (size <= minSize) {
             minSize = size;

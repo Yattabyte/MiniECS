@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">MiniECS
-   &#160;<span id="projectnumber">0.7.0</span>
+   &#160;<span id="projectnumber">0.7.1</span>
    </div>
    <div id="projectbrief">A set of simple Entity, Component, and Systems (ECS) classes for use in games and other software.</div>
   </td>
@@ -129,9 +129,8 @@ virtual&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="c
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:aa9c40edccff5843f335f7e5b0b28c8b2"><td class="memItemLeft" align="right" valign="top"><a id="aa9c40edccff5843f335f7e5b0b28c8b2"></a>
-ComponentID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_base_component.html#aa9c40edccff5843f335f7e5b0b28c8b2">m_runtimeID</a> = 0</td></tr>
-<tr class="memdesc:aa9c40edccff5843f335f7e5b0b28c8b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runtime generated ID per class. <br /></td></tr>
+<tr class="memitem:aa9c40edccff5843f335f7e5b0b28c8b2"><td class="memItemLeft" align="right" valign="top">ComponentID&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_base_component.html#aa9c40edccff5843f335f7e5b0b28c8b2">m_runtimeID</a> = 0</td></tr>
+<tr class="memdesc:aa9c40edccff5843f335f7e5b0b28c8b2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Public Attributes.  <a href="#aa9c40edccff5843f335f7e5b0b28c8b2">More...</a><br /></td></tr>
 <tr class="separator:aa9c40edccff5843f335f7e5b0b28c8b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f4f47037119bcaa3b9e99774732b55e"><td class="memItemLeft" align="right" valign="top"><a id="a3f4f47037119bcaa3b9e99774732b55e"></a>
 size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_base_component.html#a3f4f47037119bcaa3b9e99774732b55e">m_size</a> = 0</td></tr>
@@ -154,10 +153,9 @@ Static Protected Member Functions</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pro-static-attribs"></a>
 Static Protected Attributes</h2></td></tr>
-<tr class="memitem:a4d9399151080b4365cbc06bf34f8bd3c"><td class="memItemLeft" align="right" valign="top"><a id="a4d9399151080b4365cbc06bf34f8bd3c"></a>
-static std::vector&lt; std::tuple&lt; ComponentCreateFunction, ComponentFreeFunction, size_t &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_base_component.html#a4d9399151080b4365cbc06bf34f8bd3c">m_componentRegistry</a> = {}</td></tr>
-<tr class="memdesc:a4d9399151080b4365cbc06bf34f8bd3c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Container for component functions. <br /></td></tr>
-<tr class="separator:a4d9399151080b4365cbc06bf34f8bd3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac637784cecc26c9ac5ed5233f002d27a"><td class="memItemLeft" align="right" valign="top">static std::vector&lt; std::tuple&lt; ComponentCreateFunction, ComponentFreeFunction, size_t &gt; &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_base_component.html#ac637784cecc26c9ac5ed5233f002d27a">m_componentRegistry</a> = {}</td></tr>
+<tr class="memdesc:ac637784cecc26c9ac5ed5233f002d27a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Protected Attributes.  <a href="#ac637784cecc26c9ac5ed5233f002d27a">More...</a><br /></td></tr>
+<tr class="separator:ac637784cecc26c9ac5ed5233f002d27a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="friends"></a>
 Friends</h2></td></tr>
@@ -266,6 +264,49 @@ class&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="cla
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>runtime component ID. </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Data Documentation</h2>
+<a id="ac637784cecc26c9ac5ed5233f002d27a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac637784cecc26c9ac5ed5233f002d27a">&#9670;&nbsp;</a></span>m_componentRegistry</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::vector&lt;std::tuple&lt;ComponentCreateFunction, ComponentFreeFunction, size_t&gt; &gt; mini::ecsBaseComponent::m_componentRegistry = {}</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">static</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Protected Attributes. </p>
+<p>Container for component functions. </p>
+
+</div>
+</div>
+<a id="aa9c40edccff5843f335f7e5b0b28c8b2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9c40edccff5843f335f7e5b0b28c8b2">&#9670;&nbsp;</a></span>m_runtimeID</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">ComponentID mini::ecsBaseComponent::m_runtimeID = 0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Public Attributes. </p>
+<p>Runtime generated ID per class. </p>
 
 </div>
 </div>

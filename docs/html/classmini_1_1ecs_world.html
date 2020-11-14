@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">MiniECS
-   &#160;<span id="projectnumber">0.7.0</span>
+   &#160;<span id="projectnumber">0.7.1</span>
    </div>
    <div id="projectbrief">A set of simple Entity, Component, and Systems (ECS) classes for use in games and other software.</div>
   </td>
@@ -157,7 +157,8 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aa55610b7338b9e79923e819a578d0c00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Retrieve a list of entity components corresponding to the input.  <a href="#aa55610b7338b9e79923e819a578d0c00">More...</a><br /></td></tr>
 <tr class="separator:aa55610b7338b9e79923e819a578d0c00"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a839cde659068aaf71c559fedcf982b12"><td class="memItemLeft" align="right" valign="top"><a id="a839cde659068aaf71c559fedcf982b12"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>migrateEntityTo</b> (const <a class="el" href="structmini_1_1_entity_handle.html">EntityHandle</a> &amp;UUID, <a class="el" href="classmini_1_1ecs_world.html">ecsWorld</a> &amp;otherWorld)</td></tr>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#a839cde659068aaf71c559fedcf982b12">migrateEntityTo</a> (const <a class="el" href="structmini_1_1_entity_handle.html">EntityHandle</a> &amp;UUID, <a class="el" href="classmini_1_1ecs_world.html">ecsWorld</a> &amp;otherWorld)</td></tr>
+<tr class="memdesc:a839cde659068aaf71c559fedcf982b12"><td class="mdescLeft">&#160;</td><td class="mdescRight">migrateEntityTo <br /></td></tr>
 <tr class="separator:a839cde659068aaf71c559fedcf982b12"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abbb0c6a241b26c4d62069120692b8c03"><td class="memItemLeft" align="right" valign="top"><a id="abbb0c6a241b26c4d62069120692b8c03"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><b>migrateEntityTo</b> (<a class="el" href="structmini_1_1ecs_entity.html">ecsEntity</a> &amp;entity, <a class="el" href="classmini_1_1ecs_world.html">ecsWorld</a> &amp;otherWorld)</td></tr>
@@ -165,15 +166,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><b>migrateEntityTo</b> (
 <tr class="memitem:a880962996c0f7551ae13d292196e45b7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#a880962996c0f7551ae13d292196e45b7">clear</a> ()</td></tr>
 <tr class="memdesc:a880962996c0f7551ae13d292196e45b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clear the data out of this <a class="el" href="classmini_1_1ecs_world.html" title="A set of ECS entities and components forming a single level.">ecsWorld</a>.  <a href="#a880962996c0f7551ae13d292196e45b7">More...</a><br /></td></tr>
 <tr class="separator:a880962996c0f7551ae13d292196e45b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a77bf54921c797c5285fec36628a706b1"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#a77bf54921c797c5285fec36628a706b1">updateSystems</a> (<a class="el" href="classmini_1_1ecs_system_list.html">ecsSystemList</a> &amp;systems, const double &amp;deltaTime)</td></tr>
-<tr class="memdesc:a77bf54921c797c5285fec36628a706b1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the components of all systems provided.  <a href="#a77bf54921c797c5285fec36628a706b1">More...</a><br /></td></tr>
-<tr class="separator:a77bf54921c797c5285fec36628a706b1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab5ce11894d45e4638ba3843016039d6c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#ab5ce11894d45e4638ba3843016039d6c">updateSystem</a> (<a class="el" href="classmini_1_1ecs_system.html">ecsSystem</a> &amp;system, const double &amp;deltaTime)</td></tr>
-<tr class="memdesc:ab5ce11894d45e4638ba3843016039d6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the components of a single system.  <a href="#ab5ce11894d45e4638ba3843016039d6c">More...</a><br /></td></tr>
-<tr class="separator:ab5ce11894d45e4638ba3843016039d6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3212ae290a6ece6a5086cde3ba358755"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#a3212ae290a6ece6a5086cde3ba358755">updateSystem</a> (const double &amp;deltaTime, const std::vector&lt; std::pair&lt; ComponentID, <a class="el" href="classmini_1_1ecs_system.html#a4b05885707c91fd44814659bf8ea194e">ecsSystem::RequirementsFlag</a> &gt;&gt; &amp;componentTypes, const std::function&lt; void(const double &amp;, const std::vector&lt; std::vector&lt; <a class="el" href="classmini_1_1ecs_base_component.html">ecsBaseComponent</a> * &gt;&gt; &amp;)&gt; &amp;func)</td></tr>
-<tr class="memdesc:a3212ae290a6ece6a5086cde3ba358755"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the components of a single system.  <a href="#a3212ae290a6ece6a5086cde3ba358755">More...</a><br /></td></tr>
-<tr class="separator:a3212ae290a6ece6a5086cde3ba358755"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaffb96d71b1f7fc96d715b896c7fcf30"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#aaffb96d71b1f7fc96d715b896c7fcf30">updateSystems</a> (<a class="el" href="classmini_1_1ecs_system_list.html">ecsSystemList</a> &amp;systems, const double deltaTime)</td></tr>
+<tr class="memdesc:aaffb96d71b1f7fc96d715b896c7fcf30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the components of all systems provided.  <a href="#aaffb96d71b1f7fc96d715b896c7fcf30">More...</a><br /></td></tr>
+<tr class="separator:aaffb96d71b1f7fc96d715b896c7fcf30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8da3ac5bf1a85f9c26287f80c228f605"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#a8da3ac5bf1a85f9c26287f80c228f605">updateSystem</a> (<a class="el" href="classmini_1_1ecs_system.html">ecsSystem</a> &amp;system, const double deltaTime)</td></tr>
+<tr class="memdesc:a8da3ac5bf1a85f9c26287f80c228f605"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the components of a single system.  <a href="#a8da3ac5bf1a85f9c26287f80c228f605">More...</a><br /></td></tr>
+<tr class="separator:a8da3ac5bf1a85f9c26287f80c228f605"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4b67e5b60ded578328f5346b1d97241b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classmini_1_1ecs_world.html#a4b67e5b60ded578328f5346b1d97241b">updateSystem</a> (const double deltaTime, const std::vector&lt; std::pair&lt; ComponentID, <a class="el" href="classmini_1_1ecs_system.html#a4b05885707c91fd44814659bf8ea194e">ecsSystem::RequirementsFlag</a> &gt;&gt; &amp;componentTypes, const std::function&lt; void(const double, const std::vector&lt; std::vector&lt; <a class="el" href="classmini_1_1ecs_base_component.html">ecsBaseComponent</a> * &gt;&gt; &amp;)&gt; &amp;func)</td></tr>
+<tr class="memdesc:a4b67e5b60ded578328f5346b1d97241b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Update the components of a single system.  <a href="#a4b67e5b60ded578328f5346b1d97241b">More...</a><br /></td></tr>
+<tr class="separator:a4b67e5b60ded578328f5346b1d97241b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-static-methods"></a>
 Static Public Member Functions</h2></td></tr>
@@ -900,8 +901,8 @@ template&lt;typename Component &gt; </div>
 
 </div>
 </div>
-<a id="ab5ce11894d45e4638ba3843016039d6c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab5ce11894d45e4638ba3843016039d6c">&#9670;&nbsp;</a></span>updateSystem() <span class="overload">[1/2]</span></h2>
+<a id="a8da3ac5bf1a85f9c26287f80c228f605"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8da3ac5bf1a85f9c26287f80c228f605">&#9670;&nbsp;</a></span>updateSystem() <span class="overload">[1/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -915,7 +916,7 @@ template&lt;typename Component &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramtype">const double&#160;</td>
           <td class="paramname"><em>deltaTime</em>&#160;</td>
         </tr>
         <tr>
@@ -938,8 +939,8 @@ template&lt;typename Component &gt; </div>
 
 </div>
 </div>
-<a id="a3212ae290a6ece6a5086cde3ba358755"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3212ae290a6ece6a5086cde3ba358755">&#9670;&nbsp;</a></span>updateSystem() <span class="overload">[2/2]</span></h2>
+<a id="a4b67e5b60ded578328f5346b1d97241b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4b67e5b60ded578328f5346b1d97241b">&#9670;&nbsp;</a></span>updateSystem() <span class="overload">[2/2]</span></h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -947,7 +948,7 @@ template&lt;typename Component &gt; </div>
         <tr>
           <td class="memname">void ecsWorld::updateSystem </td>
           <td>(</td>
-          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramtype">const double&#160;</td>
           <td class="paramname"><em>deltaTime</em>, </td>
         </tr>
         <tr>
@@ -976,8 +977,8 @@ template&lt;typename Component &gt; </div>
 
 </div>
 </div>
-<a id="a77bf54921c797c5285fec36628a706b1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a77bf54921c797c5285fec36628a706b1">&#9670;&nbsp;</a></span>updateSystems()</h2>
+<a id="aaffb96d71b1f7fc96d715b896c7fcf30"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaffb96d71b1f7fc96d715b896c7fcf30">&#9670;&nbsp;</a></span>updateSystems()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -991,7 +992,7 @@ template&lt;typename Component &gt; </div>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">const double &amp;&#160;</td>
+          <td class="paramtype">const double&#160;</td>
           <td class="paramname"><em>deltaTime</em>&#160;</td>
         </tr>
         <tr>

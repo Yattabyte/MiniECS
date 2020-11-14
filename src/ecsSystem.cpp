@@ -9,9 +9,11 @@ using namespace mini;
 ///////////////////////////////////////////////////////////////////////////
 
 bool ecsSystem::isValid() const noexcept {
-    for (const auto& [componentID, componentFlag] : m_componentTypes)
-        if (componentFlag == RequirementsFlag::REQUIRED)
+    for (const auto& [componentID, componentFlag] : m_componentTypes) {
+        if (componentFlag == RequirementsFlag::REQUIRED) {
             return true;
+        }
+    }
     return false;
 }
 
@@ -19,8 +21,7 @@ bool ecsSystem::isValid() const noexcept {
 /// addComponentType
 ///////////////////////////////////////////////////////////////////////////
 
-void ecsSystem::addComponentType(
-    const ComponentID& componentType, const RequirementsFlag& componentFlag) {
+void ecsSystem::addComponentType(const ComponentID componentType, const RequirementsFlag componentFlag) {
     m_componentTypes.emplace_back(componentType, componentFlag);
 }
 
@@ -42,10 +43,11 @@ bool ecsSystemList::addSystem(const std::shared_ptr<ecsSystem>& system) {
 
 bool ecsSystemList::removeSystem(const ecsSystem& system) {
     const auto systemCount = m_systems.size();
-    for (size_t i = 0; i < systemCount; ++i)
+    for (auto i = 0; i < systemCount; ++i) {
         if (&system == m_systems[i].get()) {
             m_systems.erase(m_systems.begin() + i);
             return true;
         }
+    }
     return false;
 }

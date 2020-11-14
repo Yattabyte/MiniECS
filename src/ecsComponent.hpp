@@ -19,8 +19,8 @@ class ecsBaseComponent;
 using ComponentID = int;
 using ComponentDataSpace = std::vector<uint8_t>;
 using ComponentCreateFunction = std::function<ComponentID(
-    ComponentDataSpace& memory, const ComponentHandle& componentHandle,
-    const EntityHandle& entityHandle, const ecsBaseComponent*)>;
+    ComponentDataSpace& memory, const ComponentHandle& componentHandle, const EntityHandle& entityHandle,
+    const ecsBaseComponent*)>;
 using ComponentFreeFunction = std::function<void(ecsBaseComponent* comp)>;
 
 ///////////////////////////////////////////////////////////////////////////
@@ -38,8 +38,7 @@ class ecsBaseComponent {
     /// \brief  Construct a base ecsComponent.
     /// \param	ID      the runtime ID for this component.
     /// \param	size    the byte-size of this component.
-    ecsBaseComponent(const ComponentID& ID, const size_t& size) noexcept
-        : m_runtimeID(ID), m_size(size) {}
+    ecsBaseComponent(const ComponentID& ID, const size_t& size) noexcept : m_runtimeID(ID), m_size(size) {}
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Default Move Constructor.
     ecsBaseComponent(ecsBaseComponent&&) noexcept = default;
@@ -54,6 +53,8 @@ class ecsBaseComponent {
     /// \brief  Default Copy-Assignment Operator.
     ecsBaseComponent& operator=(const ecsBaseComponent&) noexcept = default;
 
+    ///////////////////////////////////////////////////////////////////////////
+    /// Public Attributes
     ComponentID m_runtimeID = 0; ///< Runtime generated ID per class.
     size_t m_size = 0;           ///< Total component byte-size.
     ComponentHandle m_handle;    ///< This component's UUID.
@@ -66,12 +67,12 @@ class ecsBaseComponent {
     /// \param	freeFn		function for freeing a specific component type.
     /// \param	size		the total size of a single component.
     /// \return				runtime component ID.
-    static ComponentID registerType(
-        const ComponentCreateFunction& createFn,
-        const ComponentFreeFunction& freeFn, const size_t& size);
+    static ComponentID
+    registerType(const ComponentCreateFunction& createFn, const ComponentFreeFunction& freeFn, const size_t& size);
 
-    inline static std::vector<
-        std::tuple<ComponentCreateFunction, ComponentFreeFunction, size_t>>
+    ///////////////////////////////////////////////////////////////////////////
+    /// Protected Attributes
+    inline static std::vector<std::tuple<ComponentCreateFunction, ComponentFreeFunction, size_t>>
         m_componentRegistry = {}; ///< Container for component functions.
     friend class ecsWorld;        ///< Allows the ecsWorld to access.
 };
@@ -84,8 +85,7 @@ template <typename C> class ecsComponent : public ecsBaseComponent {
     public:
     ///////////////////////////////////////////////////////////////////////////
     /// \brief  Construct this specific component.
-    ecsComponent() noexcept
-        : ecsBaseComponent(ecsComponent::Runtime_ID, sizeof(C)) {}
+    ecsComponent() noexcept : ecsBaseComponent(ecsComponent::Runtime_ID, sizeof(C)) {}
 
     ///////////////////////////////////////////////////////////////////////////
     // Public Static Type-Specific Attributes
@@ -100,8 +100,7 @@ template <typename C> class ecsComponent : public ecsBaseComponent {
 /// \return					the index into the memory array for this component.
 template <typename ComponentTypeC>
 constexpr static int createFn(
-    ComponentDataSpace& memory, const ComponentHandle& componentHandle,
-    const EntityHandle& entityHandle,
+    ComponentDataSpace& memory, const ComponentHandle& componentHandle, const EntityHandle& entityHandle,
     const ecsBaseComponent* component) noexcept {
     size_t index = memory.size();
     memory.resize(index + sizeof(ComponentTypeC));
@@ -109,8 +108,7 @@ constexpr static int createFn(
     if (component == nullptr)
         clone = new (&memory[index]) ComponentTypeC();
     else
-        clone = new (&memory[index])
-            ComponentTypeC(*static_cast<const ComponentTypeC*>(component));
+        clone = new (&memory[index]) ComponentTypeC(*static_cast<const ComponentTypeC*>(component));
     clone->m_handle = componentHandle;
     clone->m_entityHandle = entityHandle;
     return static_cast<int>(index);
@@ -119,16 +117,13 @@ constexpr static int createFn(
 ///////////////////////////////////////////////////////////////////////////
 /// \brief  Destructs the supplied component/
 /// \param	component   the component to destruct.
-template <typename ComponentType>
-constexpr static void freeFn(ecsBaseComponent* component) noexcept {
+template <typename ComponentType> constexpr static void freeFn(ecsBaseComponent* component) noexcept {
     auto* castComponent = static_cast<ComponentType*>(component);
     castComponent->~ComponentType();
 }
 
 ///////////////////////////////////////////////////////////////////////////
 /// \brief  Generate a runtime static ID for each component class used.
-template <typename C>
-const ComponentID ecsComponent<C>::Runtime_ID(
-    registerType(createFn<C>, freeFn<C>, sizeof(C)));
+template <typename C> const ComponentID ecsComponent<C>::Runtime_ID(registerType(createFn<C>, freeFn<C>, sizeof(C)));
 };     // namespace mini
 #endif // MINIECS_ECSCOMPONENT_HPP

@@ -15,14 +15,10 @@ struct BarComponent : ecsComponent<BarComponent> {
 
 class FooSystem : public ecsSystem {
     public:
-    FooSystem() noexcept {
-        addComponentType(FooComponent::Runtime_ID, RequirementsFlag::REQUIRED);
-    }
+    FooSystem() noexcept { addComponentType(FooComponent::Runtime_ID, RequirementsFlag::REQUIRED); }
 
     void updateComponents(
-        const double& /*deltaTime*/,
-        const std::vector<std::vector<ecsBaseComponent*>>& /*components*/)
-        override {
+        const double /*deltaTime*/, const std::vector<std::vector<ecsBaseComponent*>>& /*components*/) override {
         [[maybe_unused]] bool qwe = true;
     }
 };
@@ -31,18 +27,14 @@ int main() noexcept {
     ecsWorld world = ecsWorld();
 
     [[maybe_unused]] const auto entityHandle = world.makeEntity();
-    [[maybe_unused]] const auto componentHandle =
-        world.makeComponent<FooComponent>(entityHandle);
+    [[maybe_unused]] const auto componentHandle = world.makeComponent<FooComponent>(entityHandle);
     // world.makeComponent(entityHandle, &bar);
 
-    [[maybe_unused]] const std::vector<
-        std::pair<ComponentID, ecsSystem::RequirementsFlag>>
-        ids = {
-            { FooComponent::Runtime_ID, ecsSystem::RequirementsFlag::REQUIRED },
-            { BarComponent::Runtime_ID, ecsSystem::RequirementsFlag::OPTIONAL }
-        };
-    [[maybe_unused]] const auto qwe =
-        world.getComponents<FooComponent*, BarComponent*>(ids);
+    [[maybe_unused]] const std::vector<std::pair<ComponentID, ecsSystem::RequirementsFlag>> ids = {
+        { FooComponent::Runtime_ID, ecsSystem::RequirementsFlag::REQUIRED },
+        { BarComponent::Runtime_ID, ecsSystem::RequirementsFlag::OPTIONAL }
+    };
+    [[maybe_unused]] const auto qwe = world.getComponents<FooComponent*, BarComponent*>(ids);
 
     assert(qwe.size() == 1);
     assert(std::get<0>(qwe[0]) != nullptr);

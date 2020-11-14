@@ -9,8 +9,7 @@ using namespace mini;
 ///////////////////////////////////////////////////////////////////////////
 
 ComponentID ecsBaseComponent::registerType(
-    const ComponentCreateFunction& createFn,
-    const ComponentFreeFunction& freeFn, const size_t& size) {
+    const ComponentCreateFunction& createFn, const ComponentFreeFunction& freeFn, const size_t& size) {
     auto componentID = static_cast<ComponentID>(m_componentRegistry.size());
     m_componentRegistry.emplace_back(createFn, freeFn, size);
 
